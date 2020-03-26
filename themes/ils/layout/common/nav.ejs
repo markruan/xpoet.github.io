@@ -1,0 +1,23 @@
+<script>
+    let isOpenLeftSide = true;
+    const foldLeftSide = () => {
+        document.querySelector('.page-left').style.display = isOpenLeftSide ? 'none' : 'block';
+        document.querySelector('.page-right').style.width = isOpenLeftSide ? '100%' : '<%= theme.page.right_side_width + '%' %>';
+        isOpenLeftSide = !isOpenLeftSide;
+    };
+</script>
+<nav class="nav">
+    <button class="fold-left-side-btn"
+            onclick="foldLeftSide()"
+    >
+        <i class="fa fa-bars"></i>
+    </button>
+    <ul class="menu-list">
+        <% for (let i in theme.menu) { %>
+            <li class="menu-item">
+                <a class="<%- isInHomePaging(page.path, theme.menu[i]) ? 'current' : is_current(theme.menu[i]) ? 'current' : '' %>"
+                   href="<%- url_for(theme.menu[i]) %>"><%= __(i.toLowerCase()) %></a>
+            </li>
+        <% } %>
+    </ul>
+</nav>

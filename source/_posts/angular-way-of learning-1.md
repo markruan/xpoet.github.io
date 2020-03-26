@@ -1,0 +1,42 @@
+---
+title: Angular从入门到放弃（一） 前言
+date: 2018-08-04 23:19:59
+tags: [Angular]
+categories: [Angular]
+---
+#### 写在前面
+四个月前，博主跳槽到新公司上班，公司的技术团队正在寻找一个合适的JavaScript框架来开发中大型项目，因为项目可以不考虑浏览器版本兼容性，团队一致赞同选用当下最新的技术来开发。此时，Google正式发布Angular已有一年多的时间，拥有大量开发者，Angular采用TypeScript作为主要开发语言，正好解决了JavaScript弱类型，IDE支持性差，以及缺少编译器支持等不足，为开发可以运行在任何现代浏览器和移动平台上的大中型Web项目，提供了一种最高效的方式，我们都意识到了Angular的巨大潜力。  
+
+然而，博主当时在学Vue和几年前写过一些AngularJS的Demo，纯属菜鸟。《Angular从入门到放弃》这一系列的博文，将记录博主如何陷入深渊，被Angular狂虐。
+
+#### Angular的前世今生
+说到Angular，那就非常有必要先说AngularJS，通常情况下，我们所说的AngularJS是指Angular的1.x版本，Angular2.x版本往上，才称之为Angular。它们是两套完全不同的框架。  
+
+AngularJS诞生于2009年，由Misko Hevery等人创建的一款JavaScript框架，后为Google所收购。
+
+Angular发布于2016年9月，由Google维护的开源JavaScript框架，它采用TypeScript完全重写了之前备受欢迎的AngularJS。因此，学习Angular，你完全不需要具备AngularJS基础。
+
+* [AngularJS 官网](https://angularjs.org/)  
+* [Angular 官网](https://angular.io/)  
+* [Angular 中文网](https://angular.cn/)
+
+#### Angular带来的巨大好处
+- UI层和业务逻辑层的分隔，渲染UI的代码和实现业务逻辑的代码之间得以干净地分隔。
+- 模块化，包含用于应用程序模块化的简单机制，支持模块的延迟加载。
+- 路由，路由支持单页面应用程序（SPA）中复杂的导航场景。
+- 低耦合，依赖注入提供了一种在组件和服务之间实现低耦合的干净方式，绑定和事件允许创建可复用且低耦合的组件。
+- 组件生命周期，每个组件都经过一个明确定义的生命周期，包括组件的新建、更新和销毁。
+- 变更检测，自动的更改检测机制和手动强制UI更新。
+- 没有回调地狱，Angular附带了RxJS，允许安排基于订阅的异步数据处理，从而消除回调地狱。
+- 表单及验证，设计良好的表单及自定义验证支持。
+- 测试，支持单元测试和端到端（e2e）测试，并且可以将测试集成到自动的构建过程中。
+- 打包及优化，使用Webpack打包并优化代码。
+- 脚手架工具，Angular-CLI为项目的创建，测试，打包提供了极大的便利。
+- 代码简洁，使用TypeScript的类和接口，代码具有更高的易读性和可维护性。
+- 编译器，TypeScript强大的编译器，让我们更快的定位错误，代码最终编译成ES5或ES6版本的JavaScript，消除了将Angular编译器和应用程序打包在一起的必要，进一步降低了框架的开销。
+- 服务器端渲染，Angular Universal会将应用程序转换成HTML，可用于服务器端渲染，提高SEO。
+- 现在UI组件，具有现代风格的UI库[Material2](https://material.angular.io/)。
+
+Angular的学习曲线前期比较陡，一但熟悉，后面的学习将非常平滑，开发也会异常轻松有趣，相信你会被TypeScript的语法吸引。
+
+假设你已了解HTML/CSS/JavaScript，从下章开始，我们正式打开Angular新世界大门。
