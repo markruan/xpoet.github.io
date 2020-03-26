@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <title>
+        小技巧：前端使用TS/JS生成永不重复的ID(uuid) |
+        
+        XPoet Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <link rel="alternate" href="/atom.xml" title="XPoet Blog" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+<div class="page-container">
+    <div class="page-left animated">
+        <div class="left-side-container">
+    <div class="site-info-container">
+        <div class="site-info">
+
+    <div class="avatar-warp info-item">
+        <img src="/images/avatar.png" class="avatar">
+    </div>
+
+    <div class="title info-item">
+        <a href="/">XPoet Blog</a>
+    </div>
+
+    <div class="description info-item">
+        黄色的树林里分出两条路，我选择了人迹更少的一条，从此决定我一生的道路。
+    </div>
+
+    <div class="links-of-author-warp info-item">
+        <ul class="links-of-author-list">
+            
+                
+                <li class="links-of-author-item">
+                    <a href="https://github.com/yourname"
+                       target="_blank"
+                       title="GitHub"
+                    ><i class="fa fa-github"></i></a>
+                </li>
+            
+                
+                <li class="links-of-author-item">
+                    <a href="mailto:yourmail"
+                       target="_blank"
+                       title="E-Mail"
+                    ><i class="fa fa-envelope"></i></a>
+                </li>
+            
+                
+                <li class="links-of-author-item">
+                    <a href="https://plus.google.com/yourname"
+                       target="_blank"
+                       title="Google"
+                    ><i class="fa fa-google"></i></a>
+                </li>
+            
+                
+                <li class="links-of-author-item">
+                    <a href="https://twitter.com/yourname"
+                       target="_blank"
+                       title="Twitter"
+                    ><i class="fa fa-twitter"></i></a>
+                </li>
+            
+                
+                <li class="links-of-author-item">
+                    <a href="https://www.facebook.com/yourname"
+                       target="_blank"
+                       title="Weibo"
+                    ><i class="fa fa-weibo"></i></a>
+                </li>
+            
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="footer-container">
+        <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy; 2020 <a href="/">XPoet</a>
+        </div>
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>. Theme for <a
+                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v0.1.0</a>
+        </div>
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" style="display: none">
+                        UV: <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" style="display: none">
+                        PV: <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+</div>
+    </div>
+    <div class="page-right">
+        <div class="right-side-container">
+
+    <div class="nav-container animated">
+        <script>
+    let isOpenLeftSide = true;
+    const foldLeftSide = () => {
+        document.querySelector('.page-left').style.display = isOpenLeftSide ? 'none' : 'block';
+        document.querySelector('.page-right').style.width = isOpenLeftSide ? '100%' : '70%';
+        isOpenLeftSide = !isOpenLeftSide;
+    };
+</script>
+<nav class="nav">
+    <button class="fold-left-side-btn"
+            onclick="foldLeftSide()"
+    >
+        <i class="fa fa-bars"></i>
+    </button>
+    <ul class="menu-list">
+        
+            <li class="menu-item">
+                <a class=""
+                   href="/">Home</a>
+            </li>
+        
+            <li class="menu-item">
+                <a class=""
+                   href="/archives">Archives</a>
+            </li>
+        
+            <li class="menu-item">
+                <a class=""
+                   href="/about">About</a>
+            </li>
+        
+    </ul>
+</nav>
+    </div>
+
+    <div class="article-post-container animated">
+        
+            
+    <div class="article-container">
+        <div class="article-title">
+            <h3><a class="article-title-hover-animation">小技巧：前端使用TS/JS生成永不重复的ID(uuid)</a></h3>
+        </div>
+
+        <div class="meta-info">
+            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa fa-calendar-o"></i> 2018-11-21 17:44:02
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa fa-bookmark"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa fa-tags"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96/">前端自动化</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa fa-eye"></i> <span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+        </div>
+
+        <div class="article-content">
+            <blockquote>
+<p>此方法非常简单，非常高效…</p>
+</blockquote>
+<p><strong>废话不多说，直接上代码，本例使用TypeScript：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 巧妙利用随机数和时间戳随机生成一个不重复的ID（uuid）</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>randomLength&#123;number&#125; 截取随机数的长度</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>不重复的字符串ID</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> getUuid = (randomLength: number = <span class="number">5</span>): <span class="function"><span class="params">string</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Number</span>(<span class="built_in">Math</span>.random().toString().substr(<span class="number">2</span>, randomLength) + <span class="built_in">Date</span>.now()).toString(<span class="number">36</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <div class="article-nav">
+            
+                <div class="article-prev">
+                    <a class="prev btn" rel="prev"
+                       href="/2019/06/28/Angular-Material-Dialog-%E6%8B%96%E6%8B%BD%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/"><i class="fa fa-chevron-left"></i> Angular Material Dialog 拖拽功能的实现
+                    </a>
+                </div>
+            
+            
+                <div class="article-next">
+                    <a class="next btn" rel="next"
+                       href="/2018/08/05/angular-way-of%20learning-2/">Angular从入门到放弃（二） Angular对比Vue和React <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+            
+        </div>
+
+        <div class="comment-container">
+            
+    <div class="valine-container">
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <div id="vcomments"></div>
+        <script>
+            new Valine({
+                el: '#vcomments',
+                appId: 'ih2nzG3ilVNdLgJK4kBXTjOq-gzGzoHsz',
+                appKey: 'gdf6tXXLBTLg9qpjS2y6Tbw7',
+                notify: 'false',
+                verify: 'false',
+                avatar: 'wavatar',
+                placeholder: '评论一下再走吧~',
+                lang: 'en'.toLowerCase()
+            })
+        </script>
+    </div>
+
+
+        </div>
+    </div>
+
+
+
+        
+    </div>
+</div>
+    </div>
+</div>
+
+<script src="/js/main.js"></script>
+
+</body>
+</html>

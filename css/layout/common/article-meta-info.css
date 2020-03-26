@@ -1,0 +1,25 @@
+.article-meta-info {
+  color: #aaa;
+  font-size: 12px;
+}
+.article-meta-info .article-meta-item {
+  margin-right: 10px;
+}
+.article-meta-info .article-tags,
+.article-meta-info .article-categories {
+  display: inline;
+}
+.article-meta-info .article-tags ul,
+.article-meta-info .article-categories ul,
+.article-meta-info .article-tags li,
+.article-meta-info .article-categories li {
+  display: inline;
+}
+.article-meta-info .article-tags a,
+.article-meta-info .article-categories a {
+  color: #aaa;
+}
+.article-meta-info .article-tags a:hover,
+.article-meta-info .article-categories a:hover {
+  color: #c625ce;
+}
