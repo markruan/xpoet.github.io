@@ -1,0 +1,1 @@
+console.log('hexo-theme-ils v0.1.0');
