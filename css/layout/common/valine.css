@@ -1,5 +1,5 @@
 .valine-container #vcomments .vheader .vinput:focus {
-  border-bottom: 1px solid #c625ce !important;
+  border-bottom: 1px solid #1f71ce !important;
 }
 .valine-container #vcomments .vcontrol .col-20 a {
   display: none;
@@ -10,14 +10,14 @@
   border: 1px solid #787878 !important;
 }
 .valine-container #vcomments .vcontrol .col-80 button.vsubmit:hover {
-  color: #c625ce !important;
-  border: 1px solid #c625ce !important;
+  color: #1f71ce !important;
+  border: 1px solid #1f71ce !important;
 }
 .valine-container #vcomments .vlist .vcard .vhead .vnick {
-  color: #c625ce;
+  color: #1f71ce;
 }
 .valine-container #vcomments .vlist .vcard .vhead .vnick::before {
-  background: #c625ce !important;
+  background: #1f71ce !important;
 }
 .valine-container #vcomments .info .txt-right {
   display: none;

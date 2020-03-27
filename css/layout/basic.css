@@ -80,7 +80,7 @@ a {
 }
 a:hover,
 a:active {
-  color: #c625ce;
+  color: #1f71ce;
 }
 .btn {
   display: inline-block;
@@ -94,8 +94,8 @@ a:active {
   padding: 0.5em 1em;
 }
 .btn:hover {
-  color: #c625ce;
-  border: 1px solid #c625ce;
+  color: #1f71ce;
+  border: 1px solid #1f71ce;
 }
 .article-title-hover-animation {
   display: inline-block;
