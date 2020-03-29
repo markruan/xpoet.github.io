@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <title>
+        Mac下使用Navicat连接Brew安装MySQL教程 | XPoet Blog
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <link rel="alternate" href="/atom.xml" title="XPoet Blog" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <script id="hexo-configurations">
+    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"themeName":"ILS","themeVersion":"0.1.1","path":"search.xml"};
+  </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+<div class="page-container">
+    <div class="page-left animated">
+        <div class="left-side-container">
+    <div class="site-info-container">
+        <div class="site-info">
+
+    <div class="avatar-warp info-item">
+        <img src="/images/avatar.png" class="avatar">
+    </div>
+
+    <div class="title info-item">
+        <a href="/">XPoet Blog</a>
+    </div>
+
+    <div class="description info-item">
+        黄色的树林里分出两条路，我选择了人迹更少的一条，从此决定我一生的道路。
+    </div>
+
+    <div class="links-of-author-warp info-item">
+        <ul class="links-of-author-list">
+            
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="footer-container">
+        <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy; 2020 <a href="/">XPoet</a>
+        </div>
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>. Theme for <a
+                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v0.1.1</a>
+        </div>
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" style="display: none">
+                        UV<span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" style="display: none">
+                        PV<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+</div>
+    </div>
+    <div class="page-right">
+        <div class="right-side-container">
+
+    <div class="nav-container animated">
+        <script>
+    let isOpenLeftSide = true;
+    const foldLeftSide = () => {
+        document.querySelector('.page-left').style.display = isOpenLeftSide ? 'none' : 'block';
+        document.querySelector('.page-right').style.width = isOpenLeftSide ? '100%' : '70%';
+        isOpenLeftSide = !isOpenLeftSide;
+    };
+</script>
+<nav class="nav">
+    <button class="fold-left-side-btn"
+            onclick="foldLeftSide()"
+    >
+        <i class="fa fa-bars"></i>
+    </button>
+    <ul class="menu-list">
+        
+            <li class="menu-item">
+                <a class=""
+                   href="/">Home</a>
+            </li>
+        
+            <li class="menu-item">
+                <a class=""
+                   href="/archives">archives</a>
+            </li>
+        
+            <li class="menu-item">
+                <a class=""
+                   href="/about">About</a>
+            </li>
+        
+    </ul>
+    
+        <button class="search-btn btn popup-trigger"><i class="fa fa-search"></i> Search</button>
+        
+<script src="/js/local-search.js"></script>
+
+    
+</nav>
+    </div>
+
+    <div class="article-post-container animated">
+        
+            
+    <div class="article-container">
+        <div class="article-title">
+            <h3><a class="article-title-hover-animation">Mac下使用Navicat连接Brew安装MySQL教程</a></h3>
+        </div>
+
+        <div class="meta-info">
+            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa fa-calendar-o"></i> 2019-07-11 18:26:05
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa fa-bookmark"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa fa-tags"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/tags/MySQL/">MySQL</a>
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Navicat/">Navicat</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa fa-eye"></i> <span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+        </div>
+
+        <div class="article-content markdown">
+            <h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><p>Mac安装MySQL有多种方式，最方便是这两种：</p>
+<ul>
+<li>第一种直接从MySQL官网下载安装包进行安装，这里不做过多介绍。</li>
+<li>第二种使用终端命令安装，前提要先安装好Homebrew。</li>
+</ul>
+<p>安装Homebrew</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
+<p>安装MySQL</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mysql</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/24516169/61051202-1d0d6480-a41b-11e9-85c2-05600f9712b4.png" alt="brew-install-mysql"></p>
+<h3 id="启动MySQL"><a href="#启动MySQL" class="headerlink" title="启动MySQL"></a>启动MySQL</h3><p>使用brew成功安装MySQL之后，启动MySQL</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash mysql.server start</span><br></pre></td></tr></table></figure>
+<p>如图，则表示MySQL服务启动成功。<br><img src="https://user-images.githubusercontent.com/24516169/61096487-5a5d0b00-a48a-11e9-8715-7d3bb3a6d4da.png" alt="start-mysql"></p>
+<p>查看MySQL版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql --version</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/24516169/61049925-52fd1980-a418-11e9-9558-7b4dee6c68b8.png" alt="mysql-version"></p>
+<p>登录MySQL</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/24516169/61114682-6fa25b80-a4c3-11e9-899b-a3c9033da25e.png" alt="mysql-version"></p>
+<p>默认的root账户不带密码，设置root账户密码（本例密码：123456）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set password for &#39;root&#39;@&#39;localhost&#39;&#x3D;&#39;123456&#39;;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/24516169/61114990-11c24380-a4c4-11e9-9437-e56f6b406357.png" alt="mysql-modification-password"></p>
+<p>密码设置成功后，登录时需要输入密码才能访问MySQL数据库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p&#39;123456&#39;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/24516169/61114808-b09a7000-a4c3-11e9-9354-82d215b3c60f.png" alt="mysql"></p>
+<h3 id="使用Navicat本地的MySQL数据库"><a href="#使用Navicat本地的MySQL数据库" class="headerlink" title="使用Navicat本地的MySQL数据库"></a>使用Navicat本地的MySQL数据库</h3><p>点击Navicat Premium左上角的“连接”，选择“MySQL”</p>
+<p>左上角新建mysql連接，參數如下，默認端口爲3306，想查看端口可以使用命令：</p>
+<p>lsof -i:3306</p>
+<p>點擊連接測試發現怎麼也連接不成功，報的錯爲：</p>
+<p>2059 - Authentication plugin ‘caching_sha2_password’ cannot be loaded: dlopen(../Frameworks/caching_……. </p>
+<p>錯誤原因是由於從mysql5.7版本之後，驗證方式默認從原來的mysql_native_password改成了caching_sha2_password。</p>
+<p>我們需要將驗證方式修改爲原來的，纔可以使navicat連接成功，先進入mysql，然後輸入以下命令：</p>
+<p>ALTER USER ‘root’@’localhost’ IDENTIFIED WITH mysql_native_password BY ‘密碼’;</p>
+
+        </div>
+
+        <div class="article-nav">
+            
+            
+                <div class="article-next">
+                    <a class="next btn" rel="next"
+                       href="/2019/06/28/Angular-Material-Dialog-%E6%8B%96%E6%8B%BD%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/">Angular Material Dialog 拖拽功能的实现 <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+            
+        </div>
+
+        <div class="comment-container">
+            
+    <div class="valine-container">
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <div id="vcomments"></div>
+        <script>
+            new Valine({
+                el: '#vcomments',
+                appId: 'ih2nzG3ilVNdLgJK4kBXTjOq-gzGzoHsz',
+                appKey: 'gdf6tXXLBTLg9qpjS2y6Tbw7',
+                notify: 'false',
+                verify: 'false',
+                avatar: 'wavatar',
+                placeholder: '评论一下再走吧~',
+                lang: 'en'.toLowerCase()
+            })
+        </script>
+    </div>
+
+
+        </div>
+    </div>
+
+
+
+        
+    </div>
+</div>
+    </div>
+</div>
+<div class="search-popup-container">
+    <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-icon">
+            <i class="fa fa-search"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search"
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="/js/main.js"></script>
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <title>
+        CSS实现元素垂直居中的几种方法 | XPoet Blog
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <link rel="alternate" href="/atom.xml" title="XPoet Blog" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <script id="hexo-configurations">
+    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"themeName":"ILS","themeVersion":"0.1.1","path":"search.xml"};
+  </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+<div class="page-container">
+    <div class="page-left animated">
+        <div class="left-side-container">
+    <div class="site-info-container">
+        <div class="site-info">
+
+    <div class="avatar-warp info-item">
+        <img src="/images/avatar.png" class="avatar">
+    </div>
+
+    <div class="title info-item">
+        <a href="/">XPoet Blog</a>
+    </div>
+
+    <div class="description info-item">
+        黄色的树林里分出两条路，我选择了人迹更少的一条，从此决定我一生的道路。
+    </div>
+
+    <div class="links-of-author-warp info-item">
+        <ul class="links-of-author-list">
+            
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="footer-container">
+        <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy; 2020 <a href="/">XPoet</a>
+        </div>
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>. Theme for <a
+                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v0.1.1</a>
+        </div>
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" style="display: none">
+                        UV<span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" style="display: none">
+                        PV<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+</div>
+    </div>
+    <div class="page-right">
+        <div class="right-side-container">
+
+    <div class="nav-container animated">
+        <script>
+    let isOpenLeftSide = true;
+    const foldLeftSide = () => {
+        document.querySelector('.page-left').style.display = isOpenLeftSide ? 'none' : 'block';
+        document.querySelector('.page-right').style.width = isOpenLeftSide ? '100%' : '70%';
+        isOpenLeftSide = !isOpenLeftSide;
+    };
+</script>
+<nav class="nav">
+    <button class="fold-left-side-btn"
+            onclick="foldLeftSide()"
+    >
+        <i class="fa fa-bars"></i>
+    </button>
+    <ul class="menu-list">
+        
+            <li class="menu-item">
+                <a class=""
+                   href="/">Home</a>
+            </li>
+        
+            <li class="menu-item">
+                <a class=""
+                   href="/archives">archives</a>
+            </li>
+        
+            <li class="menu-item">
+                <a class=""
+                   href="/about">About</a>
+            </li>
+        
+    </ul>
+    
+        <button class="search-btn btn popup-trigger"><i class="fa fa-search"></i> Search</button>
+        
+<script src="/js/local-search.js"></script>
+
+    
+</nav>
+    </div>
+
+    <div class="article-post-container animated">
+        
+            
+    <div class="article-container">
+        <div class="article-title">
+            <h3><a class="article-title-hover-animation">CSS实现元素垂直居中的几种方法</a></h3>
+        </div>
+
+        <div class="meta-info">
+            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa fa-calendar-o"></i> 2018-02-02 16:54:40
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa fa-bookmark"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa fa-tags"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/tags/CSS/">CSS</a>
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/CSS3/">CSS3</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa fa-eye"></i> <span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+        </div>
+
+        <div class="article-content markdown">
+            <blockquote>
+<p><strong><em>以下几种CCS实现元素垂直居中的方法，均不考虑低版本浏览器。</em></strong></p>
+</blockquote>
+<h5 id="方法一：子绝父相（子元素绝对定位，父元素相对定位）"><a href="#方法一：子绝父相（子元素绝对定位，父元素相对定位）" class="headerlink" title="方法一：子绝父相（子元素绝对定位，父元素相对定位）"></a>方法一：子绝父相（子元素绝对定位，父元素相对定位）</h5><p>1.1 不知道子元素高度和父元素高度的情况。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parentElement</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.childElement</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>1.2 知道子元素高度和父元素高度的情况。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parentElement</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.childElement</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h5 id="方法二：子元素相对定位"><a href="#方法二：子元素相对定位" class="headerlink" title="方法二：子元素相对定位"></a>方法二：子元素相对定位</h5><p>父元素设置了高度，而且父元素里面只有一个子元素，可使用子元素相对定位。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parentElement</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: xxxx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.childElement</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="方法三：CSS3-flex-布局"><a href="#方法三：CSS3-flex-布局" class="headerlink" title="方法三：CSS3 flex 布局"></a>方法三：CSS3 flex 布局</h5><p>如果不考虑低版本浏览器兼容性，用CSS3的flex布局就非常简单咯。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parentElement</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <div class="article-nav">
+            
+                <div class="article-prev">
+                    <a class="prev btn" rel="prev"
+                       href="/2018/02/07/nodejs-build-socket-chartroom/"><i class="fa fa-chevron-left"></i> 基于Node.js搭建Socket聊天室
+                    </a>
+                </div>
+            
+            
+                <div class="article-next">
+                    <a class="next btn" rel="next"
+                       href="/2018/01/17/es6-array-eliminate-redundancy/">使用ES6新特性实现数组去重 <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+            
+        </div>
+
+        <div class="comment-container">
+            
+    <div class="valine-container">
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <div id="vcomments"></div>
+        <script>
+            new Valine({
+                el: '#vcomments',
+                appId: 'ih2nzG3ilVNdLgJK4kBXTjOq-gzGzoHsz',
+                appKey: 'gdf6tXXLBTLg9qpjS2y6Tbw7',
+                notify: 'false',
+                verify: 'false',
+                avatar: 'wavatar',
+                placeholder: '评论一下再走吧~',
+                lang: 'en'.toLowerCase()
+            })
+        </script>
+    </div>
+
+
+        </div>
+    </div>
+
+
+
+        
+    </div>
+</div>
+    </div>
+</div>
+<div class="search-popup-container">
+    <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-icon">
+            <i class="fa fa-search"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search"
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="/js/main.js"></script>
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+</body>
+</html>

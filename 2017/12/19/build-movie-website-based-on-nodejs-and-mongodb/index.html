@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <title>
+        慕课网：基于Node.js+MongoDB搭建电影网站【源码】 | XPoet Blog
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <link rel="alternate" href="/atom.xml" title="XPoet Blog" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <script id="hexo-configurations">
+    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"themeName":"ILS","themeVersion":"0.1.1","path":"search.xml"};
+  </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+<div class="page-container">
+    <div class="page-left animated">
+        <div class="left-side-container">
+    <div class="site-info-container">
+        <div class="site-info">
+
+    <div class="avatar-warp info-item">
+        <img src="/images/avatar.png" class="avatar">
+    </div>
+
+    <div class="title info-item">
+        <a href="/">XPoet Blog</a>
+    </div>
+
+    <div class="description info-item">
+        黄色的树林里分出两条路，我选择了人迹更少的一条，从此决定我一生的道路。
+    </div>
+
+    <div class="links-of-author-warp info-item">
+        <ul class="links-of-author-list">
+            
+        </ul>
+    </div>
+</div>
+    </div>
+    <div class="footer-container">
+        <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy; 2020 <a href="/">XPoet</a>
+        </div>
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>. Theme for <a
+                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v0.1.1</a>
+        </div>
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" style="display: none">
+                        UV<span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" style="display: none">
+                        PV<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+</div>
+    </div>
+    <div class="page-right">
+        <div class="right-side-container">
+
+    <div class="nav-container animated">
+        <script>
+    let isOpenLeftSide = true;
+    const foldLeftSide = () => {
+        document.querySelector('.page-left').style.display = isOpenLeftSide ? 'none' : 'block';
+        document.querySelector('.page-right').style.width = isOpenLeftSide ? '100%' : '70%';
+        isOpenLeftSide = !isOpenLeftSide;
+    };
+</script>
+<nav class="nav">
+    <button class="fold-left-side-btn"
+            onclick="foldLeftSide()"
+    >
+        <i class="fa fa-bars"></i>
+    </button>
+    <ul class="menu-list">
+        
+            <li class="menu-item">
+                <a class=""
+                   href="/">Home</a>
+            </li>
+        
+            <li class="menu-item">
+                <a class=""
+                   href="/archives">archives</a>
+            </li>
+        
+            <li class="menu-item">
+                <a class=""
+                   href="/about">About</a>
+            </li>
+        
+    </ul>
+    
+        <button class="search-btn btn popup-trigger"><i class="fa fa-search"></i> Search</button>
+        
+<script src="/js/local-search.js"></script>
+
+    
+</nav>
+    </div>
+
+    <div class="article-post-container animated">
+        
+            
+    <div class="article-container">
+        <div class="article-title">
+            <h3><a class="article-title-hover-animation">慕课网：基于Node.js+MongoDB搭建电影网站【源码】</a></h3>
+        </div>
+
+        <div class="meta-info">
+            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa fa-calendar-o"></i> 2017-12-19 12:16:39
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa fa-bookmark"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa fa-tags"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Node-js/">Node.js</a>
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/MongoDB/">MongoDB</a>
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Movie-Web/">Movie-Web</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa fa-eye"></i> <span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+        </div>
+
+        <div class="article-content markdown">
+            <blockquote>
+<p>这份Demo有点老，但是依然实用，各位看官别打我~~ 如果对您有帮助，请给我的Demo点个Star。</p>
+</blockquote>
+<p>大概10个月前，博主在做毕业设计（基于HTML5+Node.js+MongoDB从前端到后端网站的搭建），感谢<a href="https://www.imooc.com/" target="_blank" rel="noopener">慕课网</a>宝贵的视频教程，<br>本案例根据慕课网Scott老师的<a href="http://www.imooc.com/learn/75" target="_blank" rel="noopener">Node.js+MongoDB建站攻略（第一期）</a>视频教程编写。虽然此Demo的样式界面比较粗糙，但其建站思想和技术很值得大家学习。博主的这份Demo中包含了较详细的注释，适合初学者。自托管在GitHub以来，收到部分同学的请教邮件，想必大家都入了不少坑，由于本人能力和时间有限，特写此文，诚邀各位同学在评论区参与讨论。  </p>
+<p><strong>Demo源码下载地址：<a href="https://github.com/itPoet/i_movie" target="_blank" rel="noopener">传送门</a></strong></p>
+<h4 id="Demo使用流程"><a href="#Demo使用流程" class="headerlink" title="Demo使用流程"></a>Demo使用流程</h4><h5 id="1、-本地环境安装Node-js"><a href="#1、-本地环境安装Node-js" class="headerlink" title="1、 本地环境安装Node.js"></a>1、 <strong>本地环境安装<code>Node.js</code></strong></h5><ul>
+<li>1.1、 具体的安装方法，建议多看几篇博客文章，熟悉后再去尝试。如果不考虑对Node.js进行版本管理（_适用于对<strong>Node.js</strong>有一定了解的同学_），安装时可以一路<strong>next</strong>。</li>
+<li>1.2、 Node.js中文网：<a href="http://nodejs.cn/" target="_blank" rel="noopener">nodejs.cn</a></li>
+<li>1.3、 Node.js中文网提供的下载页：<a href="http://nodejs.cn/download/" target="_blank" rel="noopener">传送门</a>，选择操作系统对应的版本下载。</li>
+<li>1.4、 检测Node.js是否安装成功，命令窗口[cmd]<code>$ node -v</code>。若出现具体的版本号，表示安装成功。<br><img src="http://ojzaff7fe.bkt.clouddn.com/nodejs%E7%89%88%E6%9C%AC%E6%A3%80%E6%B5%8B.jpg" alt="Node.js是否安装成功检测"></li>
+</ul>
+<h5 id="2、-安装MongoDB"><a href="#2、-安装MongoDB" class="headerlink" title="2、 安装MongoDB"></a>2、 <strong>安装<code>MongoDB</code></strong></h5><ul>
+<li>2.1、 MongoDB中文网：<a href="http://www.mongodb.org.cn/" target="_blank" rel="noopener">mongodb.org.cn</a></li>
+<li>2.2、 MongoDB下载链接：<a href="https://www.mongodb.com/download-center#atlas" target="_blank" rel="noopener">传送门</a></li>
+<li>2.3、 MongoDB中文网教程（包含安装）：<a href="http://www.mongodb.org.cn/tutorial/" target="_blank" rel="noopener">传送门</a><br><img src="http://ojzaff7fe.bkt.clouddn.com/mongodb%E6%95%99%E7%A8%8B%EF%BC%88%E5%8C%85%E5%90%AB%E5%AE%89%E8%A3%85%EF%BC%89.jpg" alt="MongoDB中文网教程"></li>
+<li>2.4、 检测MongoDB是否安装成功，命令窗口[cmd]<code>$ mongo -version</code>。若出现具体的版本号，表示安装成功。<br><img src="http://ojzaff7fe.bkt.clouddn.com/mongodb%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F%E8%BE%93%E5%87%BA%E4%BF%A1%E6%81%AF.jpg" alt="MongoDB安装成功输出信息"></li>
+<li>2.5、 MongoDB安装成功后，将安装路径下的<code>bin</code>目录，例如博主的是：<code>&quot;C:\Develop\MongoDB\Server\3.4\bin&quot;</code>添加到系统环境变量，这样便可以直接在命令窗口[cmd]直接执行bin文件里面的命令。<br><img src="http://ojzaff7fe.bkt.clouddn.com/mongo-bin-%E7%9B%AE%E5%BD%95.jpg" alt="bin文件目录"></li>
+<li>2.6、 例如：Windows 10 环境变量添加流程。<br><img src="http://ojzaff7fe.bkt.clouddn.com/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E6%B7%BB%E5%8A%A0%E6%B5%81%E7%A8%8B.jpg" alt="环境变量添加流程"></li>
+<li>2.7、 设置存储路径，建议在C盘下创建<code>C:/data/db</code>目录文件夹，这是MongoDB数据库默认的数据存储路径，但需要手动创建。</li>
+</ul>
+<h5 id="3、-启动MongoDB服务：mongod"><a href="#3、-启动MongoDB服务：mongod" class="headerlink" title="3、 启动MongoDB服务：mongod"></a>3、 启动<code>MongoDB</code>服务：<code>mongod</code></h5><ul>
+<li>3.1、 如果本地存在<code>C:/data/db</code>文件夹，命令窗口[cmd]<code>$ mongod</code>，便可开启MongoDB服务，启动后<strong>请勿关闭窗口</strong>;<br><img src="http://ojzaff7fe.bkt.clouddn.com/mongod%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1.jpg" alt="mongod开启服务"></li>
+<li>3.2、 同时，再新开一个命令窗口[cmd]<code>$ mongo</code>，就可以用命令来管理数据库，例如：数据的<strong>增删改查</strong>；<br><img src="http://ojzaff7fe.bkt.clouddn.com/mongo%E6%89%A7%E8%A1%8C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%91%BD%E4%BB%A4.jpg" alt="mongo"></li>
+</ul>
+<h5 id="4、-安装bower依赖：-bower-install"><a href="#4、-安装bower依赖：-bower-install" class="headerlink" title="4、 安装bower依赖：$ bower install"></a>4、 安装<code>bower</code>依赖：<code>$ bower install</code></h5><ul>
+<li>4.1、 在Demo项目文件夹下，按住<code>shift</code>键的同时按下鼠标右键，选择在此处打开命令窗口，执行命令：<code>$ bower install</code>；<br><img src="http://ojzaff7fe.bkt.clouddn.com/%E9%BC%A0%E6%A0%87%E5%8F%B3%E9%94%AE%E6%89%93%E5%BC%80powershell.jpg" alt="mongo"></li>
+</ul>
+<h5 id="5、-安装npm依赖：-npm-install"><a href="#5、-安装npm依赖：-npm-install" class="headerlink" title="5、 安装npm依赖：$ npm install"></a>5、 安装<code>npm</code>依赖：<code>$ npm install</code></h5><ul>
+<li>5.1、 在Demo项目文件夹下，按住<code>shift</code>键的同时按下鼠标右键，选择在此处打开命令窗口，执行命令：<code>$ npm install</code>；</li>
+</ul>
+<h5 id="6、-启动项目入口文件：-node-app-js"><a href="#6、-启动项目入口文件：-node-app-js" class="headerlink" title="6、 启动项目入口文件：$ node app.js"></a>6、 启动项目入口文件：<code>$ node app.js</code></h5><ul>
+<li>6.1、 在Demo项目文件夹下，按住<code>shift</code>键的同时按下鼠标右键，选择在此处打开命令窗口，执行命令：<code>$ node app</code>；</li>
+</ul>
+<h5 id="7、-浏览器查看效果"><a href="#7、-浏览器查看效果" class="headerlink" title="7、 浏览器查看效果"></a>7、 浏览器查看效果</h5><ul>
+<li>7.1、  <code>http://localhost:3000</code>查看首页效果。</li>
+<li>7.2、  <code>http://localhost:3000/admin/list</code>列表页</li>
+<li>7.3、  <code>http://localhost:3000/admin/movie</code>后台录入页</li>
+</ul>
+<p><strong>至此，本案例源码使用流程介绍完毕。在此过程遇到问题的同学，请在评论区留言。</strong></p>
+
+        </div>
+
+        <div class="article-nav">
+            
+                <div class="article-prev">
+                    <a class="prev btn" rel="prev"
+                       href="/2018/01/17/es6-array-eliminate-redundancy/"><i class="fa fa-chevron-left"></i> 使用ES6新特性实现数组去重
+                    </a>
+                </div>
+            
+            
+                <div class="article-next">
+                    <a class="next btn" rel="next"
+                       href="/2017/11/30/%E4%BD%BF%E7%94%A8Gulp%E6%90%AD%E5%BB%BA%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%88%E7%AE%80%E6%98%93%E7%89%88%EF%BC%89/">使用gulp搭建前端自动化工作流环境（简易版） <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+            
+        </div>
+
+        <div class="comment-container">
+            
+    <div class="valine-container">
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <div id="vcomments"></div>
+        <script>
+            new Valine({
+                el: '#vcomments',
+                appId: 'ih2nzG3ilVNdLgJK4kBXTjOq-gzGzoHsz',
+                appKey: 'gdf6tXXLBTLg9qpjS2y6Tbw7',
+                notify: 'false',
+                verify: 'false',
+                avatar: 'wavatar',
+                placeholder: '评论一下再走吧~',
+                lang: 'en'.toLowerCase()
+            })
+        </script>
+    </div>
+
+
+        </div>
+    </div>
+
+
+
+        
+    </div>
+</div>
+    </div>
+</div>
+<div class="search-popup-container">
+    <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-icon">
+            <i class="fa fa-search"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search"
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times-circle"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<script src="/js/main.js"></script>
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+</body>
+</html>
