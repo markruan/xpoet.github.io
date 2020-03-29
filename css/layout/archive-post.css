@@ -1,0 +1,25 @@
+.archive-container .archive-item {
+  margin-bottom: 20px;
+}
+.archive-container .archive-item .archive-year {
+  font-size: 24px;
+  color: #666;
+  font-weight: 600;
+}
+.archive-container .archive-item .article-list {
+  padding-left: 10px;
+}
+.archive-container .archive-item .article-list .article-item {
+  margin: 10px 0;
+  font-size: 16px;
+}
+.archive-container .archive-item .article-list .article-item a.article-title {
+  color: #8f8f8f;
+}
+.archive-container .archive-item .article-list .article-item a.article-title:hover {
+  color: #1f71ce;
+}
+.archive-container .archive-item .article-list .article-item .article-date {
+  font-size: 14px;
+  float: right;
+}
