@@ -6,7 +6,7 @@ node_modules/
 public/
 .deploy*/
 
-themes/test/
+themes/ils-dev
 
 # dependencies
 /node_modules
