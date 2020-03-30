@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="/css/style.css">
 
     <script id="hexo-configurations">
-    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"themeName":"ILS","themeVersion":"0.1.1","path":"search.json"};
+    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"themeName":"ILS","themeVersion":"0.1.1","pageLayout":{"left_side_width":30,"right_side_width":70,"media_max_width":960},"path":"search.json"};
   </script>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
@@ -82,18 +82,8 @@
         <div class="right-side-container">
 
     <div class="nav-container animated">
-        <script>
-    let isOpenLeftSide = true;
-    const foldLeftSide = () => {
-        document.querySelector('.page-left').style.display = isOpenLeftSide ? 'none' : 'block';
-        document.querySelector('.page-right').style.width = isOpenLeftSide ? '100%' : '70%';
-        isOpenLeftSide = !isOpenLeftSide;
-    };
-</script>
-<nav class="nav">
-    <button class="fold-left-side-btn"
-            onclick="foldLeftSide()"
-    >
+        <nav class="nav">
+    <button class="fold-left-side-btn">
         <i class="fa fa-bars"></i>
     </button>
     <ul class="menu-list">
@@ -133,20 +123,6 @@
 <div class="archive-container">
     
         <section class="archive-item">
-            <div class="archive-year">2017</div>
-            <ul class="article-list">
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2017/11/30/%E4%BD%BF%E7%94%A8Gulp%E6%90%AD%E5%BB%BA%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%88%E7%AE%80%E6%98%93%E7%89%88%EF%BC%89/"
-                        >使用gulp搭建前端自动化工作流环境（简易版）</a>
-                        <span class="article-date">11-30</span>
-                    </li>
-                
-            </ul>
-        </section>
-    
-        <section class="archive-item">
             <div class="archive-year">2018</div>
             <ul class="article-list">
                 
@@ -155,6 +131,20 @@
                            href="/2018/11/21/%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%9A%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8TS:JS%E7%94%9F%E6%88%90%E6%B0%B8%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84ID(uuid)/"
                         >小技巧：前端使用TS/JS生成永不重复的ID(uuid)</a>
                         <span class="article-date">11-21</span>
+                    </li>
+                
+            </ul>
+        </section>
+    
+        <section class="archive-item">
+            <div class="archive-year">2017</div>
+            <ul class="article-list">
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2017/11/30/%E4%BD%BF%E7%94%A8Gulp%E6%90%AD%E5%BB%BA%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%88%E7%AE%80%E6%98%93%E7%89%88%EF%BC%89/"
+                        >使用gulp搭建前端自动化工作流环境（简易版）</a>
+                        <span class="article-date">11-30</span>
                     </li>
                 
             </ul>

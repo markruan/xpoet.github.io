@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="/css/style.css">
 
     <script id="hexo-configurations">
-    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"themeName":"ILS","themeVersion":"0.1.1","path":"search.json"};
+    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"themeName":"ILS","themeVersion":"0.1.1","pageLayout":{"left_side_width":30,"right_side_width":70,"media_max_width":960},"path":"search.json"};
   </script>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
@@ -82,18 +82,8 @@
         <div class="right-side-container">
 
     <div class="nav-container animated">
-        <script>
-    let isOpenLeftSide = true;
-    const foldLeftSide = () => {
-        document.querySelector('.page-left').style.display = isOpenLeftSide ? 'none' : 'block';
-        document.querySelector('.page-right').style.width = isOpenLeftSide ? '100%' : '70%';
-        isOpenLeftSide = !isOpenLeftSide;
-    };
-</script>
-<nav class="nav">
-    <button class="fold-left-side-btn"
-            onclick="foldLeftSide()"
-    >
+        <nav class="nav">
+    <button class="fold-left-side-btn">
         <i class="fa fa-bars"></i>
     </button>
     <ul class="menu-list">
@@ -135,20 +125,6 @@
 <div class="archive-container">
     
         <section class="archive-item">
-            <div class="archive-year">2017</div>
-            <ul class="article-list">
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2017/10/17/quickly-master-the-markdown-basic-syntax/"
-                        >快速掌握Markdown基础语法</a>
-                        <span class="article-date">10-17</span>
-                    </li>
-                
-            </ul>
-        </section>
-    
-        <section class="archive-item">
             <div class="archive-year">2018</div>
             <ul class="article-list">
                 
@@ -157,6 +133,20 @@
                            href="/2018/07/16/%E5%9C%A8Mac%E4%B8%8B%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAGit%E7%94%A8%E6%88%B7%E7%9A%84SSH-Key/"
                         >在Mac下配置多个Git账户的SSH-Key</a>
                         <span class="article-date">07-16</span>
+                    </li>
+                
+            </ul>
+        </section>
+    
+        <section class="archive-item">
+            <div class="archive-year">2017</div>
+            <ul class="article-list">
+                
+                    <li class="article-item">
+                        <a class="article-title"
+                           href="/2017/10/17/quickly-master-the-markdown-basic-syntax/"
+                        >快速掌握Markdown基础语法</a>
+                        <span class="article-date">10-17</span>
                     </li>
                 
             </ul>

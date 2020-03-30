@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="/css/style.css">
 
     <script id="hexo-configurations">
-    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"themeName":"ILS","themeVersion":"0.1.1","path":"search.json"};
+    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"themeName":"ILS","themeVersion":"0.1.1","pageLayout":{"left_side_width":30,"right_side_width":70,"media_max_width":960},"path":"search.json"};
   </script>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
@@ -82,18 +82,8 @@
         <div class="right-side-container">
 
     <div class="nav-container animated">
-        <script>
-    let isOpenLeftSide = true;
-    const foldLeftSide = () => {
-        document.querySelector('.page-left').style.display = isOpenLeftSide ? 'none' : 'block';
-        document.querySelector('.page-right').style.width = isOpenLeftSide ? '100%' : '70%';
-        isOpenLeftSide = !isOpenLeftSide;
-    };
-</script>
-<nav class="nav">
-    <button class="fold-left-side-btn"
-            onclick="foldLeftSide()"
-    >
+        <nav class="nav">
+    <button class="fold-left-side-btn">
         <i class="fa fa-bars"></i>
     </button>
     <ul class="menu-list">
