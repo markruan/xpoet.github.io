@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="/css/style.css">
 
     <script id="hexo-configurations">
-    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"themeName":"ILS","themeVersion":"0.1.1","path":"search.xml"};
+    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"themeName":"ILS","themeVersion":"0.1.1","path":"search.json"};
   </script>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
@@ -115,7 +115,7 @@
         
     </ul>
     
-        <button class="search-btn btn popup-trigger"><i class="fa fa-search"></i> Search</button>
+        <button class="search-btn btn popup-trigger"><i class="fa fa-search"></i></button>
         
 <script src="/js/local-search.js"></script>
 
@@ -173,7 +173,7 @@
 <p>此方法非常简单，非常高效…</p>
 </blockquote>
 <p><strong>废话不多说，直接上代码，本例使用TypeScript：</strong></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 巧妙利用随机数和时间戳随机生成一个不重复的ID（uuid）</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param </span>randomLength&#123;number&#125; 截取随机数的长度</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span> </span>不重复的字符串ID</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> getUuid = (randomLength: number = <span class="number">5</span>): <span class="function"><span class="params">string</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Number</span>(<span class="built_in">Math</span>.random().toString().substr(<span class="number">2</span>, randomLength) + <span class="built_in">Date</span>.now()).toString(<span class="number">36</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 巧妙利用随机数和时间戳随机生成一个不重复的ID（uuid）</span></span><br><span class="line"><span class="comment"> * @param randomLength&#123;number&#125; 截取随机数的长度</span></span><br><span class="line"><span class="comment"> * @return &#123;string&#125; 不重复的字符串ID</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> getUuid = (randomLength: <span class="built_in">number</span> = <span class="number">5</span>): <span class="function"><span class="params">string</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Number</span>(<span class="built_in">Math</span>.random().toString().substr(<span class="number">2</span>, randomLength) + <span class="built_in">Date</span>.now()).toString(<span class="number">36</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -236,7 +236,7 @@
                 <input autocomplete="off"
                        autocorrect="off"
                        autocapitalize="off"
-                       placeholder="Search"
+                       placeholder="Search..."
                        spellcheck="false"
                        type="search"
                        class="search-input"
