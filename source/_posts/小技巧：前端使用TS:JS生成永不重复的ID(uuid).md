@@ -9,7 +9,7 @@ categories: [前端开发]
 
 __废话不多说，直接上代码，本例使用TypeScript：__
 
-```javascript
+```typescript
 /**
  * 巧妙利用随机数和时间戳随机生成一个不重复的ID（uuid）
  * @param randomLength{number} 截取随机数的长度

@@ -5,10 +5,8 @@ tags: [Angular, Material]
 categories: [Angular]
 ---
 
-#### Angular版本
-本案例使用的Angular版本，但不限于此版本。
-- "@angular/core": "^7.0.3"
-- "@angular/material": "^7.0.2"
+#### 版本
+本案例使用的 Angular 7.x 版本，Material 7.x 版本，但不限于此版本。
 
 #### 新建Angular指令
 新建指令命令：
@@ -110,14 +108,10 @@ export class DialogDraggableDirective implements OnInit {
 }
 ```
 
-#### 使用指令
+#### 如何使用
 在Dialog组件中使用dialog-draggable指令即可实现窗口拖拽，如下
 ```html
 <h2 mat-dialog-title dialog-draggable>
   Angular Material Dialog Draggable
 </h2>
 ```
-
-#### 拖拽效果视频
-
-#### 线上代码

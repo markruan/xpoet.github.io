@@ -100,11 +100,13 @@ theme: ils
 deploy:
   type: ''
 
+# Search
+## https://github.com/theme-next/hexo-generator-searchdb
 search:
-  path: search.xml
+  path: search.json
   field: post
   content: true
-  format: html
+  format: striptags
 
 browsersync:
   logLevel: "warn"
