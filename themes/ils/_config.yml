@@ -23,7 +23,7 @@ comments:
   # You can get your appid and appkey from https://leancloud.cn
   # more info please open https://github.com/xCss/Valine
   valine:
-    enable: false
+    enable: true
     appid: ih2nzG3ilVNdLgJK4kBXTjOq-gzGzoHsz
     appkey: gdf6tXXLBTLg9qpjS2y6Tbw7
     notify: false # mail notifier, https://github.com/xCss/Valine/wiki
