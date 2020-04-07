@@ -12,6 +12,8 @@ categories: [Angular]
 新建指令命令：
 `ng generate directive dialog-draggable`
 
+<!-- more -->
+
 指令中拖拽功能代码实现：
 ```typescript
 import { Directive, HostListener, OnInit } from '@angular/core';

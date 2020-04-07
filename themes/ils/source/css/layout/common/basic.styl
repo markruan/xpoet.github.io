@@ -1,0 +1,62 @@
+@require 'variables.styl'
+@require 'animated.styl'
+
+html, body {
+  margin: 0;
+  padding: 0;
+  color: var(--normal-text-color);
+  background: var(--background-color);
+  font-size: $default-font-size;
+  font-family: $default-font-family;
+  font-weight: $default-font-weight;
+  line-height: $default-font-line-height;
+  transition: all 0.5s ease;
+}
+
+::selection {
+  background: var(--selection-color);
+  color: #fff;
+}
+
+ul,
+li,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--normal-text-color);
+}
+
+a:hover, a:active {
+  color: var(--primary-color);
+}
+
+button {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+.btn {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  color: var(--third-text-color);
+  border: 1px solid var(--third-text-color);
+  white-space: nowrap;
+  border-radius: 10em;
+  padding: 0.5em 1em;
+
+  &:hover {
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+  }
+}

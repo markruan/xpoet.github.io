@@ -1,0 +1,31 @@
+@require '../common/variables.styl'
+
+.tools-container {
+
+  .tools-list {
+    li {
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 50%;
+      border: 1px solid var(--third-text-color);
+      width: 26px;
+      height: 26px;
+      font-size: 1.2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+
+      &:hover {
+        color: var(--primary-color);
+        border-color: var(--primary-color);
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+    }
+  }
+
+}

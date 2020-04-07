@@ -2,7 +2,7 @@
 title: 使用gulp搭建前端自动化工作流环境（简易版）
 date: 2017-11-30 11:18:48
 tags: [gulp, 前端自动化]
-categories: [前端开发]
+categories: [前端]
 ---
 > 本文通过简单且实用的案例，讲解使用gulp搭建前端自动化工作流环境详细步骤，带领大家快速入门。
 
@@ -49,10 +49,10 @@ $ npm install gulp gulp-less gulp-concat gulp-cssnano gulp-uglify gulp-htmlmin b
 - **.......**
 
 ##### node_modules 
-&emsp;&emsp;通过npm安装的包及其依赖包的库，自动生成文件夹。
+通过npm安装的包及其依赖包的库，自动生成文件夹。
 
 ##### gulpfile.js 
-&emsp;&emsp;gulp的入口文件，我们在此处编写相关任务代码。
+gulp的入口文件，我们在此处编写相关任务代码。
 
 ##### dist [gulp编译之后的文件，即我们最终要得到文件]
 - **css** 
@@ -158,7 +158,7 @@ gulp.task('browserSync', function () {
 - 4 `$ gulp html` HTML 压缩
 - 5 `$ gulp browserSync` 多浏览器同步操作，gulp监视JS/CSS/HTML文件改变
 
-&emsp;&emsp;到此，基于gulp的前端自动化工作流环境搭建完成，以下使用视频教程。
+到此，基于gulp的前端自动化工作流环境搭建完成，以下使用视频教程。
 ![使用视频教程](http://ojzaff7fe.bkt.clouddn.com/gulp%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%8E%AF%E5%A2%83%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B.gif)
 
-&emsp;&emsp;[点击此处，下载本案例源代码](https://github.com/itPoet/gulp)
+[点击此处，下载本案例源代码](https://github.com/itPoet/gulp)

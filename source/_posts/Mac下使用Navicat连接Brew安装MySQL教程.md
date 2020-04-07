@@ -20,6 +20,7 @@ brew install mysql
 ```
 ![brew-install-mysql](https://user-images.githubusercontent.com/24516169/61051202-1d0d6480-a41b-11e9-85c2-05600f9712b4.png)
 
+<!-- more -->
 
 ### 启动MySQL
 使用brew成功安装MySQL之后，启动MySQL

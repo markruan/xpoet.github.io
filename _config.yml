@@ -108,8 +108,9 @@ search:
   content: true
   format: striptags
 
-browsersync:
-  logLevel: "warn"
-  ghostMode:
-    scroll: true
-  instanceName: "uniqueString"
+# hexo-browsersync
+#browsersync:
+#  logLevel: "warn"
+#  ghostMode:
+#    scroll: true
+#  instanceName: "uniqueString"
