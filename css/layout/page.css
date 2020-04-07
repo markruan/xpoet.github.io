@@ -1,0 +1,112 @@
+:root {
+  --background-color: #fcfcfc;
+  --primary-color: #62bbbd;
+  --first-text-color: #41404e;
+  --second-text-color: #494857;
+  --third-text-color: #817f96;
+  --normal-text-color: #515061;
+  --border-color: #d6d6d6;
+  --selection-color: #6fc0c2;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #3a3a3a;
+    --primary-color: #62bbbd;
+    --first-text-color: #cfcfcf;
+    --second-text-color: #c9c9c9;
+    --third-text-color: #969696;
+    --normal-text-color: #bbb;
+    --border-color: #616161;
+    --selection-color: #6fc0c2;
+  }
+}
+.dark-mode {
+  --background-color: #3a3a3a;
+  --primary-color: #62bbbd;
+  --first-text-color: #cfcfcf;
+  --second-text-color: #c9c9c9;
+  --third-text-color: #969696;
+  --normal-text-color: #bbb;
+  --border-color: #616161;
+  --selection-color: #6fc0c2;
+}
+.light-mode {
+  --background-color: #fcfcfc;
+  --primary-color: #62bbbd;
+  --first-text-color: #41404e;
+  --second-text-color: #494857;
+  --third-text-color: #817f96;
+  --normal-text-color: #515061;
+  --border-color: #d6d6d6;
+  --selection-color: #6fc0c2;
+}
+.page-template {
+  padding-top: 100px;
+  position: relative;
+}
+.page-template .page-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  z-index: 1005;
+  transition: all 0.5s ease;
+}
+.page-template .page-middle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page-template .page-middle .main-content {
+  width: 66%;
+  height: 100%;
+  position: relative;
+  padding: 40px 0;
+}
+.page-template .page-middle .sidebar-tools {
+  position: fixed;
+  top: 150px;
+  right: 5%;
+  transition: all 0.5s ease;
+}
+.page-template .page-middle .scroll-to-top {
+  display: none;
+  position: fixed;
+  right: 5%;
+  bottom: 20px;
+  border-radius: 2px;
+  padding: 2px 6px;
+  color: var(--frist-text-color);
+  background: var(--border-color);
+  cursor: pointer;
+}
+.page-template .page-middle .scroll-to-top button {
+  color: var(--frist-text-color);
+}
+.page-template .page-middle .scroll-to-top button i {
+  font-size: 1.2em;
+}
+.page-template .page-bottom {
+  width: 100%;
+}
+.page-top-shrink {
+  padding-top: 60px;
+}
+.page-top-shrink .page-top {
+  height: 60px;
+}
+.page-top-shrink .sidebar-tools {
+  top: 110px !important;
+}
+@media screen and (max-width: 760px) {
+  .main-content {
+    width: 79.2% !important;
+  }
+  .sidebar-tools {
+    right: 2% !important;
+  }
+  .scroll-to-top {
+    right: 2% !important;
+  }
+}

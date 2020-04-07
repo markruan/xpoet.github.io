@@ -17,38 +17,244 @@
 <link rel="stylesheet" href="/css/style.css">
 
     <script id="hexo-configurations">
-    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"themeName":"ILS","themeVersion":"0.1.1","pageLayout":{"left_side_width":30,"right_side_width":70,"media_max_width":960},"path":"search.json"};
+    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"themeInfo":{"name":"ILS-X","version":"1.0.0","author":"XPoet","repository":"https://github.com/XPoet/hexo-theme-ils"},"path":"search.json"};
   </script>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 
 <body>
-<div class="page-container">
-    <div class="page-left animated">
-        <div class="left-side-container">
-    <div class="site-info-container">
-        <div class="site-info">
+<div class="page-template">
+    <div class="page-top">
+        <header class="header-wrapper">
 
-    <div class="avatar-warp info-item">
-        <img src="/images/avatar.png" class="avatar">
+    <div class="header-content">
+
+        <a class="logo-title" href="/">
+            XPoet Blog
+        </a>
+
+        <ul class="menu-list">
+            
+                <li class="menu-item">
+                    <a class="active"
+                       href="/"
+                    >
+                        HOME
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/archives"
+                    >
+                        ARCHIVES
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/about"
+                    >
+                        ABOUT
+                    </a>
+                </li>
+            
+        </ul>
+
+        <div class="menu-bar">
+            <div class="menu-bar-middle"></div>
+        </div>
     </div>
 
-    <div class="title info-item">
-        <a href="/">XPoet Blog</a>
-    </div>
-
-    <div class="description info-item">
-        黄色的树林里分出两条路，我选择了人迹更少的一条，从此决定我一生的道路。
-    </div>
-
-    <div class="links-of-author-warp info-item">
-        <ul class="links-of-author-list">
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item">
+                    <a class="active"
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
             
         </ul>
     </div>
-</div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
     </div>
-    <div class="footer-container">
+
+    <div class="page-middle">
+        <main class="main-content normal-code-theme">
+            
+                <div class="home-content-container">
+    <ul class="home-article-list">
+        
+            <li class="home-article-item">
+                <h3 class="home-article-title">
+                    <a class="title-hover-animation" href="/2018/01/17/es6-array-eliminate-redundancy/">使用ES6新特性实现数组去重</a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        <p>数组去重，对于前端开发者来说家常便饭的事，更是初学者必须掌握的知识，面试经常会考。</p>
+<p>数组去重相关的方法，网上已有很多，大多使用了ES6以前的方法，本文对于不作赘述。但随着各大浏览器对ES6的支持性越来越好，以及ES6新特性深入人心，更何况作为一名前端工程师，我们应该顺应时代潮流，推动JavaScript发展，所以，尽情地拥抱ES6吧。</p>
+<p>本文讲解使用ES6新特性实现数组去重的一种新方法，代码及其简短又高效。  </p>
+<h4 id="JavaScript代码："><a href="#JavaScript代码：" class="headerlink" title="JavaScript代码："></a>JavaScript代码：</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">* @param arr 传入的参数：带有重复项的数组</span></span><br><span class="line"><span class="comment">* */</span></span><br><span class="line"><span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(arr));</span><br></pre></td></tr></table></figure>
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <span class="article-date">
+                        <i class="fa fa-pencil-square-o"></i> 2018-01-17
+                    </span>
+                    <hr>
+                    <a href="/2018/01/17/es6-array-eliminate-redundancy/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+                <h3 class="home-article-title">
+                    <a class="title-hover-animation" href="/2017/11/30/%E4%BD%BF%E7%94%A8Gulp%E6%90%AD%E5%BB%BA%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%88%E7%AE%80%E6%98%93%E7%89%88%EF%BC%89/">使用gulp搭建前端自动化工作流环境（简易版）</a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        
+本文通过简单且实用的案例，讲解使用gulp搭建前端自动化工作流环境详细步骤，带领大家快速入门。
+
+什么是gulp？来自官网的简介：Automate and enhance your workflow. gulp is a toolkit for automating painful or t...
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <span class="article-date">
+                        <i class="fa fa-pencil-square-o"></i> 2017-11-30
+                    </span>
+                    <hr>
+                    <a href="/2017/11/30/%E4%BD%BF%E7%94%A8Gulp%E6%90%AD%E5%BB%BA%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%88%E7%AE%80%E6%98%93%E7%89%88%EF%BC%89/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+                <h3 class="home-article-title">
+                    <a class="title-hover-animation" href="/2017/10/17/quickly-master-the-markdown-basic-syntax/">快速掌握Markdown基础语法</a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        什么是Markdown？Markdown是一种轻量级标记语言，用途广泛，其使用简洁的语法代替常见的排版格式，从而能使我们专心于写作，在最大程度上提高效率。Markdown 的语法十分简单，常用的标记符号也不超过十个，学习成本极低，一旦熟悉这种语法规则，将会有一劳永逸的效果。  
+
+We bel...
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <span class="article-date">
+                        <i class="fa fa-pencil-square-o"></i> 2017-10-17
+                    </span>
+                    <hr>
+                    <a href="/2017/10/17/quickly-master-the-markdown-basic-syntax/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+                <h3 class="home-article-title">
+                    <a class="title-hover-animation" href="/2017/10/16/%E8%A7%A6%E5%8A%A8%E5%BF%83%E7%81%B5%E7%9A%84%E5%85%AD%E5%8F%A5%E5%8F%A4%E8%AF%97%E8%AF%8D/">触动心灵的六句古诗词</a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        
+人生若只如初见，何事秋风悲画扇。 ——纳兰性德 《木兰词·拟古决绝词柬友》
+
+很多时候，初见，惊艳。蓦然回首，却已是物是人非，曾经沧海，只怕早已换了桑田。短短的一句话，道尽人生多少悲凉，道尽人生多少无奈。如果所有往事都能化为红尘一笑，只留下初见时的倾情、惊艳，忘却也许有过的背叛、伤怀，这是何...
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <span class="article-date">
+                        <i class="fa fa-pencil-square-o"></i> 2017-10-16
+                    </span>
+                    <hr>
+                    <a href="/2017/10/16/%E8%A7%A6%E5%8A%A8%E5%BF%83%E7%81%B5%E7%9A%84%E5%85%AD%E5%8F%A5%E5%8F%A4%E8%AF%97%E8%AF%8D/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+                <h3 class="home-article-title">
+                    <a class="title-hover-animation" href="/2017/10/15/%E9%86%89%E7%9C%BC%E5%A4%A9%E6%B6%AF-%E8%8A%B1%E9%A6%99%E6%BB%A1%E8%A1%A3/">醉眼天涯 花香满衣</a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        在忽然惊醒的夜凉里，挨着秋天的衣袖，独坐如莲。灯半笼，更阑。
+夜雾已经烹煮成一壶茶，不饮。相思已经倾斜成箫，不吹。只在梦的边缘，等你叩门的绝响。
+我的思念，是你前世遗忘采撷而无法成熟的青果。不舍那未了的情缘，我才执意轮回世间。单薄的形骸幻化成一树瘦梅，等你在必经的路旁。依旧是前世那一袭清绝的白...
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <span class="article-date">
+                        <i class="fa fa-pencil-square-o"></i> 2017-10-15
+                    </span>
+                    <hr>
+                    <a href="/2017/10/15/%E9%86%89%E7%9C%BC%E5%A4%A9%E6%B6%AF-%E8%8A%B1%E9%A6%99%E6%BB%A1%E8%A1%A3/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+    </ul>
+
+    <div class="paginator">
+        
+            <a class="prev btn"
+               href="/"
+            >Prev</a>
+        
+
+        
+    </div>
+</div>
+
+
+            
+        </main>
+        <div class="sidebar-tools">
+            <div class="tools-container">
+    <ul class="tools-list">
+        
+            <li class="search popup-trigger">
+                <i class="fa fa-search"></i>
+            </li>
+            
+<script src="/js/local-search.js"></script>
+
+        
+        <li class="mode-toggle">
+            <i class="fa fa-moon-o"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+
+        <div class="scroll-to-top">
+            <span class="scroll-percent"></span>
+            <button><i class="fa fa-caret-up"></i></button>
+        </div>
+    </div>
+
+    <div class="page-bottom">
         <footer class="footer">
     <div class="info-container">
         <div class="copyright-info info-item">
@@ -56,342 +262,14 @@
         </div>
         <div class="theme-info info-item">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a>. Theme for <a
-                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v0.1.1</a>
+                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS-X v1.0.0</a>
         </div>
-        
-            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            <div class="website-count info-item">
-                
-                    <span id="busuanzi_container_site_uv" style="display: none">
-                        UV<span id="busuanzi_value_site_uv"></span>
-                    </span>
-                
-                
-                    <span id="busuanzi_container_site_pv" style="display: none">
-                        PV<span id="busuanzi_value_site_pv"></span>
-                    </span>
-                
-            </div>
         
     </div>
 </footer>
     </div>
 </div>
-    </div>
-    <div class="page-right">
-        <div class="right-side-container">
 
-    <div class="nav-container animated">
-        <nav class="nav">
-    <button class="fold-left-side-btn">
-        <i class="fa fa-bars"></i>
-    </button>
-    <ul class="menu-list">
-        
-            <li class="menu-item">
-                <a class="current"
-                   href="/">Home</a>
-            </li>
-        
-            <li class="menu-item">
-                <a class=""
-                   href="/archives">archives</a>
-            </li>
-        
-            <li class="menu-item">
-                <a class=""
-                   href="/about">About</a>
-            </li>
-        
-    </ul>
-    
-        <button class="search-btn btn popup-trigger"><i class="fa fa-search"></i></button>
-        
-<script src="/js/local-search.js"></script>
-
-    
-</nav>
-    </div>
-
-    <div class="article-post-container animated">
-        
-            <div class="home-container">
-    
-        <ul class="article-post-list">
-            
-                <li class="article-post-item">
-                    <div class="article-post-title">
-                        <h3>
-                            <a class="article-title-hover-animation" href="/2018/01/17/es6-array-eliminate-redundancy/">使用ES6新特性实现数组去重</a>
-                        </h3>
-                    </div>
-
-                    <div class="article-post-content">
-                        *数组去重，对于前端开发者来说家常便饭的事，更是初学者必须掌握的知识，面试经常会考。
-数组去重相关的方法，网上已有很多，大多使用了ES6以前的方法，本文对于不作赘述。但随着各大浏览器对ES6的支持性越来越好，以及ES6新特性深入人心，更何况作为一名前端工程师，我们应该顺应时代潮流，推动Java...
-                    </div>
-
-                    <div class="article-post-meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2018-01-17
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa fa-bookmark"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa fa-tags"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/tags/%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/">数组去重</a>
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/ES6/">ES6</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-</div>
-                    </div>
-                </li>
-            
-                <li class="article-post-item">
-                    <div class="article-post-title">
-                        <h3>
-                            <a class="article-title-hover-animation" href="/2017/11/30/%E4%BD%BF%E7%94%A8Gulp%E6%90%AD%E5%BB%BA%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%88%E7%AE%80%E6%98%93%E7%89%88%EF%BC%89/">使用gulp搭建前端自动化工作流环境（简易版）</a>
-                        </h3>
-                    </div>
-
-                    <div class="article-post-content">
-                        
-本文通过简单且实用的案例，讲解使用gulp搭建前端自动化工作流环境详细步骤，带领大家快速入门。
-
-什么是gulp？来自官网的简介：Automate and enhance your workflow. gulp is a toolkit for automating painful or t...
-                    </div>
-
-                    <div class="article-post-meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2017-11-30
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa fa-bookmark"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa fa-tags"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/tags/gulp/">gulp</a>
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96/">前端自动化</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-</div>
-                    </div>
-                </li>
-            
-                <li class="article-post-item">
-                    <div class="article-post-title">
-                        <h3>
-                            <a class="article-title-hover-animation" href="/2017/10/17/quickly-master-the-markdown-basic-syntax/">快速掌握Markdown基础语法</a>
-                        </h3>
-                    </div>
-
-                    <div class="article-post-content">
-                        什么是Markdown？Markdown是一种轻量级标记语言，用途广泛，其使用简洁的语法代替常见的排版格式，从而能使我们专心于写作，在最大程度上提高效率。Markdown 的语法十分简单，常用的标记符号也不超过十个，学习成本极低，一旦熟悉这种语法规则，将会有一劳永逸的效果。  
-
-We bel...
-                    </div>
-
-                    <div class="article-post-meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2017-10-17
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa fa-bookmark"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa fa-tags"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/tags/Markdown/">Markdown</a>
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/md%E8%AF%AD%E6%B3%95/">md语法</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-</div>
-                    </div>
-                </li>
-            
-                <li class="article-post-item">
-                    <div class="article-post-title">
-                        <h3>
-                            <a class="article-title-hover-animation" href="/2017/10/16/%E8%A7%A6%E5%8A%A8%E5%BF%83%E7%81%B5%E7%9A%84%E5%85%AD%E5%8F%A5%E5%8F%A4%E8%AF%97%E8%AF%8D/">触动心灵的六句古诗词</a>
-                        </h3>
-                    </div>
-
-                    <div class="article-post-content">
-                        
-人生若只如初见，何事秋风悲画扇。 ——纳兰性德 《木兰词·拟古决绝词柬友》
-
-很多时候，初见，惊艳。蓦然回首，却已是物是人非，曾经沧海，只怕早已换了桑田。短短的一句话，道尽人生多少悲凉，道尽人生多少无奈。如果所有往事都能化为红尘一笑，只留下初见时的倾情、惊艳，忘却也许有过的背叛、伤怀，这是何...
-                    </div>
-
-                    <div class="article-post-meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2017-10-16
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa fa-bookmark"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/categories/%E8%AF%97%E8%AF%8D%E4%BA%BA%E7%94%9F/">诗词人生</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa fa-tags"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/tags/%E5%8F%A4%E8%AF%97%E8%AF%8D/">古诗词</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-</div>
-                    </div>
-                </li>
-            
-                <li class="article-post-item">
-                    <div class="article-post-title">
-                        <h3>
-                            <a class="article-title-hover-animation" href="/2017/10/15/%E9%86%89%E7%9C%BC%E5%A4%A9%E6%B6%AF-%E8%8A%B1%E9%A6%99%E6%BB%A1%E8%A1%A3/">醉眼天涯 花香满衣</a>
-                        </h3>
-                    </div>
-
-                    <div class="article-post-content">
-                        在忽然惊醒的夜凉里，挨着秋天的衣袖，独坐如莲。灯半笼，更阑。
-夜雾已经烹煮成一壶茶，不饮。相思已经倾斜成箫，不吹。只在梦的边缘，等你叩门的绝响。
-我的思念，是你前世遗忘采撷而无法成熟的青果。不舍那未了的情缘，我才执意轮回世间。单薄的形骸幻化成一树瘦梅，等你在必经的路旁。依旧是前世那一袭清绝的白...
-                    </div>
-
-                    <div class="article-post-meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2017-10-15
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa fa-bookmark"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/categories/%E8%AF%97%E8%AF%8D%E4%BA%BA%E7%94%9F/">诗词人生</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa fa-tags"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/tags/%E7%8E%B0%E4%BB%A3%E8%AF%97/">现代诗</a>
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/%E7%BB%9D%E7%BE%8E/">绝美</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-</div>
-                    </div>
-                </li>
-            
-        </ul>
-
-        <div class="paginator">
-            
-                <a class="prev btn"
-                   href="/"
-                >Prev</a>
-            
-
-            
-        </div>
-    
-
-</div>
-
-        
-    </div>
-</div>
-    </div>
-</div>
-<div class="search-popup-container">
     <div class="search-pop-overlay">
     <div class="popup search-popup">
         <div class="search-header">
@@ -409,7 +287,7 @@ We bel...
                 >
             </div>
             <span class="popup-btn-close">
-                <i class="fa fa-times-circle"></i>
+                <i class="fa fa-times"></i>
             </span>
         </div>
         <div id="search-result">
@@ -419,14 +297,12 @@ We bel...
         </div>
     </div>
 </div>
-</div>
+
 
 <script src="/js/main.js"></script>
-
-
-    
-<script src="/js/local-search.js"></script>
-
+<script src="/js/header-shrink.js"></script>
+<script src="/js/toggle-mode.js"></script>
+<script src="/js/scroll-to-top.js"></script>
 
 </body>
 </html>

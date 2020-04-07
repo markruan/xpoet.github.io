@@ -17,38 +17,358 @@
 <link rel="stylesheet" href="/css/style.css">
 
     <script id="hexo-configurations">
-    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"themeName":"ILS","themeVersion":"0.1.1","pageLayout":{"left_side_width":30,"right_side_width":70,"media_max_width":960},"path":"search.json"};
+    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"themeInfo":{"name":"ILS-X","version":"1.0.0","author":"XPoet","repository":"https://github.com/XPoet/hexo-theme-ils"},"path":"search.json"};
   </script>
 <meta name="generator" content="Hexo 4.2.0"></head>
 
 
 <body>
-<div class="page-container">
-    <div class="page-left animated">
-        <div class="left-side-container">
-    <div class="site-info-container">
-        <div class="site-info">
+<div class="page-template">
+    <div class="page-top">
+        <header class="header-wrapper">
 
-    <div class="avatar-warp info-item">
-        <img src="/images/avatar.png" class="avatar">
+    <div class="header-content">
+
+        <a class="logo-title" href="/">
+            XPoet Blog
+        </a>
+
+        <ul class="menu-list">
+            
+                <li class="menu-item">
+                    <a class="active"
+                       href="/"
+                    >
+                        HOME
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/archives"
+                    >
+                        ARCHIVES
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/about"
+                    >
+                        ABOUT
+                    </a>
+                </li>
+            
+        </ul>
+
+        <div class="menu-bar">
+            <div class="menu-bar-middle"></div>
+        </div>
     </div>
 
-    <div class="title info-item">
-        <a href="/">XPoet Blog</a>
-    </div>
-
-    <div class="description info-item">
-        黄色的树林里分出两条路，我选择了人迹更少的一条，从此决定我一生的道路。
-    </div>
-
-    <div class="links-of-author-warp info-item">
-        <ul class="links-of-author-list">
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item">
+                    <a class="active"
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
             
         </ul>
     </div>
-</div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
     </div>
-    <div class="footer-container">
+
+    <div class="page-middle">
+        <main class="main-content normal-code-theme">
+            
+                <div class="home-content-container">
+    <ul class="home-article-list">
+        
+            <li class="home-article-item">
+                <h3 class="home-article-title">
+                    <a class="title-hover-animation" href="/2019/07/11/Mac%E4%B8%8B%E4%BD%BF%E7%94%A8Navicat%E8%BF%9E%E6%8E%A5Brew%E5%AE%89%E8%A3%85MySQL%E6%95%99%E7%A8%8B/">Mac下使用Navicat连接Brew安装MySQL教程</a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        <h3 id="安装MySQL"><a href="#安装MySQL" class="headerlink" title="安装MySQL"></a>安装MySQL</h3><p>Mac安装MySQL有多种方式，最方便是这两种：</p>
+<ul>
+<li>第一种直接从MySQL官网下载安装包进行安装，这里不做过多介绍。</li>
+<li>第二种使用终端命令安装，前提要先安装好Homebrew。</li>
+</ul>
+<p>安装Homebrew</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
+<p>安装MySQL</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install mysql</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/24516169/61051202-1d0d6480-a41b-11e9-85c2-05600f9712b4.png" alt="brew-install-mysql"></p>
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <span class="article-date">
+                        <i class="fa fa-pencil-square-o"></i> 2019-07-11
+                    </span>
+                    <hr>
+                    <a href="/2019/07/11/Mac%E4%B8%8B%E4%BD%BF%E7%94%A8Navicat%E8%BF%9E%E6%8E%A5Brew%E5%AE%89%E8%A3%85MySQL%E6%95%99%E7%A8%8B/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+                <h3 class="home-article-title">
+                    <a class="title-hover-animation" href="/2019/06/28/Angular-Material-Dialog-%E6%8B%96%E6%8B%BD%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/">Angular Material Dialog 拖拽功能的实现</a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        <h4 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h4><p>本案例使用的 Angular 7.x 版本，Material 7.x 版本，但不限于此版本。</p>
+<h4 id="新建Angular指令"><a href="#新建Angular指令" class="headerlink" title="新建Angular指令"></a>新建Angular指令</h4><p>新建指令命令：<br><code>ng generate directive dialog-draggable</code></p>
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <span class="article-date">
+                        <i class="fa fa-pencil-square-o"></i> 2019-06-28
+                    </span>
+                    <hr>
+                    <a href="/2019/06/28/Angular-Material-Dialog-%E6%8B%96%E6%8B%BD%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+                <h3 class="home-article-title">
+                    <a class="title-hover-animation" href="/2018/11/21/%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%9A%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8TS:JS%E7%94%9F%E6%88%90%E6%B0%B8%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84ID(uuid)/">小技巧：前端使用TS/JS生成永不重复的ID(uuid)</a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        
+此方法非常简单，非常高效…
+
+废话不多说，直接上代码，本例使用TypeScript：
+12345678/** * 巧妙利用随机数和时间戳随机生成一个不重复的ID（uuid） * @param randomLength&#123;number&#125; 截取随机数的长度 * @return ...
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <span class="article-date">
+                        <i class="fa fa-pencil-square-o"></i> 2018-11-21
+                    </span>
+                    <hr>
+                    <a href="/2018/11/21/%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%9A%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8TS:JS%E7%94%9F%E6%88%90%E6%B0%B8%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84ID(uuid)/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+                <h3 class="home-article-title">
+                    <a class="title-hover-animation" href="/2018/08/05/angular-way-of%20learning-2/">Angular从入门到放弃（二） Angular对比Vue和React</a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        
+作为一个菜鸟，在讨论Angular、React和Vue的优缺点上，确实没有发言权，为此找到一篇非常好的文章，原文出处：https://www.codeinwp.com/blog/angular-vs-vue-vs-react/
+
+Just about a year ago, develope...
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <span class="article-date">
+                        <i class="fa fa-pencil-square-o"></i> 2018-08-05
+                    </span>
+                    <hr>
+                    <a href="/2018/08/05/angular-way-of%20learning-2/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+                <h3 class="home-article-title">
+                    <a class="title-hover-animation" href="/2018/08/04/angular-way-of%20learning-1/">Angular从入门到放弃（一） 前言</a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        写在前面四个月前，博主跳槽到新公司上班，公司的技术团队正在寻找一个合适的JavaScript框架来开发中大型项目，因为项目可以不考虑浏览器版本兼容性，团队一致赞同选用当下最新的技术来开发。此时，Google正式发布Angular已有一年多的时间，拥有大量开发者，Angular采用TypeScr...
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <span class="article-date">
+                        <i class="fa fa-pencil-square-o"></i> 2018-08-04
+                    </span>
+                    <hr>
+                    <a href="/2018/08/04/angular-way-of%20learning-1/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+                <h3 class="home-article-title">
+                    <a class="title-hover-animation" href="/2018/07/16/%E5%9C%A8Mac%E4%B8%8B%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAGit%E7%94%A8%E6%88%B7%E7%9A%84SSH-Key/">在Mac下配置多个Git账户的SSH-Key</a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        准备工作请确保在你的Mac上已安装Git。安装Git请参考：传送门在终端输入命令$ git --version， 能打印出具体的版本号，表示Git正确安装。
+开始配置本文以配置GitHub和GitLab为案例，将生成两对公共/私有rsa密钥对，rsa_github 和 rsa_gitlab。
+...
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <span class="article-date">
+                        <i class="fa fa-pencil-square-o"></i> 2018-07-16
+                    </span>
+                    <hr>
+                    <a href="/2018/07/16/%E5%9C%A8Mac%E4%B8%8B%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAGit%E7%94%A8%E6%88%B7%E7%9A%84SSH-Key/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+                <h3 class="home-article-title">
+                    <a class="title-hover-animation" href="/2018/04/21/%E5%86%8D%E8%A7%81%EF%BC%8C%E4%B9%9F%E8%AE%B8%E5%B0%B1%E6%98%AF%E5%86%8D%E4%B9%9F%E4%B8%8D%E8%A7%81/">再见，也许就是再也不见</a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <span class="article-date">
+                        <i class="fa fa-pencil-square-o"></i> 2018-04-21
+                    </span>
+                    <hr>
+                    <a href="/2018/04/21/%E5%86%8D%E8%A7%81%EF%BC%8C%E4%B9%9F%E8%AE%B8%E5%B0%B1%E6%98%AF%E5%86%8D%E4%B9%9F%E4%B8%8D%E8%A7%81/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+                <h3 class="home-article-title">
+                    <a class="title-hover-animation" href="/2018/03/20/%E4%B8%8D%E6%9C%BD%E7%9A%84%E5%A4%B1%E7%9C%A0/">不朽的失眠</a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        
+记得第一次见这篇文章出现在初中的语文书上，确确实实引起了我的共鸣，自此念念不忘，忽然感觉此刻很应景，收录此文。
+
+他落榜了！一千二百年前。榜纸那么大那么长，然而，就是没有他的名字。啊！竟单单容不下他的名字“张继”那两个字。  
+考中的人，姓名一笔一划写在榜单上，天下皆知。奇怪的是，在他的感觉...
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <span class="article-date">
+                        <i class="fa fa-pencil-square-o"></i> 2018-03-20
+                    </span>
+                    <hr>
+                    <a href="/2018/03/20/%E4%B8%8D%E6%9C%BD%E7%9A%84%E5%A4%B1%E7%9C%A0/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+                <h3 class="home-article-title">
+                    <a class="title-hover-animation" href="/2018/02/07/nodejs-build-socket-chartroom/">基于Node.js搭建Socket聊天室</a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        前言可以毫不夸张的说，Node.js的出现带动了整个前端界的繁荣发展，自此进入百花齐放，百家争鸣的时代。时至今天，我们能用Node.js实现很多依靠传统服务器端编程语言才能实现的事，甚至更加简便、更加高效。本案例使用Node.js的net模块，建立服务端与客户端的Socket连接，简单实现了客...
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <span class="article-date">
+                        <i class="fa fa-pencil-square-o"></i> 2018-02-07
+                    </span>
+                    <hr>
+                    <a href="/2018/02/07/nodejs-build-socket-chartroom/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+            <li class="home-article-item">
+                <h3 class="home-article-title">
+                    <a class="title-hover-animation" href="/2018/02/02/css-vertical-center/">CSS实现元素垂直居中的几种方法</a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        
+以下几种CCS实现元素垂直居中的方法，均不考虑低版本浏览器。
+
+方法一：子绝父相（子元素绝对定位，父元素相对定位）1.1 不知道子元素高度和父元素高度的情况。
+123456789.parentElement &#123;    position: relative;&#125;.childE...
+                    
+                </div>
+
+                <div class="home-article-meta-info">
+                    <span class="article-date">
+                        <i class="fa fa-pencil-square-o"></i> 2018-02-02
+                    </span>
+                    <hr>
+                    <a href="/2018/02/02/css-vertical-center/">阅读全文 <i class="fa fa-angle-right"></i></a>
+                </div>
+            </li>
+        
+    </ul>
+
+    <div class="paginator">
+        
+
+        
+            <a class="next btn"
+               href="/page/2"
+            >Next</a>
+        
+    </div>
+</div>
+
+
+            
+        </main>
+        <div class="sidebar-tools">
+            <div class="tools-container">
+    <ul class="tools-list">
+        
+            <li class="search popup-trigger">
+                <i class="fa fa-search"></i>
+            </li>
+            
+<script src="/js/local-search.js"></script>
+
+        
+        <li class="mode-toggle">
+            <i class="fa fa-moon-o"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+
+        <div class="scroll-to-top">
+            <span class="scroll-percent"></span>
+            <button><i class="fa fa-caret-up"></i></button>
+        </div>
+    </div>
+
+    <div class="page-bottom">
         <footer class="footer">
     <div class="info-container">
         <div class="copyright-info info-item">
@@ -56,598 +376,14 @@
         </div>
         <div class="theme-info info-item">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a>. Theme for <a
-                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v0.1.1</a>
+                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS-X v1.0.0</a>
         </div>
-        
-            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-            <div class="website-count info-item">
-                
-                    <span id="busuanzi_container_site_uv" style="display: none">
-                        UV<span id="busuanzi_value_site_uv"></span>
-                    </span>
-                
-                
-                    <span id="busuanzi_container_site_pv" style="display: none">
-                        PV<span id="busuanzi_value_site_pv"></span>
-                    </span>
-                
-            </div>
         
     </div>
 </footer>
     </div>
 </div>
-    </div>
-    <div class="page-right">
-        <div class="right-side-container">
 
-    <div class="nav-container animated">
-        <nav class="nav">
-    <button class="fold-left-side-btn">
-        <i class="fa fa-bars"></i>
-    </button>
-    <ul class="menu-list">
-        
-            <li class="menu-item">
-                <a class="current"
-                   href="/">Home</a>
-            </li>
-        
-            <li class="menu-item">
-                <a class=""
-                   href="/archives">archives</a>
-            </li>
-        
-            <li class="menu-item">
-                <a class=""
-                   href="/about">About</a>
-            </li>
-        
-    </ul>
-    
-        <button class="search-btn btn popup-trigger"><i class="fa fa-search"></i></button>
-        
-<script src="/js/local-search.js"></script>
-
-    
-</nav>
-    </div>
-
-    <div class="article-post-container animated">
-        
-            <div class="home-container">
-    
-        <ul class="article-post-list">
-            
-                <li class="article-post-item">
-                    <div class="article-post-title">
-                        <h3>
-                            <a class="article-title-hover-animation" href="/2019/07/11/Mac%E4%B8%8B%E4%BD%BF%E7%94%A8Navicat%E8%BF%9E%E6%8E%A5Brew%E5%AE%89%E8%A3%85MySQL%E6%95%99%E7%A8%8B/">Mac下使用Navicat连接Brew安装MySQL教程</a>
-                        </h3>
-                    </div>
-
-                    <div class="article-post-content">
-                        安装MySQLMac安装MySQL有多种方式，最方便是这两种：
-
-第一种直接从MySQL官网下载安装包进行安装，这里不做过多介绍。
-第二种使用终端命令安装，前提要先安装好Homebrew。
-
-安装Homebrew
-1/usr/bin/ruby -e "$(curl -fsSL https://...
-                    </div>
-
-                    <div class="article-post-meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2019-07-11
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa fa-bookmark"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa fa-tags"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/tags/MySQL/">MySQL</a>
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/Navicat/">Navicat</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-</div>
-                    </div>
-                </li>
-            
-                <li class="article-post-item">
-                    <div class="article-post-title">
-                        <h3>
-                            <a class="article-title-hover-animation" href="/2019/06/28/Angular-Material-Dialog-%E6%8B%96%E6%8B%BD%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0/">Angular Material Dialog 拖拽功能的实现</a>
-                        </h3>
-                    </div>
-
-                    <div class="article-post-content">
-                        版本本案例使用的 Angular 7.x 版本，Material 7.x 版本，但不限于此版本。
-新建Angular指令新建指令命令：ng generate directive dialog-draggable
-指令中拖拽功能代码实现：
-1234567891011121314151617181...
-                    </div>
-
-                    <div class="article-post-meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2019-06-28
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa fa-bookmark"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/categories/Angular/">Angular</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa fa-tags"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/tags/Angular/">Angular</a>
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/Material/">Material</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-</div>
-                    </div>
-                </li>
-            
-                <li class="article-post-item">
-                    <div class="article-post-title">
-                        <h3>
-                            <a class="article-title-hover-animation" href="/2018/11/21/%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%9A%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8TS:JS%E7%94%9F%E6%88%90%E6%B0%B8%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84ID(uuid)/">小技巧：前端使用TS/JS生成永不重复的ID(uuid)</a>
-                        </h3>
-                    </div>
-
-                    <div class="article-post-content">
-                        
-此方法非常简单，非常高效…
-
-废话不多说，直接上代码，本例使用TypeScript：
-12345678/** * 巧妙利用随机数和时间戳随机生成一个不重复的ID（uuid） * @param randomLength&#123;number&#125; 截取随机数的长度 * @return ...
-                    </div>
-
-                    <div class="article-post-meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2018-11-21
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa fa-bookmark"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa fa-tags"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/tags/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96/">前端自动化</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-</div>
-                    </div>
-                </li>
-            
-                <li class="article-post-item">
-                    <div class="article-post-title">
-                        <h3>
-                            <a class="article-title-hover-animation" href="/2018/08/05/angular-way-of%20learning-2/">Angular从入门到放弃（二） Angular对比Vue和React</a>
-                        </h3>
-                    </div>
-
-                    <div class="article-post-content">
-                        
-作为一个菜鸟，在讨论Angular、React和Vue的优缺点上，确实没有发言权，为此找到一篇非常好的文章，原文出处：https://www.codeinwp.com/blog/angular-vs-vue-vs-react/
-
-Just about a year ago, develope...
-                    </div>
-
-                    <div class="article-post-meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2018-08-05
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa fa-bookmark"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/categories/Angular/">Angular</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa fa-tags"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/tags/Angular/">Angular</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-</div>
-                    </div>
-                </li>
-            
-                <li class="article-post-item">
-                    <div class="article-post-title">
-                        <h3>
-                            <a class="article-title-hover-animation" href="/2018/08/04/angular-way-of%20learning-1/">Angular从入门到放弃（一） 前言</a>
-                        </h3>
-                    </div>
-
-                    <div class="article-post-content">
-                        写在前面四个月前，博主跳槽到新公司上班，公司的技术团队正在寻找一个合适的JavaScript框架来开发中大型项目，因为项目可以不考虑浏览器版本兼容性，团队一致赞同选用当下最新的技术来开发。此时，Google正式发布Angular已有一年多的时间，拥有大量开发者，Angular采用TypeScr...
-                    </div>
-
-                    <div class="article-post-meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2018-08-04
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa fa-bookmark"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/categories/Angular/">Angular</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa fa-tags"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/tags/Angular/">Angular</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-</div>
-                    </div>
-                </li>
-            
-                <li class="article-post-item">
-                    <div class="article-post-title">
-                        <h3>
-                            <a class="article-title-hover-animation" href="/2018/07/16/%E5%9C%A8Mac%E4%B8%8B%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAGit%E7%94%A8%E6%88%B7%E7%9A%84SSH-Key/">在Mac下配置多个Git账户的SSH-Key</a>
-                        </h3>
-                    </div>
-
-                    <div class="article-post-content">
-                        准备工作请确保在你的Mac上已安装Git。安装Git请参考：传送门在终端输入命令$ git --version， 能打印出具体的版本号，表示Git正确安装。
-开始配置本文以配置GitHub和GitLab为案例，将生成两对公共/私有rsa密钥对，rsa_github 和 rsa_gitlab。
-...
-                    </div>
-
-                    <div class="article-post-meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2018-07-16
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa fa-bookmark"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF%E6%95%99%E7%A8%8B/">技术教程</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa fa-tags"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/tags/mac/">mac</a>
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/git/">git</a>
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/ssh-key/">ssh-key</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-</div>
-                    </div>
-                </li>
-            
-                <li class="article-post-item">
-                    <div class="article-post-title">
-                        <h3>
-                            <a class="article-title-hover-animation" href="/2018/04/21/%E5%86%8D%E8%A7%81%EF%BC%8C%E4%B9%9F%E8%AE%B8%E5%B0%B1%E6%98%AF%E5%86%8D%E4%B9%9F%E4%B8%8D%E8%A7%81/">再见，也许就是再也不见</a>
-                        </h3>
-                    </div>
-
-                    <div class="article-post-content">
-                        
-                    </div>
-
-                    <div class="article-post-meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2018-04-21
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa fa-bookmark"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/categories/%E6%95%A3%E6%96%87%E9%9B%86/">散文集</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa fa-tags"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/tags/%E6%95%A3%E6%96%87/">散文</a>
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/%E5%86%8D%E8%A7%81/">再见</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-</div>
-                    </div>
-                </li>
-            
-                <li class="article-post-item">
-                    <div class="article-post-title">
-                        <h3>
-                            <a class="article-title-hover-animation" href="/2018/03/20/%E4%B8%8D%E6%9C%BD%E7%9A%84%E5%A4%B1%E7%9C%A0/">不朽的失眠</a>
-                        </h3>
-                    </div>
-
-                    <div class="article-post-content">
-                        
-记得第一次见这篇文章出现在初中的语文书上，确确实实引起了我的共鸣，自此念念不忘，忽然感觉此刻很应景，收录此文。
-
-他落榜了！一千二百年前。榜纸那么大那么长，然而，就是没有他的名字。啊！竟单单容不下他的名字“张继”那两个字。  
-考中的人，姓名一笔一划写在榜单上，天下皆知。奇怪的是，在他的感觉...
-                    </div>
-
-                    <div class="article-post-meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2018-03-20
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa fa-bookmark"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/categories/%E6%96%87%E7%AB%A0%E6%94%B6%E5%BD%95/">文章收录</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa fa-tags"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/tags/%E6%9E%AB%E6%A1%A5%E5%A4%9C%E6%B3%8A/">枫桥夜泊</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-</div>
-                    </div>
-                </li>
-            
-                <li class="article-post-item">
-                    <div class="article-post-title">
-                        <h3>
-                            <a class="article-title-hover-animation" href="/2018/02/07/nodejs-build-socket-chartroom/">基于Node.js搭建Socket聊天室</a>
-                        </h3>
-                    </div>
-
-                    <div class="article-post-content">
-                        前言可以毫不夸张的说，Node.js的出现带动了整个前端界的繁荣发展，自此进入百花齐放，百家争鸣的时代。时至今天，我们能用Node.js实现很多依靠传统服务器端编程语言才能实现的事，甚至更加简便、更加高效。本案例使用Node.js的net模块，建立服务端与客户端的Socket连接，简单实现了客...
-                    </div>
-
-                    <div class="article-post-meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2018-02-07
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa fa-bookmark"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa fa-tags"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/tags/node-js/">node.js</a>
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/socket/">socket</a>
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/%E8%81%8A%E5%A4%A9%E5%AE%A4/">聊天室</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-</div>
-                    </div>
-                </li>
-            
-                <li class="article-post-item">
-                    <div class="article-post-title">
-                        <h3>
-                            <a class="article-title-hover-animation" href="/2018/02/02/css-vertical-center/">CSS实现元素垂直居中的几种方法</a>
-                        </h3>
-                    </div>
-
-                    <div class="article-post-content">
-                        
-以下几种CCS实现元素垂直居中的方法，均不考虑低版本浏览器。
-
-方法一：子绝父相（子元素绝对定位，父元素相对定位）1.1 不知道子元素高度和父元素高度的情况。
-123456789.parentElement &#123;    position: relative;&#125;.childE...
-                    </div>
-
-                    <div class="article-post-meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2018-02-02
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fa fa-bookmark"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fa fa-tags"></i>
-            <ul>
-                
-                    <li>
-                        <a href="/tags/CSS/">CSS</a>
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/CSS3/">CSS3</a>
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-</div>
-                    </div>
-                </li>
-            
-        </ul>
-
-        <div class="paginator">
-            
-
-            
-                <a class="next btn"
-                   href="/page/2"
-                >Next</a>
-            
-        </div>
-    
-
-</div>
-
-        
-    </div>
-</div>
-    </div>
-</div>
-<div class="search-popup-container">
     <div class="search-pop-overlay">
     <div class="popup search-popup">
         <div class="search-header">
@@ -665,7 +401,7 @@ Just about a year ago, develope...
                 >
             </div>
             <span class="popup-btn-close">
-                <i class="fa fa-times-circle"></i>
+                <i class="fa fa-times"></i>
             </span>
         </div>
         <div id="search-result">
@@ -675,14 +411,12 @@ Just about a year ago, develope...
         </div>
     </div>
 </div>
-</div>
+
 
 <script src="/js/main.js"></script>
-
-
-    
-<script src="/js/local-search.js"></script>
-
+<script src="/js/header-shrink.js"></script>
+<script src="/js/toggle-mode.js"></script>
+<script src="/js/scroll-to-top.js"></script>
 
 </body>
 </html>
