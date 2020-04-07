@@ -1,7 +1,7 @@
 ---
 title: 基于Node.js搭建Socket聊天室
 date: 2018-02-07 14:06:12
-tags: [node.js, socket, 聊天室]
+tags: [node.js, socket]
 categories: [前端开发]
 ---
 ##### 前言

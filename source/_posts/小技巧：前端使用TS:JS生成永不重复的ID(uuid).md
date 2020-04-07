@@ -1,7 +1,7 @@
 ---
 title: 小技巧：前端使用TS/JS生成永不重复的ID(uuid)
 date: 2018-11-21 17:44:02
-tags: [前端自动化]
+tags: [uuid]
 categories: [前端开发]
 ---
 
