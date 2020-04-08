@@ -1,16 +1,14 @@
-# hexo-theme-ils
-
-[![Github Author](https://img.shields.io/badge/author-XPoet-orange.svg)](https://github.com/XPoet)
-[![Github Release](https://img.shields.io/github/release/XPoet/hexo-theme-ils.svg)](https://github.com/XPoet/hexo-theme-ils/releases)
-[![Github License](https://img.shields.io/github/license/XPoet/hexo-theme-ils.svg)](https://github.com/XPoet/hexo-theme-ils/blob/master/LICENSE)
-
+---
+title: 千呼万唤始出来，hexo-theme-ils v1.0.0 正式分布
+date: 2020-04-07 21:55:14
+tags: [hexo]
+categories: [hexo]
+---
 **一款简约大气的Hexo主题。**  
 **A simple and atmospheric theme for Hexo.**
 
-> 关于主题名称 __"ILS"__： 在主题开发之初，作者想到的几个名字都被用了，词穷，后来将名字取自 **"I Like Simple「我喜欢简约」"** 首字母。  
-> 如果你也喜欢简约大气风格的主题，一起来折腾吧~  
-
-- [Preview 预览](https://xpoet.cn)
+> 关于主题名称 __"ILS"__： 在主题开发之初，作者想到的几个名字都被已被用，词穷了，后来将名字取自 **"I Like Simple「我喜欢简约」"** 首字母。  
+> 如果你也喜欢简约大气风格的主题，不妨来看看，一起折腾吧~  
 
 ## Features 功能特性
 - [x] 恰到好处的留白，简约大气；
@@ -35,6 +33,8 @@
   请优先下载 [最新 release 版本](https://github.com/XPoet/hexo-theme-ils/releases)，master 分支无法保证稳定。  
   下载后解压到 Hexo 博客目录下 themes 文件夹里面并重命名为 `ils`。
 
+<!-- more -->  
+
 ### Enable 启用
 Modify `theme` setting in `_config.yml` to `ils`.  
 找到博客目录下的 `_config.yml` 文件，将 `theme` 设置为 `ils` 。
@@ -47,8 +47,7 @@ Modify `theme` setting in `_config.yml` to `ils`.
   ```
 - 下载[主题最新 release 版本](https://github.com/XPoet/hexo-theme-ils/releases)  
   下载后解压到 Hexo 博客目录下 themes 文件夹里面并重命名为 `ils`。
-  
-  
+    
 ## Configuration 配置
 ```yml
 # theme basic info

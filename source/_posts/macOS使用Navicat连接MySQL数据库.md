@@ -17,8 +17,6 @@ categories: [数据库]
   ```bash
   brew install mysql
   ```
-  <!-- more -->
-
 ### 打开 MySQL 服务
 
 - 在终端使用命令 `mysql --version` 查看 MySQL 版本，出现具体的版本号，表示 MySQL 成功安装，如下图。
