@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <title>
+        Angular Material Dialog 拖拽功能的实现 | XPoet Blog
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <link rel="alternate" href="/atom.xml" title="XPoet Blog" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <script id="hexo-configurations">
+    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"themeInfo":{"name":"ILS","version":"1.0.0","author":"XPoet","repository":"https://github.com/XPoet/hexo-theme-ils"},"path":"search.json"};
+  </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+<div class="page-template">
+    <div class="page-top">
+        <header class="header-wrapper">
+
+    <div class="header-content">
+
+        <a class="logo-title" href="/">
+            XPoet Blog
+        </a>
+
+        <ul class="menu-list">
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/"
+                    >
+                        HOME
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/archives"
+                    >
+                        ARCHIVES
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/about"
+                    >
+                        ABOUT
+                    </a>
+                </li>
+            
+        </ul>
+
+        <div class="menu-bar">
+            <div class="menu-bar-middle"></div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+
+    <div class="page-middle">
+        <main class="main-content normal-code-theme">
+            
+                <div class="article-content-container">
+    <div class="article-title">
+        <h3><a class="title-hover-animation">Angular Material Dialog 拖拽功能的实现</a></h3>
+    </div>
+
+    <div class="meta-info">
+        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa fa-calendar-o"></i> 2019-06-28 16:38:51
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa fa-bookmark"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/categories/Angular/">Angular</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa fa-tags"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Angular/">Angular</a>
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Material/">Material</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa fa-eye"></i> <span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+    </div>
+
+    <div class="article-content markdown-body">
+        <h4 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h4><p>本案例使用的 Angular 7.x 版本，Material 7.x 版本，但不限于此版本。</p>
+<h4 id="新建Angular指令"><a href="#新建Angular指令" class="headerlink" title="新建Angular指令"></a>新建Angular指令</h4><p>新建指令命令：<br><code>ng generate directive dialog-draggable</code></p>
+<a id="more"></a>
+
+<p>指令中拖拽功能代码实现：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Directive, HostListener, OnInit &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; MatDialogContainer, MatDialogRef &#125; <span class="keyword">from</span> <span class="string">'@angular/material'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Subscription, fromEvent &#125; <span class="keyword">from</span> <span class="string">'rxjs'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; takeUntil &#125; <span class="keyword">from</span> <span class="string">'rxjs/operators'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">interface</span> Position &#123;</span><br><span class="line">  x: <span class="built_in">number</span>;</span><br><span class="line">  y: <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Directive</span>(&#123;</span><br><span class="line">  selector: <span class="string">'[dialog-draggable]'</span></span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> DialogDraggableDirective <span class="keyword">implements</span> OnInit &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> _subscription: Subscription;</span><br><span class="line"></span><br><span class="line">  mouseStart: Position;</span><br><span class="line"></span><br><span class="line">  mouseDelta: Position;</span><br><span class="line"></span><br><span class="line">  offset: Position;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span></span><br><span class="line"><span class="params">    <span class="keyword">private</span> matDialogRef: MatDialogRef&lt;<span class="built_in">any</span>&gt;,</span></span><br><span class="line"><span class="params">    <span class="keyword">private</span> container: MatDialogContainer</span></span><br><span class="line"><span class="params">  </span>) &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  ngOnInit() &#123;</span><br><span class="line">    <span class="keyword">this</span>.offset = <span class="keyword">this</span>._getOffset();</span><br><span class="line">    <span class="keyword">this</span>._updatePosition(<span class="keyword">this</span>.offset.y, <span class="keyword">this</span>.offset.x);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@HostListener</span>(<span class="string">'mousedown'</span>, [<span class="string">'$event'</span>])</span><br><span class="line">  onMouseDown(event: MouseEvent) &#123;</span><br><span class="line">    <span class="keyword">this</span>.mouseStart = &#123; x: event.pageX, y: event.pageY &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> mouseup$ = fromEvent(<span class="built_in">document</span>, <span class="string">'mouseup'</span>);</span><br><span class="line">    <span class="keyword">this</span>._subscription = mouseup$.subscribe(<span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">this</span>.onMouseup());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> mousemove$ = fromEvent(<span class="built_in">document</span>, <span class="string">'mousemove'</span>)</span><br><span class="line">      .pipe(takeUntil(mouseup$))</span><br><span class="line">      .subscribe(<span class="function">(<span class="params">e: MouseEvent</span>) =&gt;</span> <span class="keyword">this</span>.onMouseMove(e));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>._subscription.add(mousemove$);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onMouseMove(event: MouseEvent) &#123;</span><br><span class="line">    <span class="keyword">this</span>.mouseDelta = &#123; x: (event.pageX - <span class="keyword">this</span>.mouseStart.x), y: (event.pageY - <span class="keyword">this</span>.mouseStart.y) &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">this</span>._updatePosition(<span class="keyword">this</span>.offset.y + <span class="keyword">this</span>.mouseDelta.y, <span class="keyword">this</span>.offset.x + <span class="keyword">this</span>.mouseDelta.x);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  onMouseup() &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>._subscription) &#123;</span><br><span class="line">      <span class="keyword">this</span>._subscription.unsubscribe();</span><br><span class="line">      <span class="keyword">this</span>._subscription = <span class="literal">undefined</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.mouseDelta) &#123;</span><br><span class="line">      <span class="keyword">this</span>.offset.x += <span class="keyword">this</span>.mouseDelta.x;</span><br><span class="line">      <span class="keyword">this</span>.offset.y += <span class="keyword">this</span>.mouseDelta.y;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> _updatePosition(top: <span class="built_in">number</span>, left: <span class="built_in">number</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.matDialogRef.updatePosition(&#123;</span><br><span class="line">      top: top + <span class="string">'px'</span>,</span><br><span class="line">      left: left + <span class="string">'px'</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> _getOffset(): Position &#123;</span><br><span class="line">    <span class="keyword">const</span> box = <span class="keyword">this</span>.container[<span class="string">'_elementRef'</span>].nativeElement.getBoundingClientRect();</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      x: box.left + pageXOffset,</span><br><span class="line">      y: box.top + pageYOffset</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在全局的CSS样式文件添加下面的CSS代码：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-attr">[dialog-draggable]</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: -<span class="number">24px</span> -<span class="number">24px</span> <span class="number">20px</span> -<span class="number">24px</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">10px</span> <span class="number">24px</span>;</span><br><span class="line">  <span class="attribute">background</span>: <span class="number">#283593</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">cursor</span>: move;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用"></a>如何使用</h4><p>在Dialog组件中使用dialog-draggable指令即可实现窗口拖拽，如下</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h2</span> <span class="attr">mat-dialog-title</span> <span class="attr">dialog-draggable</span>&gt;</span></span><br><span class="line">  Angular Material Dialog Draggable</span><br><span class="line"><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br></pre></td></tr></table></figure>
+    </div>
+
+    <div class="article-nav">
+        
+            <div class="article-prev">
+                <a class="prev btn" rel="prev"
+                   href="/2019/07/11/macOS%E4%BD%BF%E7%94%A8Navicat%E8%BF%9E%E6%8E%A5MySQL%E6%95%B0%E6%8D%AE%E5%BA%93/"><i class="fa fa-chevron-left"></i> macOS 使用 Navicat 连接 MySQL 数据库
+                </a>
+            </div>
+        
+        
+            <div class="article-next">
+                <a class="next btn" rel="next"
+                   href="/2018/11/21/%E5%B0%8F%E6%8A%80%E5%B7%A7%EF%BC%9A%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8TS:JS%E7%94%9F%E6%88%90%E6%B0%B8%E4%B8%8D%E9%87%8D%E5%A4%8D%E7%9A%84ID(uuid)/">小技巧：前端使用TS/JS生成永不重复的ID(uuid) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+        
+    </div>
+
+    <div class="comment-container">
+        
+    <div class="valine-container">
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <div id="vcomments"></div>
+        <script>
+            new Valine({
+                el: '#vcomments',
+                appId: 'ih2nzG3ilVNdLgJK4kBXTjOq-gzGzoHsz',
+                appKey: 'gdf6tXXLBTLg9qpjS2y6Tbw7',
+                notify: 'false',
+                verify: 'false',
+                avatar: 'wavatar',
+                placeholder: '👍 填写昵称和邮箱才能收到回复通知哦 ~',
+                lang: 'en'.toLowerCase()
+            })
+        </script>
+    </div>
+
+
+    </div>
+</div>
+
+            
+        </main>
+        <div class="sidebar-tools">
+            <div class="tools-container">
+    <ul class="tools-list">
+        
+            <li class="search popup-trigger">
+                <i class="fa fa-search"></i>
+            </li>
+            
+<script src="/js/local-search.js"></script>
+
+        
+        <li class="mode-toggle">
+            <i class="fa fa-moon-o"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+
+        <div class="scroll-to-top">
+            <span class="scroll-percent"></span>
+            <button><i class="fa fa-caret-up"></i></button>
+        </div>
+    </div>
+
+    <div class="page-bottom">
+        <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy; 2020 <a href="/">XPoet</a>
+        </div>
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>. Theme for <a
+                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v1.0.0</a>
+        </div>
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" style="display: none">
+                        UV<span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" style="display: none">
+                        PV<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+</div>
+
+    <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-icon">
+            <i class="fa fa-search"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/main.js"></script>
+<script src="/js/header-shrink.js"></script>
+<script src="/js/toggle-mode.js"></script>
+<script src="/js/scroll-to-top.js"></script>
+
+</body>
+</html>
