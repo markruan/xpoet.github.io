@@ -4,51 +4,74 @@ date: 2020-04-07 21:55:14
 tags: [hexo]
 categories: [hexo]
 ---
-**一款简约大气的Hexo主题。**  
-**A simple and atmospheric theme for Hexo.**
 
-> 关于主题名称 __"ILS"__： 在主题开发之初，作者想到的几个名字都被已被用，词穷了，后来将名字取自 **"I Like Simple「我喜欢简约」"** 首字母。  
-> 如果你也喜欢简约大气风格的主题，不妨来看看，一起折腾吧~  
+如你所见，ILS 界面设计十分简洁、清爽，但功能齐全、不失优雅，这正是 ILS 的开发理念。也曾尝试过花里胡哨，发现不仅容易审美疲劳，而且背驰了写博客的初衷，记录生活、展示文字，应该才是搭建博客网站的最终追求，为此 ILS 应运而生。简约大气、不缺美感、突出内容、化繁为简、配置简单、长期维护，如果你也喜欢或认可这些主题特点，一起来折腾吧~
+
+关于主题名称 **"ILS"** 的由来：在主题开发之初，作者想到的几个名字都被已被用，词穷了，后来干脆将名字取自 **"I Like Simple「我喜欢简单」"** 首字母，就是这么简单。
+
+同时，非常欢迎感兴趣的同学 Pull Request 加入到该主题的开发中，共同打造极致 ILS。
 
 ## Features 功能特性
+
+### Completed
+
 - [x] 恰到好处的留白，简约大气；
 - [x] 响应式设计，适配多种终端；
 - [x] 日间/夜间模式自由切换；
 - [x] 多种代码高亮方案；
-- [x] 内置多语言（目前仅支持中英文）；
-- [x] 内置评论插件；
+- [x] 语言国际化，已支持中/英文；
+- [x] 内置多款评论插件；
 - [x] 支持全站文章搜索；
 - [x] 网站访问统计和文章阅读统计；
-- [x] 代码简洁高效，无jQuery；
-- [x] 配置简单，配置项均有详细注释；
+- [x] 页面滚动百分比提示；
+- [x] 一键快速回到顶部；
+- [x] 代码精简高效，无 jQuery；
+- [x] 配置项简单，有详细注释；
+
+<!-- more -->
+
+### Unfinished
+
+- RSS 订阅
+- 代码块一键复制
+- 文章版权信息
+- TOC 目录结构
+- 字数统计 & 阅读时长
+- 支持公式
+- 在线更改字体/字号
+- 文章顶置
+- 打赏功能
+- ......
 
 ## Get start 快速开始
 
 ### Install 安装
+
 - 使用 Git SSH
-  ``` bash
+  ```bash
   git clone --depath=1 git@github.com:XPoet/hexo-theme-ils.git themes/ils
   ```
 - 下载主题 release 版本  
   请优先下载 [最新 release 版本](https://github.com/XPoet/hexo-theme-ils/releases)，master 分支无法保证稳定。  
   下载后解压到 Hexo 博客目录下 themes 文件夹里面并重命名为 `ils`。
 
-<!-- more -->  
-
 ### Enable 启用
+
 Modify `theme` setting in `_config.yml` to `ils`.  
 找到博客目录下的 `_config.yml` 文件，将 `theme` 设置为 `ils` 。
 
 ### Update 更新
+
 - 使用 Git SSH
-  ``` bash
+  ```bash
   cd themes/ils
   git pull
   ```
-- 下载[主题最新 release 版本](https://github.com/XPoet/hexo-theme-ils/releases)  
+- 下载 [主题最新 release 版本](https://github.com/XPoet/hexo-theme-ils/releases)  
   下载后解压到 Hexo 博客目录下 themes 文件夹里面并重命名为 `ils`。
-    
+
 ## Configuration 配置
+
 ```yml
 # theme basic info
 # 该主题的基本信息，此处不用改动。
@@ -66,7 +89,7 @@ menu:
   About: /about
 
 # RSS
-# RSS 订阅，当前版本未实现（欢迎RP）。
+# RSS 订阅，v1.0.0 未实现（欢迎PR）。
 rss: /atom.xml
 
 # favicon
@@ -82,8 +105,8 @@ comments:
   # 如何使用 Valine, 请前往 https://github.com/xCss/Valine
   valine:
     enable: false
-    appid:    # your leancloud application appid
-    appkey:   # your leancloud application appkey
+    appid: # your leancloud application appid
+    appkey: # your leancloud application appkey
     notify: false # mail notifier, https://github.com/xCss/Valine/wiki
     verify: false # Verification code
     placeholder: 填写昵称和邮箱才能收到回复通知哦~
@@ -125,26 +148,30 @@ local_search:
 ```
 
 ## Add page 添加页面
+
 **Hexo 初始化没有 about、links、tag、category 等页面，需要自己手动创建。**  
 例如创建「关于」页面：
-1. 在 Hexo 博客目录下执行命令 
+
+1. 在 Hexo 博客目录下执行命令
    ```bash
    hexo new page about
    ```
 2. 创建成功后，编辑博客目录下 `/source/about/index.md`，添加 `layout: about` 属性。  
-   修改后的文件示例如下：   
+   修改后的文件示例如下：
+
    ```bash
    title: about
    date: 2020-04-08 16:29:00
    layout: about
    ---
-   
+
    这里写正文，支持 Markdown, HTML
    ```
-   
 
 ## Feedback 反馈
+
 在使用主题过程中，如果遇到问题，请仔细阅读文档，或者提 `issue`。
 
 ## Licence 许可证
+
 [MIT](https://github.com/XPoet/hexo-theme-ils/blob/master/LICENSE) Copyright (c) 2020 XPoet
