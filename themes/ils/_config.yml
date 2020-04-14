@@ -24,12 +24,22 @@ comments:
   # Valine.
   # more info please open https://github.com/xCss/Valine
   valine:
-    enable: true
+    enable: false
     appid: ih2nzG3ilVNdLgJK4kBXTjOq-gzGzoHsz
     appkey: gdf6tXXLBTLg9qpjS2y6Tbw7
     notify: false # mail notifier, https://github.com/xCss/Valine/wiki
     verify: false # Verification code
-    placeholder: 👍 填写昵称和邮箱才能收到回复通知哦 ~
+    placeholder: 填写昵称和邮箱才能收到回复通知哦 ~
+
+  # Gitalk
+  # For more information: https://gitalk.github.io, https://github.com/gitalk/gitalk
+  gitalk:
+    enable: true
+    github_id: XPoet  # GitHub repo owner
+    repository: gitalk-comment-plugin  # Repository name to store issues
+    client_id: e7f9c899d3766b200da8  # GitHub Application Client ID
+    client_secret: 77fa7aa00f20f512ac14e6599f8b433e9fe2f4d5  # GitHub Application Client Secret
+    distraction_free_mode: false # Facebook-like distraction free mode
 
 # Show PV/UV of the website/page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi/

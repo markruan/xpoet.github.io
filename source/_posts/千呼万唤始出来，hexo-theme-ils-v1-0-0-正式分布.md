@@ -3,6 +3,7 @@ title: 千呼万唤始出来，hexo-theme-ils v1.0.0 正式分布
 date: 2020-04-07 21:55:14
 tags: [hexo]
 categories: [hexo]
+top: 999
 ---
 
 如你所见，ILS 界面设计十分简洁、清爽，但功能齐全、不失优雅，这正是 ILS 的开发理念。也曾尝试过花里胡哨，发现不仅容易审美疲劳，而且背驰了写博客的初衷，记录生活、展示文字，应该才是搭建博客网站的最终追求，为此 ILS 应运而生。简约大气、不缺美感、突出内容、化繁为简、配置简单、长期维护，如果你也喜欢或认可这些主题特点，一起来折腾吧~
@@ -13,7 +14,7 @@ categories: [hexo]
 
 ## Features 功能特性
 
-### Completed
+### Completed 已完成
 
 - [x] 恰到好处的留白，简约大气；
 - [x] 响应式设计，适配多种终端；
@@ -22,6 +23,7 @@ categories: [hexo]
 - [x] 语言国际化，已支持中/英文；
 - [x] 内置多款评论插件；
 - [x] 支持全站文章搜索；
+- [x] 支持文章顶置；
 - [x] 网站访问统计和文章阅读统计；
 - [x] 页面滚动百分比提示；
 - [x] 一键快速回到顶部；
@@ -30,7 +32,7 @@ categories: [hexo]
 
 <!-- more -->
 
-### Unfinished
+### Unfinished 未完成
 
 - RSS 订阅
 - 代码块一键复制
@@ -39,7 +41,6 @@ categories: [hexo]
 - 字数统计 & 阅读时长
 - 支持公式
 - 在线更改字体/字号
-- 文章顶置
 - 打赏功能
 - ......
 
@@ -70,11 +71,13 @@ Modify `theme` setting in `_config.yml` to `ils`.
 - 下载 [主题最新 release 版本](https://github.com/XPoet/hexo-theme-ils/releases)  
   下载后解压到 Hexo 博客目录下 themes 文件夹里面并重命名为 `ils`。
 
-## Configuration 配置
+## How to use 如何使用
+
+### Configuration 配置
 
 ```yml
 # theme basic info
-# 该主题的基本信息，此处不用改动。
+# 该主题的基本信息，无需改动。
 theme_info:
   name: ILS
   version: 1.0.0
@@ -87,6 +90,8 @@ menu:
   Home: /
   Archives: /archives
   About: /about
+  Links: /links
+  ...
 
 # RSS
 # RSS 订阅，v1.0.0 未实现（欢迎PR）。
@@ -97,8 +102,7 @@ rss: /atom.xml
 favicon: images/favicon.png
 
 # comment plugin
-# 评论插件，
-# 当前版本只内置只支持 Valine，欢迎参与贡献代码，增加其他评论插件。
+# 评论插件，内置 Valine 和 Gitalk
 comments:
   # Valine.
   # more info please open https://github.com/xCss/Valine
@@ -109,7 +113,19 @@ comments:
     appkey: # your leancloud application appkey
     notify: false # mail notifier, https://github.com/xCss/Valine/wiki
     verify: false # Verification code
-    placeholder: 填写昵称和邮箱才能收到回复通知哦~
+    placeholder: your placeholder
+  
+  # Gitalk
+  # For more information: https://gitalk.github.io, https://github.com/gitalk/gitalk
+  # 如何使用 gitalk, 请前往 https://github.com/gitalk/gitalk
+  gitalk:
+    enable: false
+    github_id:     # GitHub repo owner
+    repository:    # Repository name to store issues
+    client_id:     # GitHub Application Client ID
+    client_secret: # GitHub Application Client Secret
+    distraction_free_mode: false # Facebook-like distraction free mode
+
 
 # Show PV/UV of the website/page with busuanzi.
 # 不蒜子计数插件
@@ -147,7 +163,36 @@ local_search:
   preload: false
 ```
 
-## Add page 添加页面
+### Comment function 评论功能
+主题内置了 Valine 和 Gitalk 两款评论插件，你只能使用其他一款，如果两款评论插件的 enable 都设为了 true，将使用 Valine。
+
+#### Valine 用法
+前往 https://github.com/xCss/Valine 查看 Valine 如何使用，获取必要的参数，填写在配置文件里。
+
+#### Gitalk 用法
+1. 在自己的 GitHub 账号下创建新的 OAuth App ，传送门：https://github.com/settings/applications/new，Homepage URL 和 Authorization callback URL 均填写自己的域名。
+2. 在自己的 GitHub 账号下创建新的 repository 并打开 Issues，用于存储评论内容。
+3. 把 自己的 GitHub 用户名称、repository 名称 、OAuth App 的 Client ID 、Client Secret 分别填写在主题配置文件里。  
+
+**前往 https://github.com/gitalk/gitalk 查看 Gitalk 用法的更多信息。**
+
+### Post top 文章顶置
+实现文章顶置功能，需在 Hexo 博客根目录下安装插件 **hexo-generator-index-pin-top**  
+```bash
+npm install hexo-generator-index-pin-top
+```
+然后在 `_posts` 文件夹里的需要顶置的文章页添加 `top` 属性，**top** 值越大，顶置越靠前，参考如下。
+```markdown
+---
+title: 千呼万唤始出来，hexo-theme-ils v1.0.0 正式分布
+date: 2020-04-07 21:55:14
+tags: [hexo]
+categories: [hexo]
+top: 999
+---
+```
+
+### Add page 添加页面
 
 **Hexo 初始化没有 about、links、tag、category 等页面，需要自己手动创建。**  
 例如创建「关于」页面：
@@ -165,7 +210,7 @@ local_search:
    layout: about
    ---
 
-   这里写正文，支持 Markdown, HTML
+   这里写正文内容，支持 Markdown, HTML
    ```
 
 ## Feedback 反馈
