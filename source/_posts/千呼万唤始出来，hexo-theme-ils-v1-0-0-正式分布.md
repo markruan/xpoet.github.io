@@ -24,6 +24,7 @@ top: 999
 - [x] 内置多款评论插件；
 - [x] 支持全站文章搜索；
 - [x] 支持文章顶置；
+- [x] RSS 订阅；
 - [x] 网站访问统计和文章阅读统计；
 - [x] 页面滚动百分比提示；
 - [x] 一键快速回到顶部；
@@ -34,7 +35,6 @@ top: 999
 
 ### Unfinished 未完成
 
-- RSS 订阅
 - 代码块一键复制
 - 文章版权信息
 - TOC 目录结构
@@ -94,8 +94,9 @@ menu:
   ...
 
 # RSS
-# RSS 订阅，v1.0.0 未实现（欢迎PR）。
-rss: /atom.xml
+# 若要启用 RSS 订阅功能，需安装 Hexo 插件 hexo-generator-feed。
+rss:
+  enable: false
 
 # favicon
 # 网站 icon 图标，换成自己的图片即可。
