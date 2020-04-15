@@ -24,7 +24,7 @@ comments:
   # Valine.
   # more info please open https://github.com/xCss/Valine
   valine:
-    enable: false
+    enable: true
     appid: ih2nzG3ilVNdLgJK4kBXTjOq-gzGzoHsz
     appkey: gdf6tXXLBTLg9qpjS2y6Tbw7
     notify: false # mail notifier, https://github.com/xCss/Valine/wiki
@@ -34,7 +34,7 @@ comments:
   # Gitalk
   # For more information: https://gitalk.github.io, https://github.com/gitalk/gitalk
   gitalk:
-    enable: true
+    enable: false
     github_id: XPoet  # GitHub repo owner
     repository: gitalk-comment-plugin  # Repository name to store issues
     client_id: e7f9c899d3766b200da8  # GitHub Application Client ID
