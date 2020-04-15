@@ -2767,6 +2767,13 @@ input.search-input::-webkit-search-cancel-button {
   justify-content: center;
   margin-bottom: 12px;
 }
+.tools-container .tools-list li.rss a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
 .tools-container .tools-list li:hover {
   color: var(--primary-color);
   border-color: var(--primary-color);
