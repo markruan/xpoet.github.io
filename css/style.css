@@ -1663,45 +1663,45 @@
 }
 :root {
   --background-color: #fdfdfd;
-  --primary-color: #f04c12;
+  --primary-color: #1b65ea;
   --first-text-color: #3a3842;
   --second-text-color: #413f4a;
   --third-text-color: #787489;
   --normal-text-color: #44424e;
   --border-color: #d7d7d7;
-  --selection-color: #f37041;
+  --selection-color: #4984ee;
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: #3a3a3a;
-    --primary-color: #f04c12;
+    --primary-color: #1b65ea;
     --first-text-color: #cfcfcf;
     --second-text-color: #c9c9c9;
     --third-text-color: #969696;
     --normal-text-color: #bbb;
     --border-color: #616161;
-    --selection-color: #f37041;
+    --selection-color: #4984ee;
   }
 }
 .dark-mode {
   --background-color: #3a3a3a;
-  --primary-color: #f04c12;
+  --primary-color: #1b65ea;
   --first-text-color: #cfcfcf;
   --second-text-color: #c9c9c9;
   --third-text-color: #969696;
   --normal-text-color: #bbb;
   --border-color: #616161;
-  --selection-color: #f37041;
+  --selection-color: #4984ee;
 }
 .light-mode {
   --background-color: #fdfdfd;
-  --primary-color: #f04c12;
+  --primary-color: #1b65ea;
   --first-text-color: #3a3842;
   --second-text-color: #413f4a;
   --third-text-color: #787489;
   --normal-text-color: #44424e;
   --border-color: #d7d7d7;
-  --selection-color: #f37041;
+  --selection-color: #4984ee;
 }
 .fade-in-down-animation {
   animation-fill-mode: both;
@@ -2612,7 +2612,7 @@ input.search-input::-webkit-search-cancel-button {
   width: 100%;
   height: 2px;
   transform: translateX(-50%);
-  background: #f04c12;
+  background: #1b65ea;
   transition: all 0.5s ease;
 }
 .header-wrapper .header-content .menu-list .menu-item .active {
@@ -2628,7 +2628,7 @@ input.search-input::-webkit-search-cancel-button {
   width: 100%;
   height: 2px;
   transform: translateX(-50%);
-  background: #f04c12;
+  background: #1b65ea;
   transition: all 0.5s ease;
 }
 .header-wrapper .header-content .menu-bar {
@@ -2697,7 +2697,7 @@ input.search-input::-webkit-search-cancel-button {
   font-weight: bold;
 }
 .header-wrapper .header-drawer .drawer-menu-list .drawer-menu-item .active {
-  border: 1px solid #f04c12;
+  border: 1px solid #1b65ea;
   color: var(--second-text-color);
   font-weight: bold;
 }
@@ -2788,7 +2788,7 @@ input.search-input::-webkit-search-cancel-button {
   color: var(--third-text-color);
 }
 .footer a:hover {
-  color: #f04c12;
+  color: #1b65ea;
 }
 .footer .info-container {
   padding-bottom: 10px;
@@ -2898,7 +2898,7 @@ input.search-input::-webkit-search-cancel-button {
   color: var(--normal-text-color);
 }
 .archive-container .archive-item .article-list .article-item a.article-title:hover {
-  color: #f04c12;
+  color: #1b65ea;
 }
 .archive-container .archive-item .article-list .article-item .article-date {
   font-size: 0.8em;
@@ -3098,7 +3098,7 @@ pre::-webkit-scrollbar,
 }
 pre::-webkit-scrollbar-thumb,
 .highlight::-webkit-scrollbar-thumb {
-  border-radius: 5px;
+  border-radius: 1px;
   background: rgba(0,0,0,0.3);
 }
 pre::-webkit-scrollbar-track,
@@ -3250,4 +3250,53 @@ pre .coffeescript .title {
 pre .keyword,
 pre .javascript .function {
   color: var(--highlight-purple);
+}
+.highlight-container {
+  position: relative;
+}
+.highlight-container:hover .copy-btn,
+.highlight-container .copy-btn:focus {
+  opacity: 1;
+}
+.copy-btn {
+  color: #333;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.6;
+  opacity: 0;
+  outline: 0;
+  padding: 2px 6px;
+  position: absolute;
+  vertical-align: middle;
+  white-space: nowrap;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+  color: #fff;
+  font-size: 1em;
+  right: 2px;
+  top: 2px;
+}
+.highlight-container {
+  background: #21252b;
+  border-radius: 5px;
+  box-shadow: 0 10px 30px 0 rgba(0,0,0,0.4);
+  padding-top: 20px;
+  margin-top: 10px;
+}
+.highlight-container::before {
+  background: #fc625d;
+  border-radius: 50%;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+  content: ' ';
+  height: 12px;
+  left: 12px;
+  margin-top: -10px;
+  position: absolute;
+  width: 12px;
 }
