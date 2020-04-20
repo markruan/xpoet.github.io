@@ -48,7 +48,7 @@ busuanzi_count:
   # count values only if the other configs are false
   enable: true
   # custom uv span for the whole site
-  site_uv: true
+  site_uv: false
   # custom pv span for the whole site
   site_pv: true
   # custom pv span for one page only
@@ -73,3 +73,17 @@ codeblock:
   style: mac  # Available values: default | flat | mac
   copy_button:
     enable: true
+
+# Table of Contents in the Sidebar
+# Front-matter variable (unsupport wrap expand_all).
+toc:
+  enable: true
+  # Automatically add list number to toc.
+  number: true
+  # If true, all words will placed on next lines if header width longer then sidebar width.
+  wrap: false
+  # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
+  expand_all: false
+  # Maximum heading depth of generated toc.
+  max_depth: 6
+  min_depth: 1

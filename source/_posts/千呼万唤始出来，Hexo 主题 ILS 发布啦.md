@@ -1,5 +1,5 @@
 ---
-title: 千呼万唤始出来，Hexo 主题 ILS 正式分布
+title: 千呼万唤始出来，Hexo 主题 ILS 发布啦
 date: 2020-04-07 21:55:14
 tags: [hexo]
 categories: [hexo]
