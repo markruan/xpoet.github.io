@@ -86,4 +86,3 @@ toc:
   expand_all: false
   # Maximum heading depth of generated toc.
   max_depth: 6
-  min_depth: 1

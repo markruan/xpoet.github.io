@@ -23,11 +23,12 @@
 - [x] 响应式设计，适配多种终端；
 - [x] 日间/夜间模式自由切换；
 - [x] 多种代码高亮方案；
-- [x] 代码块一键复制；
 - [x] 语言国际化，已支持中/英文；
 - [x] 内置多款评论插件；
 - [x] 支持全站文章搜索；
 - [x] 支持文章顶置；
+- [x] 代码块一键复制；
+- [x] TOC 目录结构；
 - [x] RSS 订阅；
 - [x] 网站访问统计和文章阅读统计；
 - [x] 页面滚动百分比提示；
@@ -38,7 +39,6 @@
 ### Unfinished 未完成
 
 - 文章版权信息
-- TOC 目录结构
 - 字数统计 & 阅读时长
 - 支持公式
 - 在线更改字体/字号
@@ -166,6 +166,25 @@ local_search:
   unescape: false
   # Preload the search data when the page loads.
   preload: false
+
+# Code Block
+codeblock:
+  style: flat  # Available values: default | flat | mac
+  copy_button:
+    enable: true
+
+# Table of Contents in the Sidebar
+# Front-matter variable (unsupport wrap expand_all).
+toc:
+  enable: true
+  # Automatically add list number to toc.
+  number: true
+  # If true, all words will placed on next lines if header width longer then sidebar width.
+  wrap: false
+  # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
+  expand_all: false
+  # Maximum heading depth of generated toc.
+  max_depth: 6
 ```
 
 ### Comment function 评论功能
