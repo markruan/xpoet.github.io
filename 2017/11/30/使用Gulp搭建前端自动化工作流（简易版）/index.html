@@ -95,9 +95,11 @@
     </div>
 
     <div class="page-middle">
+
         <main class="main-content normal-code-theme">
-            
-                <div class="article-content-container">
+            <div class="main-content-left">
+                
+                    <div class="article-content-container">
     <div class="article-title">
         <h3><a class="title-hover-animation">使用gulp搭建前端自动化工作流环境（简易版）</a></h3>
     </div>
@@ -253,8 +255,23 @@
     </div>
 </div>
 
-            
+                
+            </div>
+            <div class="main-content-right">
+                <!-- TODO -->
+            </div>
         </main>
+
+        
+            <div class="sidebar-toc">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#什么是gulp？"><span class="nav-number">1.</span> <span class="nav-text">什么是gulp？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gulp优点"><span class="nav-number">2.</span> <span class="nav-text">gulp优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准备工作"><span class="nav-number">3.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤"><span class="nav-number">4.</span> <span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步-新建项目根文件夹-例：gulp-demo-，并在项目根目录下使用npm安装必要的包"><span class="nav-number">4.1.</span> <span class="nav-text">第一步 新建项目根文件夹(例：gulp-demo)，并在项目根目录下使用npm安装必要的包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步-在项目根文件夹-例：gulp-demo-下创建相关的文件结构"><span class="nav-number">4.2.</span> <span class="nav-text">第二步 在项目根文件夹(例：gulp-demo)下创建相关的文件结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#src-gulp编译之前的源文件"><span class="nav-number">4.2.1.</span> <span class="nav-text">src [gulp编译之前的源文件]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#node-modules"><span class="nav-number">4.2.2.</span> <span class="nav-text">node_modules</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#gulpfile-js"><span class="nav-number">4.2.3.</span> <span class="nav-text">gulpfile.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#dist-gulp编译之后的文件，即我们最终要得到文件"><span class="nav-number">4.2.4.</span> <span class="nav-text">dist [gulp编译之后的文件，即我们最终要得到文件]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#项目目录结构图示"><span class="nav-number">4.2.5.</span> <span class="nav-text">项目目录结构图示</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步-在gulpfile-js文件里编写具体的任务代码"><span class="nav-number">4.3.</span> <span class="nav-text">第三步 在gulpfile.js文件里编写具体的任务代码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#载入所需要的模块"><span class="nav-number">4.3.1.</span> <span class="nav-text">载入所需要的模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#less编译、压缩"><span class="nav-number">4.3.2.</span> <span class="nav-text">less编译、压缩</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JavaScript合并、压缩、混淆"><span class="nav-number">4.3.3.</span> <span class="nav-text">JavaScript合并、压缩、混淆</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将src文件夹下img图片复制到dist文件夹下img"><span class="nav-number">4.3.4.</span> <span class="nav-text">将src文件夹下img图片复制到dist文件夹下img</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#html代码压缩"><span class="nav-number">4.3.5.</span> <span class="nav-text">html代码压缩</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多浏览器同步操作，开启gulp监视文件变动"><span class="nav-number">4.3.6.</span> <span class="nav-text">多浏览器同步操作，开启gulp监视文件变动</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">5.</span> <span class="nav-text">使用</span></a></li></ol>
+    </div>
+</div>
+            </div>
+        
+
         <div class="sidebar-tools">
             <div class="tools-container">
     <ul class="tools-list">
@@ -283,6 +300,7 @@
             <span class="scroll-percent"></span>
             <button><i class="fa fa-caret-up"></i></button>
         </div>
+
     </div>
 
     <div class="page-bottom">
@@ -346,8 +364,22 @@
 <script src="/js/scroll-to-top.js"></script>
 
 
+
+
     
+        
 <script src="/js/code-copy.js"></script>
+
+    
+
+    
+        
+<script src="/lib/anime.min.js"></script>
+<script src="/js/toc.js"></script>
+
+    
+
+
 
 
 </body>
