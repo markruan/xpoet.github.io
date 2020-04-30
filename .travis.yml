@@ -29,26 +29,3 @@ deploy:
   target-branch: master         # 推送的目标分支 local_dir->>master 分支
   on:
     branch: hexo                # 工作分支
-
-
-
-
-#sudo: false
-#language: node_js
-#node_js:
-#  - 10 # use nodejs v10 LTS
-#cache: npm
-#branches:
-#  only:
-#    - hexo # build master branch only
-#script:
-#  - hexo clean
-#  - hexo generate # generate static files
-#deploy:
-#  provider: pages
-#  skip-cleanup: true
-#  github-token: $GH_TOKEN
-#  keep-history: true
-#  on:
-#    branch: hexo
-#  local-dir: public
