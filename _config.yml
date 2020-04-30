@@ -16,7 +16,7 @@ timezone: ''
 url: https://xpoet.cn
 root: /
 # permalink: :year/:month/:day/:title/
-permalink: :title/
+permalink: :year/:month/:title/
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
@@ -94,7 +94,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: ils
+theme: dist
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
