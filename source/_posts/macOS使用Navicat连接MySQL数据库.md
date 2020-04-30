@@ -1,7 +1,7 @@
 ---
 title: macOS 使用 Navicat 连接 MySQL 数据库
 date: 2019-07-11 18:26:05
-tags: [Mac, MySQL, Navicat]
+tags: [MySQL, Navicat]
 categories: [数据库]
 ---
 
