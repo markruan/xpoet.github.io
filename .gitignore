@@ -6,7 +6,7 @@ node_modules/
 public/
 .deploy*/
 
-themes/ils-dev
+themes/magic
 
 # dependencies
 /node_modules

@@ -1,7 +1,7 @@
 ---
 title: 在Mac下配置多个Git账户的SSH-Key
 date: 2018-07-16 16:33:01
-tags: [mac, git, ssh-key]
+tags: [Mac, Git, SSH-Key]
 categories: [技术教程]
 ---
 #### 准备工作

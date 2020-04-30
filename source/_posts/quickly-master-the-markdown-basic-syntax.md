@@ -1,7 +1,7 @@
 ---
 title: 快速掌握Markdown基础语法
 date: 2017-10-17 16:44:07
-tags: [Markdown, md语法]
+tags: [Markdown]
 categories: [技术教程]
 top: 10
 ---

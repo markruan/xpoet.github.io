@@ -1,10 +1,14 @@
-<div class="home-content-container">
+<div class="home-content-container fade-in-down-animation">
     <ul class="home-article-list">
         <% page.posts.forEach(post => { %>
             <li class="home-article-item">
+
                 <h3 class="home-article-title">
-                    <a class="title-hover-animation" href="<%- url_for(post.path) %>">
-                        <%= (post.top ? `[${__('top')}] ` : '') + post.title %>
+                    <a href="<%- url_for(post.path) %>">
+                        <% if (post.top) { %>
+                            <i class="fa fa-thumb-tack"></i>
+                        <% } %>
+                        <%= post.title %>
                     </a>
                 </h3>
 
@@ -17,11 +21,24 @@
                 </div>
 
                 <div class="home-article-meta-info">
-                    <span class="article-date">
-                        <i class="fa fa-pencil-square-o"></i> <%= date(post.date, 'YYYY-MM-DD') %>
-                    </span>
-                    <hr>
-                    <a href="<%- url_for(post.path) %>">阅读全文 <i class="fa fa-angle-right"></i></a>
+                    <div class="article-date">
+                        <span><i class="fa fa-pencil-square-o"></i> <%= date(post.date, 'YYYY-MM-DD') %></span>
+                        <% if (theme.magic.enable === true) { %>
+                            <span>
+                            <i class="fa fa-folder"></i>
+                            <ul>
+                                <% post.categories.forEach((category, i) => { %>
+                                    <li><%= i === 0 ? '' : '| ' %><a
+                                                href="<%- url_for(category.path) %>"><%= category.name %></a></li>
+                                <% }); %>
+                            </ul>
+                        </span>
+                        <% } %>
+                    </div>
+                    <% if (theme.magic.enable === false) { %>
+                        <hr>
+                    <% } %>
+                    <a href="<%- url_for(post.path) %>"><%- __('read_more') %> <i class="fa fa-angle-right"></i></a>
                 </div>
             </li>
         <% }) %>

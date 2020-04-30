@@ -1,14 +1,16 @@
 ---
-title: 千呼万唤始出来，Hexo 主题 ILS 发布啦
+title: 千呼万唤始出来，Hexo 主题 ILS 正式发布
 date: 2020-04-07 21:55:14
-tags: [hexo]
-categories: [hexo]
+tags: [Hexo]
+categories: [Hexo]
 top: 999
 ---
 
 如你所见，ILS 界面设计十分简洁、清爽，但功能齐全、不失优雅，这正是 ILS 的开发理念。也曾尝试过花里胡哨，发现不仅容易审美疲劳，而且背驰了写博客的初衷，记录生活、展示文字，应该才是搭建博客网站的最终追求，为此 ILS 应运而生。简约大气、不缺美感、突出内容、化繁为简、配置简单、长期维护，如果你也喜欢或认可这些主题特点，一起来折腾吧~
 
 关于主题名称 **"ILS"** 的由来：在主题开发之初，作者想到的几个名字都被已被用，词穷了，后来干脆将名字取自 **"I Like Simple「我喜欢简单」"** 首字母，就是这么简单。
+
+<!-- more -->
 
 同时，非常欢迎感兴趣的同学 Pull Request 加入到该主题的开发中，共同打造极致 ILS。
 
@@ -25,6 +27,7 @@ top: 999
 - [x] 内置多款评论插件；
 - [x] 支持全站文章搜索；
 - [x] 支持文章顶置；
+- [x] TOC 目录结构；
 - [x] RSS 订阅；
 - [x] 网站访问统计和文章阅读统计；
 - [x] 页面滚动百分比提示；
@@ -32,12 +35,9 @@ top: 999
 - [x] 代码精简高效，无 jQuery；
 - [x] 配置项简单，有详细注释；
 
-<!-- more -->
-
 ### Unfinished 未完成
 
 - 文章版权信息
-- TOC 目录结构
 - 字数统计 & 阅读时长
 - 支持公式
 - 在线更改字体/字号
@@ -164,13 +164,13 @@ local_search:
   preload: false
 ```
 
-### Comment function 评论功能
+### Comment 评论
 主题内置了 Valine 和 Gitalk 两款评论插件，你只能使用其他一款，如果两款评论插件的 enable 都设为了 true，将使用 Valine。
 
-#### Valine 用法
+#### Valine
 前往 https://github.com/xCss/Valine 查看 Valine 如何使用，获取必要的参数，填写在配置文件里。
 
-#### Gitalk 用法
+#### Gitalk
 1. 在自己的 GitHub 账号下创建新的 OAuth App ，传送门：https://github.com/settings/applications/new，Homepage URL 和 Authorization callback URL 均填写自己的域名。
 2. 在自己的 GitHub 账号下创建新的 repository 并打开 Issues，用于存储评论内容。
 3. 把 自己的 GitHub 用户名称、repository 名称 、OAuth App 的 Client ID 、Client Secret 分别填写在主题配置文件里。  

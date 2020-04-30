@@ -1,13 +1,16 @@
 <%- js([
     'js/main.js',
     'js/header-shrink.js',
-    'js/toggle-mode.js',
-    'js/scroll-to-top.js'
+    'js/toggle-mode.js'
 ]) %>
+
+<% if (theme.back2top.enable) { %>
+    <%- js('js/scroll-to-top.js') %>
+<% } %>
 
 <% if (is_post()) { %>
 
-    <% if (theme.codeblock.copy_button.enable) { %>
+    <% if (theme.code_copy.enable) { %>
         <%- js('js/code-copy.js') %>
     <% } %>
 

@@ -1,8 +1,8 @@
 ---
 title: 基于Node.js搭建Socket聊天室
 date: 2018-02-07 14:06:12
-tags: [node.js, socket]
-categories: [前端开发]
+tags: [Node.js]
+categories: [前端]
 ---
 ##### 前言
 可以毫不夸张的说，Node.js的出现带动了整个前端界的繁荣发展，自此进入百花齐放，百家争鸣的时代。时至今天，我们能用Node.js实现很多依靠传统服务器端编程语言才能实现的事，甚至更加简便、更加高效。  

@@ -1,8 +1,8 @@
 ---
 title: CSS实现元素垂直居中的几种方法
 date: 2018-02-02 16:54:40
-tags: [CSS, CSS3]
-categories: [前端开发]
+tags: [CSS, 垂直居中]
+categories: [前端]
 ---
 > __*以下几种CCS实现元素垂直居中的方法，均不考虑低版本浏览器。*__
 
