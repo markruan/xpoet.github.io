@@ -1,10 +1,7 @@
 # 编译语言、环境
-language: node_js
-
-# 指定 CI 系统版本为 Ubuntu16.04 LTS
-#dist: xenial
-
+dist: xenial
 os: linux
+language: node_js
 
 # Node.js 版本
 node_js:
@@ -29,7 +26,6 @@ script: # 执行脚本，清除缓存，生成静态文件
 deploy:
   strategy: git
   provider: pages
-#  skip_cleanup: true      # 跳过清理
   token: $GH_TOKEN        # GitHub Token 变量
   keep_history: true      # 保持推送记录，以增量提交的方式
   local_dir: public       # 需要推送到 GitHub 的静态文件目录
