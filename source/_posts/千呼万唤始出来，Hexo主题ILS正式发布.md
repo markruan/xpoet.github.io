@@ -48,6 +48,9 @@ top: 9999
 
 ## Get start 快速开始
 
+在开始使用主题之前，强烈建议你先阅读 「Easy Hexo 团队」撰写的 Hexo 教程！
+链接：https://easyhexo.com/
+
 ### Install 安装
 
 - 使用 Git SSH
@@ -79,119 +82,162 @@ Modify `theme` setting in `_config.yml` to `ils`.
 
 ```yml
 # theme basic info
-# 该主题的基本信息，无需改动。
+# 主题基本信息，无需改动。
 theme_info:
   name: ILS
-  version: 1.0.0
+  version: 1.1.0
   author: XPoet
   repository: https://github.com/XPoet/hexo-theme-ils
 
+# favicon
+# 网站图标，请在 "/source/images/" 目录，换成自己的即可。
+favicon: images/favicon.png
+
+# avatar
+# 头像图片，请在 "/source/images/" 目录，换成自己的即可。
+avatar: images/avatar.png
+
 # navigation menu
-# 导航菜单，如需增加，请按下面格式填写。
+# 导航菜单，如需新增导航，请按下面格式填写，同时需要添加对应的 Hexo 页面。
+# 新增页面，请参考往下的教程："Add page 添加页面"。
 menu:
   Home: /
   Archives: /archives
-  About: /about
-  Links: /links
-  ...
+  # About: /about
+  # Links: /links
+  # ...
 
 # RSS
-# 若要启用 RSS 订阅功能，需安装 Hexo 插件 hexo-generator-feed。
+# RSS 订阅，如需启用，请先安装 Hexo 插件：hexo-generator-feed。
 rss:
-  enable: false
-
-# favicon
-# 网站 icon 图标，换成自己的图片即可。
-favicon: images/favicon.png
+  enable: true
 
 # comment plugin
-# 评论插件，内置 Valine 和 Gitalk
+# 评论插件，主题内置了 Valine 和 Gitalk，只能使用其中一款，如果 enable 都设为了 true，将使用 Valine。
 comments:
-  # Valine.
-  # more info please open https://github.com/xCss/Valine
-  # 如何使用 Valine, 请前往 https://github.com/xCss/Valine
+  # Valine https://github.com/xCss/Valine
+  # 如何使用 Valine 请参考：https://github.com/xCss/Valine
   valine:
     enable: false
-    appid: # your leancloud application appid
-    appkey: # your leancloud application appkey
-    notify: false # mail notifier, https://github.com/xCss/Valine/wiki
-    verify: false # Verification code
-    placeholder: your placeholder
-  
-  # Gitalk
-  # For more information: https://gitalk.github.io, https://github.com/gitalk/gitalk
-  # 如何使用 gitalk, 请前往 https://github.com/gitalk/gitalk
+    appid:   # leancloud appid
+    appkey:  # leancloud appkey
+    meta: ['nick', 'mail', 'link']
+    placeholder: 😜尽情吐槽吧~
+
+  # Gitalk https://github.com/gitalk/gitalk
+  # 如何使用 Gitalk 请参考：https://github.com/gitalk/gitalk
   gitalk:
     enable: false
-    github_id:     # GitHub repo owner
-    repository:    # Repository name to store issues
-    client_id:     # GitHub Application Client ID
-    client_secret: # GitHub Application Client Secret
-    distraction_free_mode: false # Facebook-like distraction free mode
+    github_id:      # GitHub repo owner
+    repository:     # Repository name to store issues
+    client_id:      # GitHub Application Client ID
+    client_secret:  # GitHub Application Client Secret
 
-
-# Show PV/UV of the website/page with busuanzi.
-# 不蒜子计数插件
-# Get more information on http://ibruce.info/2015/04/04/busuanzi/
-busuanzi_count:
-  # count values only if the other configs are false
-  enable: false
-
-  # custom uv span for the whole site
-  # 网站访问人数统计
-  site_uv: false
-
-  # custom pv span for the whole site
-  # 网站总访问量统计
-  site_pv: false
-
-  # custom pv span for one page only
-  # 文章页面阅读次数统计
-  page_pv: false
+# website count
+# 网站计数
+website_count:
+  # busuanzi http://ibruce.info/2015/04/04/busuanzi/
+  busuanzi_count:
+    enable: false
+    site_uv: false
+    site_pv: false
+    page_pv: false
 
 # Local Search
 # Dependencies: https://github.com/theme-next/hexo-generator-searchdb
-# 全站文章搜索功能，默认不开启，如需开启，请先在 Hexo 博客目录下安装 hexo-generator-searchdb
-# 详情请参考：https://github.com/theme-next/hexo-generator-searchdb
+# 本地搜索，如需启用，请先安装 Hexo 插件：hexo-generator-searchdb。
 local_search:
-  enable: fales
+  enable: true
+
   # If auto, trigger search by changing input.
   # If manual, trigger search by pressing enter key or search button.
-  trigger: auto
-  # Show top n results per article, show all results by setting to -1
-  top_n_per_article: 1
+  # 输入关键字后的触发搜索，可选 自动 auto 或 手动 manual。
+  # auto 每输入或删除一个字符后，自动触发搜索。
+  # manual 每输入或删除一个字符后，需要按回车键触发搜索。
+  trigger: auto  # values: auto | manual
+
   # Unescape html strings to the readable one.
+  # 转义 HTML 字符串为可读字符串。
   unescape: false
+
   # Preload the search data when the page loads.
-  preload: false
+  # 在页面加载时预加载搜索数据
+  preload: true
+
+# Code Copy
+# 代码复制，复制风格可选 default | flat | mac。
+code_copy:
+  enable: true
+  style: flat  # values: default | flat | mac
+
+# sidebar tools
+# 侧边栏工具，位置可选 left | right。
+side_tools:
+  enable: true
+  position: right  # values: left | right
+
+# back to top
+# 回到顶部，位置可选 left | right。
+back2top:
+  enable: true
+  position: right  # values: left | right
+
+# Table of Contents in the Sidebar
+# 文章目录结构
+toc:
+  enable: true
+
+  # Automatically add list number to toc.
+  # 给文章目录自动加上序号。
+  number: true
+
+  # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
+  # 是否展开所有目录
+  expand_all: true
+
+# magic
+# magic 为 v1.1.0 增加的新特性，如果启用，主题样式将发生较大的改变。 
+magic:
+  enable: true
+  sidebar:
+    enable: false
+    fixed: true
+    position: right  # values: left | right
 ```
 
 ### Comment 评论
+
 主题内置了 Valine 和 Gitalk 两款评论插件，你只能使用其他一款，如果两款评论插件的 enable 都设为了 true，将使用 Valine。
 
 #### Valine
+
 前往 https://github.com/xCss/Valine 查看 Valine 如何使用，获取必要的参数，填写在配置文件里。
 
 #### Gitalk
-1. 在自己的 GitHub 账号下创建新的 OAuth App ，传送门：https://github.com/settings/applications/new，Homepage URL 和 Authorization callback URL 均填写自己的域名。
-2. 在自己的 GitHub 账号下创建新的 repository 并打开 Issues，用于存储评论内容。
-3. 把 自己的 GitHub 用户名称、repository 名称 、OAuth App 的 Client ID 、Client Secret 分别填写在主题配置文件里。  
 
-**前往 https://github.com/gitalk/gitalk 查看 Gitalk 用法的更多信息。**
+1. 在自己的 GitHub 账号下创建新的 OAuth App，链接：https://github.com/settings/applications/new ，Homepage URL 和 Authorization callback URL 均填写自己的域名即可。
+2. 在自己的 GitHub 账号下创建新的 repository 并打开 Issues，用于存储评论内容。
+3. 把自己的 GitHub 用户名称、repository 名称 、OAuth App 的 Client ID 、Client Secret 分别填写在主题配置文件里。
+
+前往 https://github.com/gitalk/gitalk 查看 Gitalk 更多信息。
 
 ### Post top 文章顶置
-实现文章顶置功能，需在 Hexo 博客根目录下安装插件 **hexo-generator-index-pin-top**  
+
+实现文章顶置功能，需在 Hexo 博客根目录下安装插件 **hexo-generator-index-pin-top**。
+
 ```bash
 npm install hexo-generator-index-pin-top
 ```
+
 然后在 `_posts` 文件夹里的需要顶置的文章页添加 `top` 属性，**top** 值越大，顶置越靠前，参考如下。
+
 ```markdown
 ---
-title: 千呼万唤始出来，hexo-theme-ils v1.0.0 正式分布
+title: 千呼万唤始出来，Hexo 主题 ILS 正式发布
 date: 2020-04-07 21:55:14
-tags: [hexo]
-categories: [hexo]
-top: 999
+tags: [Hexo]
+categories: [Hexo]
+top: 9999
 ---
 ```
 
@@ -204,22 +250,26 @@ top: 999
    ```bash
    hexo new page about
    ```
-2. 创建成功后，编辑博客目录下 `/source/about/index.md`，添加 `layout: about` 属性。  
-   修改后的文件示例如下：
+2. 创建成功后，打开博客目录下 `/source/about/index.md` 文件，即可填写内容。  
+   如下示例：
 
-   ```bash
-   title: about
-   date: 2020-04-08 16:29:00
-   layout: about
+   ```markdown
    ---
-
-   这里写正文内容，支持 Markdown, HTML
+   title: about
+   date: 2020-03-19 14:59:53
+   comments: true
+   ---
+   ## About me
+   - XPoet「 X诗人 」... 
+   ...
+   ...
+   ...
    ```
 
 ## Feedback 反馈
 
-在使用主题过程中，如果遇到问题，请仔细阅读文档，或者提 `issue`。
+在使用该主题过程中，如果遇到问题，请仔细阅读使用文档，或者给作者提 `issue`。
 
-## Licence 许可证
+## Licence 许可
 
 [MIT](https://github.com/XPoet/hexo-theme-ils/blob/master/LICENSE) Copyright (c) 2020 XPoet
