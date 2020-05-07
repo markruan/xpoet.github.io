@@ -3103,7 +3103,7 @@ input.search-input::-webkit-search-cancel-button {
   left: 30px;
 }
 .article-toc-container .article-toc {
-  max-width: 200px;
+  max-width: 188px;
   max-height: 600px;
   background: var(--background-color);
   box-shadow: 0 0 3px var(--border-color);
