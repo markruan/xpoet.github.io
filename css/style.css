@@ -2950,6 +2950,29 @@ input.search-input::-webkit-search-cancel-button {
 .about-container .about-content h6:first-child {
   margin-top: 0;
 }
+.links-container {
+  background: var(--background-color);
+  box-shadow: 0 0 3px var(--border-color);
+  transition: all 0.3s ease;
+  padding: 30px;
+  border-radius: 2px;
+}
+.links-container:hover {
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px var(--border-color);
+  transform: scaleX(1.005) scaleY(1.01);
+}
+.links-container .links-content {
+  margin-bottom: 30px;
+}
+.links-container .links-content h1:first-child,
+.links-container .links-content h2:first-child,
+.links-container .links-content h3:first-child,
+.links-container .links-content h4:first-child,
+.links-container .links-content h5:first-child,
+.links-container .links-content h6:first-child {
+  margin-top: 0;
+}
 .article-meta-info {
   color: var(--third-text-color);
   font-size: 0.8em;

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     <title>
-        CSS实现元素垂直居中的几种方法 | XPoet Blog
+        CSS 元素垂直居中的几种常用方法 | XPoet Blog
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -57,6 +57,14 @@
                     </a>
                 </li>
             
+                <li class="menu-item">
+                    <a class=""
+                       href="/links"
+                    >
+                        LINKS
+                    </a>
+                </li>
+            
         </ul>
 
         <div class="menu-bar">
@@ -82,6 +90,11 @@
                        href="/about">ABOUT</a>
                 </li>
             
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/links">LINKS</a>
+                </li>
+            
         </ul>
     </div>
 
@@ -102,7 +115,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <h3><a class="title-hover-animation">CSS实现元素垂直居中的几种方法</a></h3>
+            <h3><a class="title-hover-animation">CSS 元素垂直居中的几种常用方法</a></h3>
         </div>
 
         <div class="meta-info">
@@ -147,19 +160,16 @@
         </div>
 
         <div class="article-content markdown-body">
-            <blockquote>
-<p><strong><em>以下几种CCS实现元素垂直居中的方法，均不考虑低版本浏览器。</em></strong></p>
-</blockquote>
-<h5 id="方法一：子绝父相（子元素绝对定位，父元素相对定位）"><a href="#方法一：子绝父相（子元素绝对定位，父元素相对定位）" class="headerlink" title="方法一：子绝父相（子元素绝对定位，父元素相对定位）"></a>方法一：子绝父相（子元素绝对定位，父元素相对定位）</h5><p>1.1 不知道子元素高度和父元素高度的情况。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parentElement</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.childElement</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>1.2 知道子元素高度和父元素高度的情况。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parentElement</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.childElement</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <h3 id="子绝父相"><a href="#子绝父相" class="headerlink" title="子绝父相"></a>子绝父相</h3><p>子绝父相：子元素绝对定位，父元素相对定位。</p>
+<h4 id="不知道子元素高度和父元素高度的情况"><a href="#不知道子元素高度和父元素高度的情况" class="headerlink" title="不知道子元素高度和父元素高度的情况"></a>不知道子元素高度和父元素高度的情况</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parentElement</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.childElement</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="知道子元素高度和父元素高度的情况"><a href="#知道子元素高度和父元素高度的情况" class="headerlink" title="知道子元素高度和父元素高度的情况"></a>知道子元素高度和父元素高度的情况</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parentElement</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.childElement</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<h5 id="方法二：子元素相对定位"><a href="#方法二：子元素相对定位" class="headerlink" title="方法二：子元素相对定位"></a>方法二：子元素相对定位</h5><p>父元素设置了高度，而且父元素里面只有一个子元素，可使用子元素相对定位。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parentElement</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: xxxx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.childElement</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="子元素相对定位"><a href="#子元素相对定位" class="headerlink" title="子元素相对定位"></a>子元素相对定位</h3><p>父元素设置了高度，而且父元素里面只有一个子元素，可使用子元素相对定位。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parentElement</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: xxpx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.childElement</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h5 id="方法三：CSS3-flex-布局"><a href="#方法三：CSS3-flex-布局" class="headerlink" title="方法三：CSS3 flex 布局"></a>方法三：CSS3 flex 布局</h5><p>如果不考虑低版本浏览器兼容性，用CSS3的flex布局就非常简单咯。</p>
+<h3 id="CSS3-flex"><a href="#CSS3-flex" class="headerlink" title="CSS3 flex"></a>CSS3 flex</h3><p>如果不考虑低版本浏览器兼容性，用CSS3的flex布局就非常简单咯。</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parentElement</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
         </div>
 
@@ -212,7 +222,7 @@
         <div class="article-toc">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#方法一：子绝父相（子元素绝对定位，父元素相对定位）"><span class="nav-number">1.</span> <span class="nav-text">方法一：子绝父相（子元素绝对定位，父元素相对定位）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方法二：子元素相对定位"><span class="nav-number">2.</span> <span class="nav-text">方法二：子元素相对定位</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方法三：CSS3-flex-布局"><span class="nav-number">3.</span> <span class="nav-text">方法三：CSS3 flex 布局</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#子绝父相"><span class="nav-number">1.</span> <span class="nav-text">子绝父相</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#不知道子元素高度和父元素高度的情况"><span class="nav-number">1.1.</span> <span class="nav-text">不知道子元素高度和父元素高度的情况</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#知道子元素高度和父元素高度的情况"><span class="nav-number">1.2.</span> <span class="nav-text">知道子元素高度和父元素高度的情况</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#子元素相对定位"><span class="nav-number">2.</span> <span class="nav-text">子元素相对定位</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS3-flex"><span class="nav-number">3.</span> <span class="nav-text">CSS3 flex</span></a></li></ol>
     </div>
 </div>
         </div>
@@ -220,6 +230,7 @@
 
 
                 
+
             </div>
 
             
