@@ -5,7 +5,7 @@ tags: [Markdown]
 categories: [技术教程]
 top: 10
 ---
-### 什么是 Markdown ？
+### 什么是 Markdown
 Markdown 是一种**「轻量级标记语言」**，用途广泛，其使用简洁的语法代替常见的排版格式，从而能使我们专心于写作，在最大程度上提高效率。Markdown 的语法十分简单，常用的标记符号也不超过十个，学习成本极低，一旦熟悉这种语法规则，将会有一劳永逸的效果。  
 
 > We believe that writing is about content, about what you want to say – not about fancy formatting.

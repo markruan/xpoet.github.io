@@ -262,4 +262,4 @@ rl.question('请输入聊天昵称：', (nickname) => {
 ![Demo演示gif](https://user-images.githubusercontent.com/24516169/36706486-f24b8e48-1ba4-11e8-8627-f236d924330d.gif)
 
 ##### 项目下载
-本案例源代码托管于GitHub，下载：[传送门](https://github.com/itPoet/node.js-chartroom)
+本案例源代码托管于GitHub，下载：[传送门](https://github.com/XPoet/node.js-chartroom)
