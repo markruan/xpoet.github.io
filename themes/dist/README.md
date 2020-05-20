@@ -8,6 +8,22 @@
 **一款简约轻快的 Hexo 主题。**  
 **A simple and light theme for Hexo.**
 
+![Preview Image](https://user-images.githubusercontent.com/24516169/82140521-ae324080-9861-11ea-809f-ea73d09e24ad.jpg)
+
+<details>
+
+<summary>点击展开，查看更多预览图。</summary>
+
+![Preview Image](https://user-images.githubusercontent.com/24516169/82140654-e8501200-9862-11ea-8013-935897635d17.png)
+
+![Preview Image](https://user-images.githubusercontent.com/24516169/82140673-10d80c00-9863-11ea-9b2e-9fcf575e9aef.png)
+
+![Preview Image](https://user-images.githubusercontent.com/24516169/82140717-5d234c00-9863-11ea-85cc-99d15e6960fe.png)
+
+![Preview Image](https://user-images.githubusercontent.com/24516169/82140755-9a87d980-9863-11ea-868b-00de092aa64e.png)
+
+</details>
+
 **Online Preview 在线预览**
 > 如果你在使用该主题，欢迎 PR 将站点链接放置此处。
 - [XPoet Blog](https://xpoet.cn)
@@ -46,7 +62,6 @@
 - [ ] 文章版权信息；
 - [ ] 文章字数统计；
 - [ ] 文章阅读时长；
-- [ ] 文章支持显示公式；
 - [ ] 文章支持显示公式；
 - [ ] 在线更改字体和字号
 - [ ] 打赏功能
@@ -91,7 +106,7 @@ Modify `theme` setting in `_config.yml` to `ils`.
 # 主题基本信息，无需改动。
 theme_info:
   name: ILS
-  version: 1.1.0
+  version: 1.1.1
   author: XPoet
   repository: https://github.com/XPoet/hexo-theme-ils
 
