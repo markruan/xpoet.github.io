@@ -192,8 +192,14 @@
   top: 90px !important;
 }
 @media screen and (max-width: 760px) {
+  .page-template {
+    padding-top: 70px !important;
+  }
+  .page-top {
+    height: 70px !important;
+  }
   .main-content {
-    width: 72% !important;
+    width: 80% !important;
   }
   .sidebar-tools {
     right: 2% !important;
@@ -204,5 +210,16 @@
     right: 2% !important;
     transform-origin: right bottom;
     transform: scale(0.8);
+  }
+}
+@media screen and (max-width: 480px) {
+  .page-template {
+    padding-top: 60px !important;
+  }
+  .page-top {
+    height: 60px !important;
+  }
+  .main-content {
+    width: 90% !important;
   }
 }

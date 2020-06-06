@@ -75,6 +75,7 @@
   transition: all 0.3s ease;
   padding: 30px;
   border-radius: 2px;
+ils-tablet()
 }
 .links-container:hover {
   transition: all 0.3s ease;
@@ -83,6 +84,7 @@
 }
 .links-container .links-content {
   margin-bottom: 30px;
+ils-tablet()
 }
 .links-container .links-content h1:first-child,
 .links-container .links-content h2:first-child,

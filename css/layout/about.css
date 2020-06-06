@@ -75,6 +75,7 @@
   transition: all 0.3s ease;
   padding: 30px;
   border-radius: 2px;
+ils-tablet()
 }
 .about-container:hover {
   transition: all 0.3s ease;
@@ -83,6 +84,7 @@
 }
 .about-container .about-content {
   margin-bottom: 30px;
+ils-tablet()
 }
 .about-container .about-content h1:first-child,
 .about-container .about-content h2:first-child,

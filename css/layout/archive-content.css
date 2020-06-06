@@ -75,6 +75,7 @@
   transition: all 0.3s ease;
   padding: 30px;
   border-radius: 2px;
+ils-tablet()
 }
 .archive-container:hover {
   transition: all 0.3s ease;
