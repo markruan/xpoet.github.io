@@ -36,7 +36,8 @@ comments:
     enable: true
     appid: ih2nzG3ilVNdLgJK4kBXTjOq-gzGzoHsz
     appkey: gdf6tXXLBTLg9qpjS2y6Tbw7
-    meta: ['nick', 'mail']
+    # meta: ['nick', 'mail']
+    meta: ['nick', 'mail', 'link']
     placeholder: 😜尽情吐槽吧~
 
   # Gitalk https://github.com/gitalk/gitalk
