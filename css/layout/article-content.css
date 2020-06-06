@@ -162,6 +162,19 @@
 .article-content-container .article-nav .article-next {
   float: right;
 }
+.article-content-container .article-nav .post-nav-item {
+  display: none;
+}
+@media (max-width: 760px) {
+  .article-content-container .article-nav .post-nav-item {
+    display: inline-block;
+  }
+}
+@media (max-width: 760px) {
+  .article-content-container .article-nav .post-nav-title-item {
+    display: none;
+  }
+}
 .article-toc-container {
   position: fixed;
   top: 110px;
