@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    
+    <title>
+        15个必须掌握的 JavaScript 数组方法 | XPoet Blog
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <link rel="shortcut icon" href="/images/favicon.png">
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <script id="hexo-configurations">
+    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","unescape":false,"preload":true},"themeInfo":{"name":"ILS","version":"1.1.1","author":"XPoet","repository":"https://github.com/XPoet/hexo-theme-ils"},"path":"search.json"};
+  </script>
+<meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="XPoet Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="page-template">
+    <div class="page-top">
+        <header class="header-wrapper">
+
+    <div class="header-content">
+
+        <a class="logo-title" href="/">
+            XPoet Blog
+        </a>
+
+        <ul class="menu-list">
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/"
+                    >
+                        HOME
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/archives"
+                    >
+                        ARCHIVES
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/links"
+                    >
+                        LINKS
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/about"
+                    >
+                        ABOUT
+                    </a>
+                </li>
+            
+        </ul>
+
+        <div class="menu-bar">
+            <div class="menu-bar-middle"></div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/links">LINKS</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+
+    <div class="page-middle ">
+
+        <main class="main-content normal-code-theme">
+
+            <div class="main-content-left">
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <h3><a class="title-hover-animation">15个必须掌握的 JavaScript 数组方法</a></h3>
+        </div>
+
+        <div class="meta-info">
+            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa fa-calendar-o"></i> 2020-06-09 16:37:52
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa fa-folder"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa fa-tags"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/tags/JavaScript/">JavaScript</a>
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%95%B0%E7%BB%84/">数组</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa fa-eye"></i> <span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+        </div>
+
+        <div class="article-content markdown-body">
+            <p>在 JavaScript 中，数组是一个特殊的变量，用于存储不同的元素。它具有一些内置属性和方法，可用于根据需要添加，删除，迭代或操作数。并且了解 JavaScript 数组方法可以提升你的开发技能。</p>
+<p>在本文中，我们将介绍 15 种关于 JavaScript 的数组方法，这些方法可以帮助你正确地处理数据。</p>
+<ul>
+<li>some()</li>
+<li>reduce()</li>
+<li>Every()</li>
+<li>map()</li>
+<li>flat()</li>
+<li>filter()</li>
+<li>forEach()</li>
+<li>findIndex()</li>
+<li>find()</li>
+<li>sort()</li>
+<li>concat()</li>
+<li>fill()</li>
+<li>includes()</li>
+<li>reverse()</li>
+<li>flatMap()</li>
+</ul>
+<h4 id="some"><a href="#some" class="headerlink" title="some()"></a>some()</h4><p>此方法为参数传递的函数测试数组。如果有一个元素与测试元素匹配，则返回 <code>true</code>，否则返回 <code>false</code>。</p>
+<blockquote>
+<p>译者注： <code>some()</code> 不会对空数组进行检测；<code>some()</code> 不会改变原始数组。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myAwesomeArray = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>, <span class="string">"e"</span>]</span><br><span class="line">myAwesomeArray.some(<span class="function"><span class="params">test</span> =&gt;</span> test === <span class="string">"d"</span>)</span><br><span class="line"><span class="comment">//-------&gt; Output : true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="reduce"><a href="#reduce" class="headerlink" title="reduce()"></a>reduce()</h4><p>此方法接收一个函数作为累加器。它为数组中的每个元素依次执行回调函数，不包括数组中被删除或者从未被赋值的元素。函数应用于累加器，数组中的每个值最后只返回一个值。</p>
+<blockquote>
+<p>译者注：<code>reduce()</code> 方法接受四个参数：初始值（上一次回调的返回值），当前元素值，当前索引，原数组。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myAwesomeArray = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">myAwesomeArray.reduce(<span class="function">(<span class="params">total, value</span>) =&gt;</span> total * value)</span><br><span class="line"><span class="comment">// 1 * 2 * 3 * 4 * 5</span></span><br><span class="line"><span class="comment">//-------&gt; Output = 120</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Every"><a href="#Every" class="headerlink" title="Every()"></a>Every()</h4><p>此方法是对数组中每项运行给定函数，如果数组的每个元素都与测试匹配，则返回 <code>true</code>，反之则返回 <code>false</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myAwesomeArray = [<span class="string">"a"</span>, <span class="string">"b"</span>, <span class="string">"c"</span>, <span class="string">"d"</span>, <span class="string">"e"</span>]</span><br><span class="line">myAwesomeArray.every(<span class="function"><span class="params">test</span> =&gt;</span> test === <span class="string">"d"</span>)</span><br><span class="line"><span class="comment">// -------&gt; Output : falseconst myAwesomeArray2 = ["a", "a", "a", "a", "a"]</span></span><br><span class="line">myAwesomeArray2.every(<span class="function"><span class="params">test</span> =&gt;</span> test === <span class="string">"a"</span>)</span><br><span class="line"><span class="comment">//-------&gt; Output : true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h4><p>该方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。它按照原始数组元素顺序依次处理元素。</p>
+<blockquote>
+<p>译者注：map() 不会对空数组进行检测；map() 不会改变原始数组。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myAwesomeArray = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]</span><br><span class="line">myAwesomeArray.map(<span class="function"><span class="params">x</span> =&gt;</span> x * x)</span><br><span class="line"><span class="comment">//-------&gt; Output : 25</span></span><br><span class="line"><span class="comment">//                  16</span></span><br><span class="line"><span class="comment">//                  9</span></span><br><span class="line"><span class="comment">//                  4</span></span><br><span class="line"><span class="comment">//                  1</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="flat"><a href="#flat" class="headerlink" title="flat()"></a>flat()</h4><p>此方法创建一个新数组，其中包含子数组上的 <code>holden</code> 元素，并将其平整到新数组中。请注意，此方法只能进行一个级别的深度。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myAwesomeArray = [[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>], <span class="number">5</span>]</span><br><span class="line">myAwesomeArray.flat()</span><br><span class="line"><span class="comment">//-------&gt; Output : [1, 2, 3, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="filter"><a href="#filter" class="headerlink" title="filter()"></a>filter()</h4><p>该方法接收一个函数作为参数。并返回一个新数组，该数组包含该数组的所有元素，作为参数传递的过滤函数对其返回 <code>true</code>。</p>
+<blockquote>
+<p>译者注：<code>filter()</code> 方法是对数据中的元素进行过滤，也就是说是不能修改原数组中的数据，只能读取原数组中的数据，<code>callback</code> 需要返回布尔值；为 <code>true</code> 的时候，对应的元素留下来；为 <code>false</code> 的时候，对应的元素过滤掉。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myAwesomeArray = [  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">"john"</span> &#125;,  </span><br><span class="line">&#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">"Ali"</span> &#125;,  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">"Mass"</span> &#125;,  </span><br><span class="line">&#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">name</span>: <span class="string">"Mass"</span> &#125;,]</span><br><span class="line">myAwesomeArray.filter(<span class="function"><span class="params">element</span> =&gt;</span> element.name === <span class="string">"Mass"</span>)</span><br><span class="line"><span class="comment">//-------&gt; Output : 0:&#123;id: 3, name: "Mass"&#125;,</span></span><br><span class="line"><span class="comment">//                  1:&#123;id: 4, name: "Mass"&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a>forEach()</h4><p>此方法用于调用数组的每个元素。并将元素传递给回调函数。</p>
+<blockquote>
+<p>译者注: <code>forEach()</code> 对于空数组是不会执行回调函数的。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myAwesomeArray = [  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">"john"</span> &#125;,  </span><br><span class="line">&#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">"Ali"</span> &#125;,  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">"Mass"</span> &#125;,]</span><br><span class="line">myAwesomeArray.forEach(<span class="function"><span class="params">element</span> =&gt;</span> <span class="built_in">console</span>.log(element.name))</span><br><span class="line"><span class="comment">//-------&gt; Output : john</span></span><br><span class="line"><span class="comment">//                  Ali</span></span><br><span class="line"><span class="comment">//                  Mass</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="findIndex"><a href="#findIndex" class="headerlink" title="findIndex()"></a>findIndex()</h4><p>此方法返回传入一个测试条件（函数）符合条件的数组第一个元素位置。它为数组中的每个元素都调用一次函数执行，当数组中的元素在测试条件时返回 <code>true</code> 时, <code>findIndex()</code> 返回符合条件的元素的索引位置，之后的值不会再调用执行函数。如果没有符合条件的元素返回 <code>-1</code>。</p>
+<blockquote>
+<p>译者注：<code>findIndex()</code> 对于空数组，函数是不会执行的， <code>findIndex()</code> 并没有改变数组的原始值。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myAwesomeArray = [  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">"john"</span> &#125;,  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">"Ali"</span> &#125;,  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">"Mass"</span> &#125;];</span><br><span class="line"></span><br><span class="line">myAwesomeArray.findIndex(<span class="function"><span class="params">element</span> =&gt;</span> element.id === <span class="number">3</span>);</span><br><span class="line"><span class="comment">// -------&gt; Output : 2</span></span><br><span class="line"></span><br><span class="line">myAwesomeArray.findIndex(<span class="function"><span class="params">element</span> =&gt;</span> element.id === <span class="number">7</span>);</span><br><span class="line"><span class="comment">//-------&gt; Output : -1</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h4><p>此方法返回通过测试（函数内判断）的数组的第一个元素的值。<code>find()</code> 方法为数组中的每个元素都调用一次函数执行：当数组中的元素在测试条件时回 <code>true</code> 时, <code>find()</code> 返回符合条件的元素，之后的值不会再调用执行函数。如果没有符合条件的元素返回 <code>undefined</code>。</p>
+<blockquote>
+<p>译者注: <code>find()</code> 对于空数组，函数是不会执行的；<code>find()</code> 并没有改变数组的原始值。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myAwesomeArray = [  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">"john"</span> &#125;,  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">"Ali"</span> &#125;,  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">"Mass"</span> &#125;];</span><br><span class="line"></span><br><span class="line">myAwesomeArray.find(<span class="function"><span class="params">element</span> =&gt;</span> element.id === <span class="number">3</span>);</span><br><span class="line"><span class="comment">// -------&gt; Output : &#123;id: 3, name: "Mass"&#125;</span></span><br><span class="line"></span><br><span class="line">myAwesomeArray.find(<span class="function"><span class="params">element</span> =&gt;</span> element.id === <span class="number">7</span>);</span><br><span class="line"><span class="comment">//-------&gt; Output : undefined</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h4><p>此方法接收一个函数作为参数。它对数组的元素进行排序并返回它。也可以使用含有参数的 <code>sort()</code> 方法进行排序。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myAwesomeArray = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// Sort from smallest to largest</span></span><br><span class="line">myAwesomeArray.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b);</span><br><span class="line"><span class="comment">//  -------&gt; Output : [1, 2, 3, 4, 5]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Sort from largest to smallest</span></span><br><span class="line">myAwesomeArray.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> b - a);</span><br><span class="line"><span class="comment">//-------&gt; Output : [5, 4, 3, 2, 1]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h4><p>此方法用于连接两个或多个数组/值，它不会改变现有的数组。而仅仅返回被连接数组的一个新数组。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myAwesomeArray = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="keyword">const</span> myAwesomeArray2 = [<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>];</span><br><span class="line">myAwesomeArray.concat(myAwesomeArray2);</span><br><span class="line"><span class="comment">//-------&gt; Output : [1, 2, 3, 4, 5, 10, 20, 30, 40, 50]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="fill"><a href="#fill" class="headerlink" title="fill()"></a>fill()</h4><p>此方法的作用是使用一个固定值来替换数组中的元素。该固定值可以是字母、数字、字符串、数组等等。它还有两个可选参数，表示填充起来的开始位置（默认为 <code>0</code>）与结束位置（默认为 <code>array.length</code>）。</p>
+<blockquote>
+<p>译者注：<code>fill()</code> 方法用于将一个固定值替换数组的元素。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myAwesomeArray = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="comment">// The first argument  (0) is the value</span></span><br><span class="line"><span class="comment">// The second argument (1) is the starting index</span></span><br><span class="line"><span class="comment">// The third argument  (3) is the ending index</span></span><br><span class="line">myAwesomeArray.fill(<span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>);</span><br><span class="line"><span class="comment">//-------&gt; Output : [1, 0, 0, 4, 5]</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="includes"><a href="#includes" class="headerlink" title="includes()"></a>includes()</h4><p>此方法用于判断字符串是否包含指定的子字符串。如果找到匹配的字符串则返回 <code>true</code>，否则返回 <code>false</code>。</p>
+<blockquote>
+<p>译者注：<code>includes()</code> 方法区分大小写。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myAwesomeArray = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line">myAwesomeArray.includes(<span class="number">3</span>);</span><br><span class="line"><span class="comment">// -------&gt; Output : true</span></span><br><span class="line"></span><br><span class="line">myAwesomeArray.includes(<span class="number">8</span>);</span><br><span class="line"><span class="comment">// -------&gt; Output : false</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h4><p>此方法用于颠倒数组中元素的顺序。第一个元素成为最后一个，最后一个元素将成为第一个。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myAwesomeArray = [<span class="string">"e"</span>, <span class="string">"d"</span>, <span class="string">"c"</span>, <span class="string">"b"</span>, <span class="string">"a"</span>];</span><br><span class="line">myAwesomeArray.reverse();</span><br><span class="line"><span class="comment">// -------&gt; Output : ['a', 'b', 'c', 'd', 'e']</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="flatMap"><a href="#flatMap" class="headerlink" title="flatMap()"></a>flatMap()</h4><p>该方法将函数应用于数组的每个元素，然后将结果压缩为一个新数组。它在一个函数中结合了 <code>flat()</code> 和 <code>map()</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myAwesomeArray = [[<span class="number">1</span>], [<span class="number">2</span>], [<span class="number">3</span>], [<span class="number">4</span>], [<span class="number">5</span>]];</span><br><span class="line">myAwesomeArray.flatMap(<span class="function"><span class="params">arr</span> =&gt;</span> arr * <span class="number">10</span>);</span><br><span class="line"><span class="comment">//-------&gt; Output : [10, 20, 30, 40, 50]</span></span><br><span class="line"><span class="comment">// With .flat() and .map()</span></span><br><span class="line">myAwesomeArray.flat().map(<span class="function"><span class="params">arr</span> =&gt;</span> arr * <span class="number">10</span>);</span><br><span class="line"><span class="comment">//-------&gt; Output : [10, 20, 30, 40, 50]</span></span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        <div class="article-nav">
+            
+            
+                <div class="article-next">
+                    <a class="next btn"
+                       rel="next"
+                       href="/2020/05/%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%88%E6%8E%92%E7%89%88%E6%8C%87%E5%8C%97/"
+                    >
+                        <span class="post-nav-title-item">中文文案排版指北</span><span class="post-nav-item">Next posts</span> <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+            
+        </div>
+
+        <div class="comment-container">
+            <div class="comments-container">
+    
+        
+    <div class="valine-container">
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <div id="vcomments"></div>
+        <script>
+            new Valine({
+                el: '#vcomments',
+                appId: 'ih2nzG3ilVNdLgJK4kBXTjOq-gzGzoHsz',
+                appKey: 'gdf6tXXLBTLg9qpjS2y6Tbw7',
+                meta: 'nick,mail,link'.split(','),
+                avatar: 'wavatar',
+                enableQQ: true,
+                placeholder: '😜尽情吐槽吧~',
+                lang: 'en'.toLowerCase()
+            })
+        </script>
+    </div>
+
+
+    
+</div>
+        </div>
+    </div>
+</div>
+
+    <div class="article-toc-container fade-in-down-animation">
+        <div class="article-toc">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#some"><span class="nav-number">1.</span> <span class="nav-text">some()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reduce"><span class="nav-number">2.</span> <span class="nav-text">reduce()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Every"><span class="nav-number">3.</span> <span class="nav-text">Every()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#map"><span class="nav-number">4.</span> <span class="nav-text">map()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flat"><span class="nav-number">5.</span> <span class="nav-text">flat()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#filter"><span class="nav-number">6.</span> <span class="nav-text">filter()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#forEach"><span class="nav-number">7.</span> <span class="nav-text">forEach()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#findIndex"><span class="nav-number">8.</span> <span class="nav-text">findIndex()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#find"><span class="nav-number">9.</span> <span class="nav-text">find()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sort"><span class="nav-number">10.</span> <span class="nav-text">sort()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#concat"><span class="nav-number">11.</span> <span class="nav-text">concat()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fill"><span class="nav-number">12.</span> <span class="nav-text">fill()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#includes"><span class="nav-number">13.</span> <span class="nav-text">includes()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#reverse"><span class="nav-number">14.</span> <span class="nav-text">reverse()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#flatMap"><span class="nav-number">15.</span> <span class="nav-text">flatMap()</span></a></li></ol>
+    </div>
+</div>
+        </div>
+    </div>
+
+
+                
+
+            </div>
+
+            
+
+        </main>
+
+        <div class="sidebar-tools">
+            <div class="tools-container">
+    <ul class="tools-list">
+        
+            <li class="search popup-trigger">
+                <i class="fa fa-search"></i>
+            </li>
+            
+<script src="/js/local-search.js"></script>
+
+        
+        <li class="mode-toggle">
+            <i class="fa fa-moon-o"></i>
+        </li>
+        
+            <li class="rss">
+                <a href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <div class="scroll-to-top">
+                <ul>
+                    <li>
+                        <!--<i class="fa fa-caret-up"></i>-->
+                        <span class="scroll-percent"></span>
+                    </li>
+                </ul>
+            </div>
+        
+    </div>
+
+    <div class="page-bottom">
+        <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy; 2020 <a href="/">XPoet</a>
+        </div>
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme <a
+                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v1.1.1</a>
+        </div>
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                
+                    <span id="busuanzi_container_site_pv" style="display: none">
+                        PV<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+</div>
+
+    <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-icon">
+            <i class="fa fa-search"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="/js/main.js"></script>
+<script src="/js/header-shrink.js"></script>
+<script src="/js/toggle-mode.js"></script>
+
+
+
+    
+<script src="/js/scroll-to-top.js"></script>
+
+
+
+
+
+    
+        
+<script src="/js/code-copy.js"></script>
+
+    
+
+    
+        
+<script src="/lib/anime.min.js"></script>
+<script src="/js/toc.js"></script>
+
+    
+
+
+
+
+</body>
+</html>
