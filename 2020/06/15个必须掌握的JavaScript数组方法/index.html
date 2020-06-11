@@ -196,7 +196,7 @@
 
 <h4 id="map"><a href="#map" class="headerlink" title="map()"></a>map()</h4><p>该方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。它按照原始数组元素顺序依次处理元素。</p>
 <blockquote>
-<p>map() 不会对空数组进行检测；map() 不会改变原始数组。</p>
+<p><code>map()</code> 不会对空数组进行检测；<code>map()</code> 不会改变原始数组。</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myAwesomeArray = [<span class="number">5</span>, <span class="number">4</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>];</span><br><span class="line">myAwesomeArray.map(<span class="function"><span class="params">x</span> =&gt;</span> x * x);</span><br><span class="line"><span class="comment">//-------&gt; Output : 25</span></span><br><span class="line"><span class="comment">//                  16</span></span><br><span class="line"><span class="comment">//                  9</span></span><br><span class="line"><span class="comment">//                  4</span></span><br><span class="line"><span class="comment">//                  1</span></span><br></pre></td></tr></table></figure>
 
@@ -250,8 +250,6 @@
 
 <h4 id="flatMap"><a href="#flatMap" class="headerlink" title="flatMap()"></a>flatMap()</h4><p>该方法将函数应用于数组的每个元素，然后将结果压缩为一个新数组。它在一个函数中结合了 <code>flat()</code> 和 <code>map()</code>。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myAwesomeArray = [[<span class="number">1</span>], [<span class="number">2</span>], [<span class="number">3</span>], [<span class="number">4</span>], [<span class="number">5</span>]];</span><br><span class="line">myAwesomeArray.flatMap(<span class="function"><span class="params">arr</span> =&gt;</span> arr * <span class="number">10</span>);</span><br><span class="line"><span class="comment">//-------&gt; Output : [10, 20, 30, 40, 50]</span></span><br><span class="line"><span class="comment">// With .flat() and .map()</span></span><br><span class="line">myAwesomeArray.flat().map(<span class="function"><span class="params">arr</span> =&gt;</span> arr * <span class="number">10</span>);</span><br><span class="line"><span class="comment">//-------&gt; Output : [10, 20, 30, 40, 50]</span></span><br></pre></td></tr></table></figure>
-
-
         </div>
 
         <div class="article-nav">
