@@ -29,11 +29,11 @@ categories: [前端]
 
 此方法为参数传递的函数测试数组。如果有一个元素与测试元素匹配，则返回 `true`，否则返回 `false`。
 
-> 译者注： `some()` 不会对空数组进行检测；`some()` 不会改变原始数组。
+> `some()` 不会对空数组进行检测；`some()` 不会改变原始数组。
 
 ```js
-const myAwesomeArray = ["a", "b", "c", "d", "e"]
-myAwesomeArray.some(test => test === "d")
+const myAwesomeArray = ["a", "b", "c", "d", "e"];
+myAwesomeArray.some(item => item === "d");
 //-------> Output : true
 ```
 
@@ -41,11 +41,11 @@ myAwesomeArray.some(test => test === "d")
 
 此方法接收一个函数作为累加器。它为数组中的每个元素依次执行回调函数，不包括数组中被删除或者从未被赋值的元素。函数应用于累加器，数组中的每个值最后只返回一个值。
 
-> 译者注：`reduce()` 方法接受四个参数：初始值（上一次回调的返回值），当前元素值，当前索引，原数组。
+> `reduce()` 方法接受四个参数：初始值（上一次回调的返回值），当前元素值，当前索引，原数组。
 
 ```js
-const myAwesomeArray = [1, 2, 3, 4, 5]
-myAwesomeArray.reduce((total, value) => total * value)
+const myAwesomeArray = [1, 2, 3, 4, 5];
+myAwesomeArray.reduce((total, value) => total * value);
 // 1 * 2 * 3 * 4 * 5
 //-------> Output = 120
 ```
@@ -55,10 +55,12 @@ myAwesomeArray.reduce((total, value) => total * value)
 此方法是对数组中每项运行给定函数，如果数组的每个元素都与测试匹配，则返回 `true`，反之则返回 `false`。
 
 ```js
-const myAwesomeArray = ["a", "b", "c", "d", "e"]
-myAwesomeArray.every(test => test === "d")
-// -------> Output : falseconst myAwesomeArray2 = ["a", "a", "a", "a", "a"]
-myAwesomeArray2.every(test => test === "a")
+const myAwesomeArray = ["a", "b", "c", "d", "e"];
+myAwesomeArray.every(item => item === "d");
+// -------> Output : false
+
+const myAwesomeArray2 = ["a", "a", "a", "a", "a"];
+myAwesomeArray2.every(item => item === "a");
 //-------> Output : true
 ```
 
@@ -66,11 +68,11 @@ myAwesomeArray2.every(test => test === "a")
 
 该方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。它按照原始数组元素顺序依次处理元素。
 
-> 译者注：map() 不会对空数组进行检测；map() 不会改变原始数组。
+> map() 不会对空数组进行检测；map() 不会改变原始数组。
 
 ```js
-const myAwesomeArray = [5, 4, 3, 2, 1]
-myAwesomeArray.map(x => x * x)
+const myAwesomeArray = [5, 4, 3, 2, 1];
+myAwesomeArray.map(x => x * x);
 //-------> Output : 25
 //                  16
 //                  9
@@ -83,8 +85,8 @@ myAwesomeArray.map(x => x * x)
 此方法创建一个新数组，其中包含子数组上的 `holden` 元素，并将其平整到新数组中。请注意，此方法只能进行一个级别的深度。
 
 ```js
-const myAwesomeArray = [[1, 2], [3, 4], 5]
-myAwesomeArray.flat()
+const myAwesomeArray = [[1, 2], [3, 4], 5];
+myAwesomeArray.flat();
 //-------> Output : [1, 2, 3, 4, 5]
 ```
 
@@ -92,13 +94,16 @@ myAwesomeArray.flat()
 
 该方法接收一个函数作为参数。并返回一个新数组，该数组包含该数组的所有元素，作为参数传递的过滤函数对其返回 `true`。
 
-> 译者注：`filter()` 方法是对数据中的元素进行过滤，也就是说是不能修改原数组中的数据，只能读取原数组中的数据，`callback` 需要返回布尔值；为 `true` 的时候，对应的元素留下来；为 `false` 的时候，对应的元素过滤掉。
+> `filter()` 方法是对数据中的元素进行过滤，也就是说是不能修改原数组中的数据，只能读取原数组中的数据，`callback` 需要返回布尔值；为 `true` 的时候，对应的元素留下来；为 `false` 的时候，对应的元素过滤掉。
 
 ```js
-const myAwesomeArray = [  { id: 1, name: "john" },  
-{ id: 2, name: "Ali" },  { id: 3, name: "Mass" },  
-{ id: 4, name: "Mass" },]
-myAwesomeArray.filter(element => element.name === "Mass")
+const myAwesomeArray = [
+   { id: 1, name: "john" },  
+   { id: 2, name: "Ali" },  
+   { id: 3, name: "Mass" },  
+   { id: 4, name: "Mass" }
+];
+myAwesomeArray.filter(element => element.name === "Mass");
 //-------> Output : 0:{id: 3, name: "Mass"},
 //                  1:{id: 4, name: "Mass"}
 ```
@@ -107,12 +112,15 @@ myAwesomeArray.filter(element => element.name === "Mass")
 
 此方法用于调用数组的每个元素。并将元素传递给回调函数。
 
-> 译者注: `forEach()` 对于空数组是不会执行回调函数的。
+> `forEach()` 对于空数组是不会执行回调函数的。
 
 ```js
-const myAwesomeArray = [  { id: 1, name: "john" },  
-{ id: 2, name: "Ali" },  { id: 3, name: "Mass" },]
-myAwesomeArray.forEach(element => console.log(element.name))
+const myAwesomeArray = [  
+    { id: 1, name: "john" },  
+    { id: 2, name: "Ali" },  
+    { id: 3, name: "Mass" }
+];
+myAwesomeArray.forEach(element => console.log(element.name));
 //-------> Output : john
 //                  Ali
 //                  Mass
@@ -122,10 +130,14 @@ myAwesomeArray.forEach(element => console.log(element.name))
 
 此方法返回传入一个测试条件（函数）符合条件的数组第一个元素位置。它为数组中的每个元素都调用一次函数执行，当数组中的元素在测试条件时返回 `true` 时, `findIndex()` 返回符合条件的元素的索引位置，之后的值不会再调用执行函数。如果没有符合条件的元素返回 `-1`。
 
-> 译者注：`findIndex()` 对于空数组，函数是不会执行的， `findIndex()` 并没有改变数组的原始值。
+> `findIndex()` 对于空数组，函数是不会执行的， `findIndex()` 并没有改变数组的原始值。
 
 ```js
-const myAwesomeArray = [  { id: 1, name: "john" },  { id: 2, name: "Ali" },  { id: 3, name: "Mass" }];
+const myAwesomeArray = [  
+    { id: 1, name: "john" },  
+    { id: 2, name: "Ali" },  
+    { id: 3, name: "Mass" }
+];
 
 myAwesomeArray.findIndex(element => element.id === 3);
 // -------> Output : 2
@@ -138,10 +150,14 @@ myAwesomeArray.findIndex(element => element.id === 7);
 
 此方法返回通过测试（函数内判断）的数组的第一个元素的值。`find()` 方法为数组中的每个元素都调用一次函数执行：当数组中的元素在测试条件时回 `true` 时, `find()` 返回符合条件的元素，之后的值不会再调用执行函数。如果没有符合条件的元素返回 `undefined`。
 
-> 译者注: `find()` 对于空数组，函数是不会执行的；`find()` 并没有改变数组的原始值。
+> `find()` 对于空数组，函数是不会执行的；`find()` 并没有改变数组的原始值。
 
 ```js
-const myAwesomeArray = [  { id: 1, name: "john" },  { id: 2, name: "Ali" },  { id: 3, name: "Mass" }];
+const myAwesomeArray = [  
+    { id: 1, name: "john" },  
+    { id: 2, name: "Ali" },  
+    { id: 3, name: "Mass" }
+];
 
 myAwesomeArray.find(element => element.id === 3);
 // -------> Output : {id: 3, name: "Mass"}
@@ -180,7 +196,7 @@ myAwesomeArray.concat(myAwesomeArray2);
 
 此方法的作用是使用一个固定值来替换数组中的元素。该固定值可以是字母、数字、字符串、数组等等。它还有两个可选参数，表示填充起来的开始位置（默认为 `0`）与结束位置（默认为 `array.length`）。
 
-> 译者注：`fill()` 方法用于将一个固定值替换数组的元素。
+> `fill()` 方法用于将一个固定值替换数组的元素。
 
 ```js
 const myAwesomeArray = [1, 2, 3, 4, 5];
@@ -196,7 +212,7 @@ myAwesomeArray.fill(0, 1, 3);
 
 此方法用于判断字符串是否包含指定的子字符串。如果找到匹配的字符串则返回 `true`，否则返回 `false`。
 
-> 译者注：`includes()` 方法区分大小写。
+> `includes()` 方法区分大小写。
 
 ```js
 const myAwesomeArray = [1, 2, 3, 4, 5];
