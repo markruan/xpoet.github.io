@@ -68,7 +68,7 @@ myAwesomeArray2.every(item => item === "a");
 
 该方法返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值。它按照原始数组元素顺序依次处理元素。
 
-> map() 不会对空数组进行检测；map() 不会改变原始数组。
+> `map()` 不会对空数组进行检测；`map()` 不会改变原始数组。
 
 ```js
 const myAwesomeArray = [5, 4, 3, 2, 1];
@@ -185,6 +185,7 @@ myAwesomeArray.sort((a, b) => b - a);
 #### concat()
 
 此方法用于连接两个或多个数组/值，它不会改变现有的数组。而仅仅返回被连接数组的一个新数组。
+
 ```js
 const myAwesomeArray = [1, 2, 3, 4, 5];
 const myAwesomeArray2 = [10, 20, 30, 40, 50];
@@ -208,7 +209,6 @@ myAwesomeArray.fill(0, 1, 3);
 ```
 
 #### includes()
-
 
 此方法用于判断字符串是否包含指定的子字符串。如果找到匹配的字符串则返回 `true`，否则返回 `false`。
 
@@ -245,4 +245,3 @@ myAwesomeArray.flatMap(arr => arr * 10);
 myAwesomeArray.flat().map(arr => arr * 10);
 //-------> Output : [10, 20, 30, 40, 50]
 ```
-
