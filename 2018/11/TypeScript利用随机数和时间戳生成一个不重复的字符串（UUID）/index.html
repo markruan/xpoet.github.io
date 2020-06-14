@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     <title>
-        TypeScript 利用随机数和时间戳生成一个不重复的字符串（UUID） | XPoet Blog
+        巧妙利用随机数和时间戳生成一个不重复的字符串（UUID） | XPoet Blog
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -115,7 +115,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <h3><a class="title-hover-animation">TypeScript 利用随机数和时间戳生成一个不重复的字符串（UUID）</a></h3>
+            <h3><a class="title-hover-animation">巧妙利用随机数和时间戳生成一个不重复的字符串（UUID）</a></h3>
         </div>
 
         <div class="meta-info">
@@ -159,7 +159,7 @@
             <blockquote>
 <p>此方法非常简单，非常高效…</p>
 </blockquote>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 巧妙利用随机数和时间戳生成一个不重复的字符串（UUID）</span></span><br><span class="line"><span class="comment"> * @param randomLength&#123;number&#125; 截取随机数的长度</span></span><br><span class="line"><span class="comment"> * @return &#123;string&#125; 不重复的字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> getUuid = (randomLength: <span class="built_in">number</span> = <span class="number">5</span>): <span class="function"><span class="params">string</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Number</span>(<span class="built_in">Math</span>.random().toString().substr(<span class="number">2</span>, randomLength) + <span class="built_in">Date</span>.now()).toString(<span class="number">36</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 巧妙利用随机数和时间戳生成一个不重复的字符串（UUID）</span></span><br><span class="line"><span class="comment"> * @param randomLength&#123;number&#125; 截取随机数的长度</span></span><br><span class="line"><span class="comment"> * @return &#123;string&#125; 不重复的字符串</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> getUuid = (randomLength: <span class="built_in">number</span> = <span class="number">5</span>): <span class="function"><span class="params">string</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Number</span>(<span class="built_in">Math</span>.random().toString().substr(<span class="number">2</span>, randomLength) + <span class="built_in">Date</span>.now()).toString(<span class="number">36</span>);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// getUuid(5) -&gt; 2l5w9z6sqvg0</span></span><br></pre></td></tr></table></figure>
 
 
         </div>
