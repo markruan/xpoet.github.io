@@ -108,7 +108,7 @@ toc:
 # magic theme
 magic:
   enable: true
-  transform: false
+  transform: true
   sidebar:
     enable: false
     fixed: true
