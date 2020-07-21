@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     <title>
-        JS 常用的正则表达式汇总 | XPoet Blog
+        JavaScript 数据结构与算法（二）数组结构 | XPoet Blog
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -117,13 +117,13 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <h3><a class="title-hover-animation">JS 常用的正则表达式汇总</a></h3>
+            <h3><a class="title-hover-animation">JavaScript 数据结构与算法（二）数组结构</a></h3>
         </div>
 
         <div class="meta-info">
             <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2020-07-01 11:33:05
+        <i class="fa fa-calendar-o"></i> 2020-07-21 11:48:56
     </span>
     
         <span class="article-categories article-meta-item">
@@ -131,7 +131,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                        <a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E8%BE%91/">算法专辑</a>
                     </li>
                 
             </ul>
@@ -143,11 +143,19 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/JS/">JS</a>
+                        <a href="/tags/JavaScript/">JavaScript</a>
                     </li>
                 
                     <li>
-                        | <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+                        | <a href="/tags/%E6%95%B0%E7%BB%84/">数组</a>
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
                     </li>
                 
             </ul>
@@ -162,50 +170,31 @@
         </div>
 
         <div class="article-content markdown-body">
-            <p>此文收录我在开发过程中所用到的以及在各种业务场景下常用到的正则表达式，持续更新…</p>
-<h1 id="JavaScript-正则表达式"><a href="#JavaScript-正则表达式" class="headerlink" title="JavaScript 正则表达式"></a>JavaScript 正则表达式</h1><p>正则表达式（英语：Regular Expression，在代码中常简写为 <code>regex</code>、<code>regexp</code> 或 <code>RE</code>）使用单个字符串来描述、匹配一系列符合某个句法规则的字符串搜索模式。</p>
-<p>更多介绍，请参考：</p>
-<ul>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions</a></li>
-<li><a href="https://www.runoob.com/js/js-regexp.html" target="_blank" rel="noopener">https://www.runoob.com/js/js-regexp.html</a></li>
+            <p>几乎所有的编程语言都原生支持数组类型，因为数组是最简单的内存数据结构。<br>数组通常情况下用于存储一系列同一种数据类型的值。<br>但在 JavaScript 里，数组中可以保存不同类型的值。但我们还是要遵守最佳实践，别这么做（大多数语言都没这个能力）。</p>
+<h3 id="创建和初始化数组"><a href="#创建和初始化数组" class="headerlink" title="创建和初始化数组"></a>创建和初始化数组</h3><ul>
+<li><p>new Array() <code>const daysOfWeek = new Array(&#39;Sunday&#39;, &#39;Monday&#39;, &#39;Tuesday&#39;, &#39;Wednesday&#39;,&#39;Thursday&#39;, &#39;Friday&#39;, &#39;Saturday&#39;);</code></p>
+</li>
+<li><p>[] <code>const daysOfWeek = [&#39;Sunday&#39;, &#39;Monday&#39;, &#39;Tuesday&#39;, &#39;Wednesday&#39;, &#39;Thursday&#39;, &#39;Friday&#39;, &#39;Saturday&#39;];</code></p>
+</li>
 </ul>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;正则表达式主体&#x2F;修饰符(可选)</span><br></pre></td></tr></table></figure>
+<h3 id="数组常见操作"><a href="#数组常见操作" class="headerlink" title="数组常见操作"></a>数组常见操作</h3><h4 id="添加元素"><a href="#添加元素" class="headerlink" title="添加元素"></a>添加元素</h4><ul>
+<li>添加一个元素到数组的最后位置 <code>array.push(item)</code></li>
+<li>在数组首位插入一个元素 <code>array.unshift(item)</code></li>
+<li>在指定索引位置插入元素 <code>array.splice(index, 0, item)</code><br>splice() 第二个参数为 0 时，表示插入数据。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myArray = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="comment">// 在 索引 0 的位置，插入 A</span></span><br><span class="line">myArray.splice(<span class="number">0</span>, <span class="number">0</span>, <span class="string">"A"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(myArray); <span class="comment">//--&gt; ['A', 1, 2, 3]</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line">const RE &#x3D; &#x2F;xpoet&#x2F;i;</span><br><span class="line"></span><br><span class="line">解析：</span><br><span class="line">&#x2F;xpoet&#x2F;i 是一个正则表达式。</span><br><span class="line">xpoet 是一个正则表达式主体 (用于检索)。</span><br><span class="line">i 是一个修饰符 (搜索不区分大小写)。</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="删除元素"><a href="#删除元素" class="headerlink" title="删除元素"></a>删除元素</h4><ul>
+<li>删除数组最后的元素 <code>array.pop(item)</code></li>
+<li>删除数组首位的元素 <code>array.shift(item)</code></li>
+<li>删除指定索引位置的元素 <code>array.splice(start, number)</code><br>例如：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myArray2 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"><span class="comment">// 删除索引 4 位置起，2 个元素</span></span><br><span class="line">myArray2.splice(<span class="number">4</span>, <span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(myArray2); <span class="comment">//--&gt; [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="常用的匹配规则"><a href="#常用的匹配规则" class="headerlink" title="常用的匹配规则"></a>常用的匹配规则</h2><ul>
-<li>验证数字：<code>^[0-9]*$</code>。</li>
-<li>验证 n 位的数字：<code>^\d{n}$</code>。</li>
-<li>验证至少 n 位数字：<code>^\d{n,}$</code>。</li>
-<li>验证 m-n 位的数字：<code>^\d{m,n}$</code>。</li>
-<li>验证零和非零开头的数字：<code>^(0|[1-9][0-9]*)$</code>。</li>
-<li>验证有两位小数的正实数：<code>^[0-9]+(.[0-9]{2})?$</code>。</li>
-<li>验证有1-3位小数的正实数：<code>^[0-9]+(.[0-9]{1,3})?$</code>。</li>
-<li>验证非零的正整数：<code>^\+?[1-9][0-9]*$</code>。</li>
-<li>验证非零的负整数：<code>^\-[1-9][0-9]*$</code>。</li>
-<li>验证非负整数（正整数 + 0）： <code>^\d+$</code>。</li>
-<li>验证非正整数（负整数 + 0）： <code>^((-\d+)|(0+))$</code>。</li>
-<li>验证长度为 3 的字符：<code>^.{3}$</code>。</li>
-<li>验证由 26 个英文字母组成的字符串：<code>^[A-Za-z]+$</code>。</li>
-<li>验证由26个大写英文字母组成的字符串：<code>^[A-Z]+$</code>。</li>
-<li>验证由26个小写英文字母组成的字符串：<code>^[a-z]+$</code>。</li>
-<li>验证由数字和26个英文字母组成的字符串：<code>^[A-Za-z0-9]+$</code>。</li>
-<li>验证由数字、26个英文字母或者下划线组成的字符串：<code>^\w+$</code>。</li>
-<li>验证用户密码（格式为：以字母开头，长度在6-18之间，只能包含字符、数字和下划线）：<code>^[a-zA-Z]\w{5,17}$</code>。</li>
-<li>验证是否含有 <code>^%&amp;&#39;,;=?$\&quot;</code> 等字符：<code>[^%&amp;&#39;,;=?$\x22]+</code>。</li>
-<li>验证汉字：<code>^[\u4e00-\u9fa5],{0,}$</code>。</li>
-<li>验证Email地址：<code>^\w+[-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</code>。</li>
-<li>验证InternetURL：<code>^http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$ ；^[a-zA-z]+://(w+(-w+)*)(.(w+(-w+)*))*(?S*)?$</code>。</li>
-<li>验证电话号码（格式为：XXXX-XXXXXXX，XXXX-XXXXXXXX，XXX-XXXXXXX，XXX-XXXXXXXX，XXXXXXX，XXXXXXXX）：<code>^(\(\d{3,4}\)|\d{3,4}-)?\d{7,8}$</code>。</li>
-<li>验证身份证号（15位或18位数字）：<code>^\d{15}|\d{}18$</code>。</li>
-<li>验证一年的12个月（格式为：“01”-“09”和“1”“12”）：<code>^(0?[1-9]|1[0-2])$</code>。</li>
-<li>验证一个月的31天（格式为：01、09和1、31）：<code>^((0?[1-9])|((1|2)[0-9])|30|31)$</code>。</li>
-<li>整数：<code>^-?\d+$</code>。</li>
-<li>非负浮点数（正浮点数 + 0）：<code>^\d+(\.\d+)?$</code>。</li>
-<li>正浮点数：<code>^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$</code>。</li>
-<li>非正浮点数（负浮点数 + 0）：<code>^((-\d+(\.\d+)?)|(0+(\.0+)?))$</code>。</li>
-<li>负浮点数：<code>^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$</code>。</li>
-<li>浮点数：<code>^(-?\d+)(\.\d+)?$</code>。</li>
+</li>
+</ul>
+<h3 id="修改元素"><a href="#修改元素" class="headerlink" title="修改元素"></a>修改元素</h3><ul>
+<li>修改指定索引位置的元素 <code>array.splice(index, 1, item)</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myArray3 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>];</span><br><span class="line"><span class="comment">// 修改 索引 1 的位置的元素为 AA</span></span><br><span class="line">myArray2.splice(<span class="number">1</span>, <span class="number">1</span>, <span class="string">"AA"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(myArray3); <span class="comment">//--&gt; [1, "AA", 3, 4, 5, 6]</span></span><br></pre></td></tr></table></figure></li>
+<li>修改指定索引位置的几个元素 <code>array.splice(index, number, item)</code><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> myArray4 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>];</span><br><span class="line"><span class="comment">// 在 索引 2 的位置起，修改两个元素为 AA BB</span></span><br><span class="line">myArray2.splice(<span class="number">2</span>, <span class="number">2</span>, <span class="string">"AA"</span>, <span class="string">"BB"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(myArray3); <span class="comment">//--&gt; [1, 2, "AA", "BB", 5, 6, 7]</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 
         </div>
@@ -215,9 +204,9 @@
                 <div class="article-prev">
                     <a class="prev btn"
                        rel="prev"
-                       href="/2020/07/JavaScript%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%93%E8%BE%91%EF%BC%89/"
+                       href="/2020/07/JavaScript%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%89%EF%BC%89%E6%A0%88%E7%BB%93%E6%9E%84/"
                     >
-                        <i class="fa fa-chevron-left"></i> <span class="post-nav-title-item">JavaScript 数据结构与算法学习笔记（专辑）</span><span class="post-nav-item">Prev posts</span>
+                        <i class="fa fa-chevron-left"></i> <span class="post-nav-title-item">JavaScript 数据结构与算法（三）栈结构</span><span class="post-nav-item">Prev posts</span>
                     </a>
                 </div>
             
@@ -225,9 +214,9 @@
                 <div class="article-next">
                     <a class="next btn"
                        rel="next"
-                       href="/2020/06/15%E4%B8%AA%E5%BF%85%E9%A1%BB%E6%8E%8C%E6%8F%A1%E7%9A%84JavaScript%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/"
+                       href="/2020/07/JavaScript%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89%E5%89%8D%E8%A8%80/"
                     >
-                        <span class="post-nav-title-item">15个必须掌握的 JavaScript 数组方法</span><span class="post-nav-item">Next posts</span> <i class="fa fa-chevron-right"></i>
+                        <span class="post-nav-title-item">JavaScript 数据结构与算法（一）前言</span><span class="post-nav-item">Next posts</span> <i class="fa fa-chevron-right"></i>
                     </a>
                 </div>
             
@@ -265,7 +254,7 @@
         <div class="article-toc">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-正则表达式"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的匹配规则"><span class="nav-number">1.2.</span> <span class="nav-text">常用的匹配规则</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建和初始化数组"><span class="nav-number">1.</span> <span class="nav-text">创建和初始化数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数组常见操作"><span class="nav-number">2.</span> <span class="nav-text">数组常见操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加元素"><span class="nav-number">2.1.</span> <span class="nav-text">添加元素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除元素"><span class="nav-number">2.2.</span> <span class="nav-text">删除元素</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改元素"><span class="nav-number">3.</span> <span class="nav-text">修改元素</span></a></li></ol>
     </div>
 </div>
         </div>

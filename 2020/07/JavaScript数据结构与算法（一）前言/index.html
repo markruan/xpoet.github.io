@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     <title>
-        JS 常用的正则表达式汇总 | XPoet Blog
+        JavaScript 数据结构与算法（一）前言 | XPoet Blog
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -117,13 +117,13 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <h3><a class="title-hover-animation">JS 常用的正则表达式汇总</a></h3>
+            <h3><a class="title-hover-animation">JavaScript 数据结构与算法（一）前言</a></h3>
         </div>
 
         <div class="meta-info">
             <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fa fa-calendar-o"></i> 2020-07-01 11:33:05
+        <i class="fa fa-calendar-o"></i> 2020-07-21 11:41:22
     </span>
     
         <span class="article-categories article-meta-item">
@@ -131,7 +131,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                        <a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E8%BE%91/">算法专辑</a>
                     </li>
                 
             </ul>
@@ -143,11 +143,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/JS/">JS</a>
-                    </li>
-                
-                    <li>
-                        | <a href="/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
+                        <a href="/tags/JavaScript%EF%BC%8C%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%8C%E7%AE%97%E6%B3%95/">JavaScript，数据结构，算法</a>
                     </li>
                 
             </ul>
@@ -162,51 +158,97 @@
         </div>
 
         <div class="article-content markdown-body">
-            <p>此文收录我在开发过程中所用到的以及在各种业务场景下常用到的正则表达式，持续更新…</p>
-<h1 id="JavaScript-正则表达式"><a href="#JavaScript-正则表达式" class="headerlink" title="JavaScript 正则表达式"></a>JavaScript 正则表达式</h1><p>正则表达式（英语：Regular Expression，在代码中常简写为 <code>regex</code>、<code>regexp</code> 或 <code>RE</code>）使用单个字符串来描述、匹配一系列符合某个句法规则的字符串搜索模式。</p>
-<p>更多介绍，请参考：</p>
+            <h2 id="什么是数据结构？"><a href="#什么是数据结构？" class="headerlink" title="什么是数据结构？"></a>什么是数据结构？</h2><h3 id="数据结构的定义"><a href="#数据结构的定义" class="headerlink" title="数据结构的定义"></a>数据结构的定义</h3><ul>
+<li><p>官方定义</p>
+<p>无</p>
+</li>
+<li><p>民间定义</p>
 <ul>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Guide/Regular_Expressions</a></li>
-<li><a href="https://www.runoob.com/js/js-regexp.html" target="_blank" rel="noopener">https://www.runoob.com/js/js-regexp.html</a></li>
+<li>“数据结构是数据对象，以及存在于该对象的实例和组成实例的数据元素之间的各种联系。这些联系可以通过定义相关的函数来给出。” — 《数据结构、算法与应用》</li>
+<li>“数据结构是 ADT（抽象数据类型 Abstract Data Type）的物理实现。” — 《数据结构与算法分析》</li>
+<li>“数据结构（data structure）是计算机中存储、组织数据的方式。通常情况下，精心选择的数据结构可以带来最优效率的算法。” —中文维基百科</li>
 </ul>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;正则表达式主体&#x2F;修饰符(可选)</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">eg:</span><br><span class="line">const RE &#x3D; &#x2F;xpoet&#x2F;i;</span><br><span class="line"></span><br><span class="line">解析：</span><br><span class="line">&#x2F;xpoet&#x2F;i 是一个正则表达式。</span><br><span class="line">xpoet 是一个正则表达式主体 (用于检索)。</span><br><span class="line">i 是一个修饰符 (搜索不区分大小写)。</span><br></pre></td></tr></table></figure>
-
-<h2 id="常用的匹配规则"><a href="#常用的匹配规则" class="headerlink" title="常用的匹配规则"></a>常用的匹配规则</h2><ul>
-<li>验证数字：<code>^[0-9]*$</code>。</li>
-<li>验证 n 位的数字：<code>^\d{n}$</code>。</li>
-<li>验证至少 n 位数字：<code>^\d{n,}$</code>。</li>
-<li>验证 m-n 位的数字：<code>^\d{m,n}$</code>。</li>
-<li>验证零和非零开头的数字：<code>^(0|[1-9][0-9]*)$</code>。</li>
-<li>验证有两位小数的正实数：<code>^[0-9]+(.[0-9]{2})?$</code>。</li>
-<li>验证有1-3位小数的正实数：<code>^[0-9]+(.[0-9]{1,3})?$</code>。</li>
-<li>验证非零的正整数：<code>^\+?[1-9][0-9]*$</code>。</li>
-<li>验证非零的负整数：<code>^\-[1-9][0-9]*$</code>。</li>
-<li>验证非负整数（正整数 + 0）： <code>^\d+$</code>。</li>
-<li>验证非正整数（负整数 + 0）： <code>^((-\d+)|(0+))$</code>。</li>
-<li>验证长度为 3 的字符：<code>^.{3}$</code>。</li>
-<li>验证由 26 个英文字母组成的字符串：<code>^[A-Za-z]+$</code>。</li>
-<li>验证由26个大写英文字母组成的字符串：<code>^[A-Z]+$</code>。</li>
-<li>验证由26个小写英文字母组成的字符串：<code>^[a-z]+$</code>。</li>
-<li>验证由数字和26个英文字母组成的字符串：<code>^[A-Za-z0-9]+$</code>。</li>
-<li>验证由数字、26个英文字母或者下划线组成的字符串：<code>^\w+$</code>。</li>
-<li>验证用户密码（格式为：以字母开头，长度在6-18之间，只能包含字符、数字和下划线）：<code>^[a-zA-Z]\w{5,17}$</code>。</li>
-<li>验证是否含有 <code>^%&amp;&#39;,;=?$\&quot;</code> 等字符：<code>[^%&amp;&#39;,;=?$\x22]+</code>。</li>
-<li>验证汉字：<code>^[\u4e00-\u9fa5],{0,}$</code>。</li>
-<li>验证Email地址：<code>^\w+[-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</code>。</li>
-<li>验证InternetURL：<code>^http://([\w-]+\.)+[\w-]+(/[\w-./?%&amp;=]*)?$ ；^[a-zA-z]+://(w+(-w+)*)(.(w+(-w+)*))*(?S*)?$</code>。</li>
-<li>验证电话号码（格式为：XXXX-XXXXXXX，XXXX-XXXXXXXX，XXX-XXXXXXX，XXX-XXXXXXXX，XXXXXXX，XXXXXXXX）：<code>^(\(\d{3,4}\)|\d{3,4}-)?\d{7,8}$</code>。</li>
-<li>验证身份证号（15位或18位数字）：<code>^\d{15}|\d{}18$</code>。</li>
-<li>验证一年的12个月（格式为：“01”-“09”和“1”“12”）：<code>^(0?[1-9]|1[0-2])$</code>。</li>
-<li>验证一个月的31天（格式为：01、09和1、31）：<code>^((0?[1-9])|((1|2)[0-9])|30|31)$</code>。</li>
-<li>整数：<code>^-?\d+$</code>。</li>
-<li>非负浮点数（正浮点数 + 0）：<code>^\d+(\.\d+)?$</code>。</li>
-<li>正浮点数：<code>^(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*))$</code>。</li>
-<li>非正浮点数（负浮点数 + 0）：<code>^((-\d+(\.\d+)?)|(0+(\.0+)?))$</code>。</li>
-<li>负浮点数：<code>^(-(([0-9]+\.[0-9]*[1-9][0-9]*)|([0-9]*[1-9][0-9]*\.[0-9]+)|([0-9]*[1-9][0-9]*)))$</code>。</li>
-<li>浮点数：<code>^(-?\d+)(\.\d+)?$</code>。</li>
+</li>
+<li><p>从自己角度认识</p>
+<p>在计算机中，存储和组织数据的方式。</p>
+</li>
 </ul>
+<h3 id="数据结构在生活中应用"><a href="#数据结构在生活中应用" class="headerlink" title="数据结构在生活中应用"></a>数据结构在生活中应用</h3><p>我们知道，计算机中数据量非常庞大，如何以高效的方式组织和存储呢?</p>
+<p>例如：一个庞大的图书馆中存放了大量的书籍，我们不仅仅要把书放进入，还应该在合适的时候能够取出来。</p>
+<p>图书摆放要使得两个相关操作方便实现：</p>
+<ul>
+<li>操作 1：新书怎么插入？</li>
+<li>操作 2：怎么找到某本指定的书？</li>
+</ul>
+<p>图书各种摆放方式：</p>
+<ul>
+<li><p>方法 1：随便放</p>
+<ul>
+<li>操作 1：哪里有空位放哪里。</li>
+<li>操作 2：找某本书，累死。</li>
+</ul>
+</li>
+<li><p>方法 2：按照书名的拼音字母顺序排放</p>
+<ul>
+<li>操作 1：新进一本《阿 Q 正传》， 按照字母顺序找到位置，插入。</li>
+<li>操作 2：二分查找法。</li>
+</ul>
+</li>
+<li><p>方法 3：把书架划分成几块区域，按照类别存放，类别中按照字母顺序</p>
+<ul>
+<li>操作 1：先定类别，二分查找确定位置，移出空位。</li>
+<li>操作 2：先定类别，再二分查找。</li>
+</ul>
+</li>
+</ul>
+<p>结论：</p>
+<ul>
+<li>解决问题方法的效率，根据数据的组织方式有关。</li>
+<li>计算机中存储的数据量相对于图书馆的书籍来说数据量更大，数据更加多。</li>
+<li>以什么样的方式，来存储和组织我们的数据才能在使用数据时更加方便呢?</li>
+<li>这就是数据结构需要考虑的问题。</li>
+</ul>
+<h3 id="常见的数据结构"><a href="#常见的数据结构" class="headerlink" title="常见的数据结构"></a>常见的数据结构</h3><ul>
+<li>数组（Aarray）</li>
+<li>栈（Stack）</li>
+<li>链表（Linked List）</li>
+<li>图（Graph）</li>
+<li>散列表（Hash）</li>
+<li>队列（Queue）</li>
+<li>树（Tree）</li>
+<li>堆（Heap）</li>
+</ul>
+<blockquote>
+<p>注意：数据结构与算法与语言无关，常见的编程语言都有<strong>直接或间接</strong>的使用上述常见的数据结构。</p>
+</blockquote>
+<h2 id="什么是算法？"><a href="#什么是算法？" class="headerlink" title="什么是算法？"></a>什么是算法？</h2><h3 id="算法（Algorithm）的定义"><a href="#算法（Algorithm）的定义" class="headerlink" title="算法（Algorithm）的定义"></a>算法（Algorithm）的定义</h3><ul>
+<li>一个有限指令集，每条指令的描述不依赖于语言。</li>
+<li>接收一些输入（有些情况下不需要输入）。</li>
+<li>产生输出。</li>
+<li>一定在有限步骤之后终止。</li>
+</ul>
+<h3 id="算法通俗理解"><a href="#算法通俗理解" class="headerlink" title="算法通俗理解"></a>算法通俗理解</h3><ul>
+<li>Algorithm 这个单词本意就是解决问题的办法/步骤逻辑。</li>
+<li>数据结构的实现，离不开算法。</li>
+</ul>
+<h3 id="算法案例"><a href="#算法案例" class="headerlink" title="算法案例"></a>算法案例</h3><p>假如上海和杭州之间有一条高架线，高架线长度是 1,000,000 米，有一天高架线中有其中一米出现了故障，请你想出一种算法，可以快速定位到处问题的地方。</p>
+<ul>
+<li><p>线性查找</p>
+<ul>
+<li>从上海的起点开始一米一米的排查，最终一定能找到出问题的线段。</li>
+<li>但是如果线段在另一头，我们需要排查 1,000,000 次，这是最坏的情况，平均需要 500,000 次。</li>
+</ul>
+</li>
+<li><p>二分查找</p>
+<ul>
+<li>从中间位置开始排查，看一下问题出在上海到中间位置，还是中间到杭州的位置。</li>
+<li>查找对应的问题后，再从中间位置分开，重新锁定一般的路程。</li>
+<li>最坏的情况，需要多少次可以排查完呢? 最坏的情况是 20 次就可以找到出问题的地方。</li>
+<li>怎么计算出来的呢? log(1000000, 2)，以 2 位底，1000000 的对数 ≈ 20。</li>
+</ul>
+</li>
+</ul>
+<p>结论：<br>你会发现，解决问题的办法有很多，但是好的算法对比于差的算法，效率天壤之别。</p>
 
         </div>
 
@@ -215,9 +257,9 @@
                 <div class="article-prev">
                     <a class="prev btn"
                        rel="prev"
-                       href="/2020/07/JavaScript%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%93%E8%BE%91%EF%BC%89/"
+                       href="/2020/07/JavaScript%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E4%BA%8C%EF%BC%89%E6%95%B0%E7%BB%84%E7%BB%93%E6%9E%84/"
                     >
-                        <i class="fa fa-chevron-left"></i> <span class="post-nav-title-item">JavaScript 数据结构与算法学习笔记（专辑）</span><span class="post-nav-item">Prev posts</span>
+                        <i class="fa fa-chevron-left"></i> <span class="post-nav-title-item">JavaScript 数据结构与算法（二）数组结构</span><span class="post-nav-item">Prev posts</span>
                     </a>
                 </div>
             
@@ -225,9 +267,9 @@
                 <div class="article-next">
                     <a class="next btn"
                        rel="next"
-                       href="/2020/06/15%E4%B8%AA%E5%BF%85%E9%A1%BB%E6%8E%8C%E6%8F%A1%E7%9A%84JavaScript%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95/"
+                       href="/2020/07/JavaScript%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%93%E8%BE%91%EF%BC%89/"
                     >
-                        <span class="post-nav-title-item">15个必须掌握的 JavaScript 数组方法</span><span class="post-nav-item">Next posts</span> <i class="fa fa-chevron-right"></i>
+                        <span class="post-nav-title-item">JavaScript 数据结构与算法学习笔记（专辑）</span><span class="post-nav-item">Next posts</span> <i class="fa fa-chevron-right"></i>
                     </a>
                 </div>
             
@@ -265,7 +307,7 @@
         <div class="article-toc">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript-正则表达式"><span class="nav-number">1.</span> <span class="nav-text">JavaScript 正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#语法"><span class="nav-number">1.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用的匹配规则"><span class="nav-number">1.2.</span> <span class="nav-text">常用的匹配规则</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是数据结构？"><span class="nav-number">1.</span> <span class="nav-text">什么是数据结构？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构的定义"><span class="nav-number">1.1.</span> <span class="nav-text">数据结构的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构在生活中应用"><span class="nav-number">1.2.</span> <span class="nav-text">数据结构在生活中应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的数据结构"><span class="nav-number">1.3.</span> <span class="nav-text">常见的数据结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是算法？"><span class="nav-number">2.</span> <span class="nav-text">什么是算法？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#算法（Algorithm）的定义"><span class="nav-number">2.1.</span> <span class="nav-text">算法（Algorithm）的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法通俗理解"><span class="nav-number">2.2.</span> <span class="nav-text">算法通俗理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法案例"><span class="nav-number">2.3.</span> <span class="nav-text">算法案例</span></a></li></ol></li></ol>
     </div>
 </div>
         </div>
