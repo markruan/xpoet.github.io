@@ -11,9 +11,11 @@ categories: [算法专辑]
 
 ### 创建和初始化数组
 
-- new Array() `const daysOfWeek = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday','Thursday', 'Friday', 'Saturday');`
+- new Array() 
+  `const daysOfWeek = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday','Thursday', 'Friday', 'Saturday');`
 
-- [] `const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];`
+- [] 
+  `const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];`
 
 ### 数组常见操作
 
