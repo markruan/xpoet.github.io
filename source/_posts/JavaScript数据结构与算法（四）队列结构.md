@@ -1,5 +1,5 @@
 ---
-title: JavaScript数据结构与算法（四）队列结构
+title: JavaScript 数据结构与算法（四）队列结构
 date: 2020-07-21 17:23:34
 tags: [JavaScript, 数据结构, 算法, 队列]
 categories: [算法专辑]
