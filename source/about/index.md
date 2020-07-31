@@ -4,8 +4,14 @@ date: 2020-03-19 14:59:53
 comments: true
 ---
 ## About me
-- XPoet「 X诗人 」... 
+- XPoet「 X诗人 」...
+
 - Web Developer「 伪全栈渣渣 」...
+
+- 全栈鼓励师 | 微信公众号作者
+  扫码关注，添加作者微信，邀你进入全栈技术交流群，同时也欢迎投稿~
+  ![](https://user-images.githubusercontent.com/24516169/89018889-1962bd80-d34f-11ea-88ee-ed4f3a63c2e5.png)
+
 
 ## Contact me
 - GitHub「 https://github.com/XPoet 」
