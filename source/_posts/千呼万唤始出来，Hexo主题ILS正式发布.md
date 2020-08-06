@@ -37,11 +37,10 @@ top: 9999
 
 ### Unfinished 未完成
 
-- [ ] 文章版权信息；
-- [ ] 文章字数统计；
-- [ ] 文章阅读时长；
-- [ ] 文章支持显示公式；
-- [ ] 文章支持显示公式；
+- [ ] 文章版权信息
+- [ ] 文章字数统计
+- [ ] 文章阅读时长
+- [ ] 文章支持显示公式
 - [ ] 在线更改字体和字号
 - [ ] 打赏功能
 - [ ] ......
@@ -55,7 +54,7 @@ top: 9999
 
 - 使用 Git SSH
   ```bash
-  git clone --depath=1 git@github.com:XPoet/hexo-theme-ils.git themes/ils
+  git clone --depth=1 git@github.com:XPoet/hexo-theme-ils.git themes/ils
   ```
 - 下载主题 release 版本  
   请优先下载 [最新 release 版本](https://github.com/XPoet/hexo-theme-ils/releases)，master 分支无法保证稳定。  

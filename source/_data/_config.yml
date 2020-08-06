@@ -112,7 +112,8 @@ toc:
 # magic style
 magic:
   enable: true
-  transform: true
+  scale: false
+  shadow: true
   sidebar:
     enable: false
     fixed: true
