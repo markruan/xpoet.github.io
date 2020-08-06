@@ -128,8 +128,7 @@
 }
 .article-content-container:hover {
   transition: all 0.3s ease;
-  box-shadow: 0 0 6px var(--border-color);
-  transform: scaleX(1.008) scaleY(1.002);
+  box-shadow: 0 0 8px var(--border-color);
 }
 .article-content-container .article-title h3 {
   font-weight: 600;
@@ -202,8 +201,7 @@
 }
 .article-toc-container .article-toc:hover {
   transition: all 0.3s ease;
-  box-shadow: 0 0 6px var(--border-color);
-  transform: scaleX(1.02) scaleY(1.02);
+  box-shadow: 0 0 8px var(--border-color);
 }
 .article-toc-container-shrink {
   top: 90px !important;
