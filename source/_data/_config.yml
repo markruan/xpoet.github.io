@@ -79,6 +79,12 @@ local_search:
   # Preload the search data when the page loads.
   preload: true
 
+# 字数统计 & 阅读时长
+# 依赖：hexo-wordcount https://github.com/willin/hexo-wordcount
+post_wordcount:
+  wordcount: true  # 字数统计
+  min2read: true   # 阅读时长
+
 # 代码复制
 # Code Copy
 code_copy:
