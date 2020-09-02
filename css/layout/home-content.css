@@ -201,12 +201,3 @@
 .home-content-container .home-article-list .home-article-item .home-article-meta-info a:hover {
   color: var(--primary-color);
 }
-.home-content-container .paginator {
-  padding-bottom: 40px;
-}
-.home-content-container .paginator a.prev {
-  float: left;
-}
-.home-content-container .paginator a.next {
-  float: right;
-}

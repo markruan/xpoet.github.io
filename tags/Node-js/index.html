@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="/css/style.css">
 
     <script id="hexo-configurations">
-    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","unescape":false,"preload":true},"themeInfo":{"name":"ILS","version":"1.1.2","author":"XPoet","repository":"https://github.com/XPoet/hexo-theme-ils"},"path":"search.json"};
+    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","unescape":false,"preload":true},"themeInfo":{"name":"ILS","version":"1.2.0","author":"XPoet","repository":"https://github.com/XPoet/hexo-theme-ils"},"path":"search.json"};
   </script>
 <meta name="generator" content="Hexo 4.2.0"><link rel="alternate" href="/atom.xml" title="XPoet Blog" type="application/atom+xml">
 </head>
@@ -48,6 +48,14 @@
                        href="/archives"
                     >
                         ARCHIVES
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/category"
+                    >
+                        CATEGORY
                     </a>
                 </li>
             
@@ -89,6 +97,11 @@
             
                 <li class="drawer-menu-item">
                     <a class=""
+                       href="/category">CATEGORY</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
                        href="/links">LINKS</a>
                 </li>
             
@@ -117,12 +130,14 @@
     <div class="tag-container">
         <div class="tag-name"><i class="fa fa-tag"></i> Tag：Node.js [1]
         </div>
-        
+        <div class="tag--post-list">
+            
 <div class="archive-list-container">
     
         <section class="archive-item">
             <div class="archive-item-header">
                 <span class="archive-year">2018</span>
+                <span class="archive-year-post-count">[1]</span>
             </div>
             <ul class="article-list">
                 
@@ -137,8 +152,20 @@
         </section>
     
 </div>
+
+        </div>
+    </div>
+
+    <div class="tag-paginator">
+        <div class="paginator">
+    
+
+    
+</div>
+
     </div>
 </div>
+
 
                 
 
@@ -188,11 +215,11 @@
         <footer class="footer">
     <div class="info-container">
         <div class="copyright-info info-item">
-            &copy; 2020 <a href="/">XPoet</a>
+            &copy; 2020 <i class="fa fa-heart-o"></i> <a href="/">XPoet</a>
         </div>
         <div class="theme-info info-item">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme <a
-                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v1.1.2</a>
+                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v1.2.0</a>
         </div>
         
             <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -200,13 +227,14 @@
                 
                 
                     <span id="busuanzi_container_site_pv" style="display: none">
-                        Totalview<span id="busuanzi_value_site_pv"></span>
+                        Totalview <span id="busuanzi_value_site_pv"></span>
                     </span>
                 
             </div>
         
     </div>
 </footer>
+
     </div>
 </div>
 
@@ -237,6 +265,7 @@
         </div>
     </div>
 </div>
+
 
 
 <script src="/js/main.js"></script>
