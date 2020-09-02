@@ -1,7 +1,7 @@
 ---
 title: JavaScript 数据结构与算法（一）前言
 date: 2020-07-21 11:41:22
-tags: [JavaScript，数据结构，算法]
+tags: [JavaScript, 数据结构, 算法]
 categories: [算法专辑]
 ---
 

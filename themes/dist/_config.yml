@@ -1,7 +1,7 @@
 # theme basic info
 theme_info:
   name: ILS
-  version: 1.1.2
+  version: 1.2.0
   author: XPoet
   repository: https://github.com/XPoet/hexo-theme-ils
 
@@ -15,8 +15,9 @@ avatar: images/avatar.png
 menu:
   Home: /
   Archives: /archives
-  # About: /about
+  # Category: /category
   # Links: /links
+  # About: /about
   # ...
 
 # RSS
@@ -65,6 +66,12 @@ local_search:
   # Preload the search data when the page loads.
   preload: false
 
+# Post word count
+# Dependencies: https://github.com/willin/hexo-wordcount
+post_wordcount:
+  wordcount: false  # word count, one article
+  min2read: false   # time to read, one article
+
 # Code Copy
 code_copy:
   enable: true
@@ -97,11 +104,4 @@ magic:
   shadow: true
   sidebar:
     enable: false
-    fixed: true
     position: right  # values: left | right
-
-# Post wordcount display settings
-# Dependencies: https://github.com/willin/hexo-wordcount
-post_wordcount:
-  wordcount: true  # word count, one article
-  min2read: true   # time to read, one article
