@@ -23,7 +23,8 @@ theme_color: "#03aaaa"
 menu:
   Home: /
   Archives: /archives
-  Category: /category
+  Categories: /categories
+  Tags: /tags
   Links: /links
   About: /about
   # ...
@@ -85,6 +86,12 @@ local_search:
 post_wordcount:
   wordcount: true  # 字数统计
   min2read: true   # 阅读时长
+
+# Home page article block display settings
+home_article:
+  category: true # show category in article block
+  tag: true # show tags in article block
+  tag_limit: 5 # max number of tags shown in article block
 
 # 代码复制
 # Code Copy

@@ -23,14 +23,18 @@
                 <% } else if (is_tag()) { %>
                     <%- partial('tag-content') %>
 
-                <% } else if (page.title == 'category') { %>
+                <% } else if (page.title === 'category' || page.title === 'categories') { %>
                     <%- partial('category-list') %>
 
-                <% } else if (page.title == 'about') { %>
+                <% } else if (page.title === 'tag' || page.title === 'tags') { %>
+                    <%- partial('_partial/tagcloud') %>
+
+                <% } else if (page.title === 'about') { %>
                     <%- partial('about') %>
 
-                <% } else if (page.title == 'links') { %>
+                <% } else if (page.title === 'link' || page.title === 'links') { %>
                     <%- partial('links') %>
+
                 <% } %>
 
             </div>
@@ -51,8 +55,9 @@
             <div class="scroll-to-top">
                 <ul>
                     <li>
-                        <!--<i class="fa fa-caret-up"></i>-->
-                        <span class="scroll-percent"></span>
+                        <span class="scroll-percent">
+                            <i class="fa fa-caret-up"></i>
+                        </span>
                     </li>
                 </ul>
             </div>
