@@ -91,19 +91,6 @@ pre,
   line-height: 1.5em;
   transition: all 0.5s ease;
 }
-pre::-webkit-scrollbar,
-.highlight::-webkit-scrollbar {
-  height: 6px;
-}
-pre::-webkit-scrollbar-thumb,
-.highlight::-webkit-scrollbar-thumb {
-  border-radius: 1px;
-  background: rgba(0,0,0,0.3);
-}
-pre::-webkit-scrollbar-track,
-.highlight::-webkit-scrollbar-track {
-  background: transparent;
-}
 pre,
 code {
   font-family: "Source Code Pro", consolas, Menlo;

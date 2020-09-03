@@ -119,33 +119,48 @@
     transform: translateY(0);
   }
 }
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.32);
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
 html,
 body {
   margin: 0;
   padding: 0;
   color: var(--normal-text-color);
   background: var(--magic-background-color);
-  font-size: 15px;
   font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, 'PingFang SC', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: 400;
+  font-size: 16px;
   line-height: 20px;
+}
+@media (max-width: 760px) {
+  html,
+  body {
+    font-size: 0.99em;
+    line-height: 18px;
+  }
+}
+@media (max-width: 480px) {
+  html,
+  body {
+    font-size: 0.98em;
+    line-height: 16px;
+  }
 }
 ::selection {
   background: var(--selection-color);
   color: #fff;
 }
-*::-webkit-scrollbar {
-  width: 6px;
-}
-*::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.2);
-}
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
 ul,
-li,
-ol {
+ol,
+li {
   padding: 0;
   margin: 0;
   list-style: none;

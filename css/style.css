@@ -1782,33 +1782,48 @@
     transform: translateY(0);
   }
 }
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+*::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.32);
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
 html,
 body {
   margin: 0;
   padding: 0;
   color: var(--normal-text-color);
   background: var(--magic-background-color);
-  font-size: 15px;
   font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, 'PingFang SC', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: 400;
+  font-size: 16px;
   line-height: 20px;
+}
+@media (max-width: 760px) {
+  html,
+  body {
+    font-size: 0.99em;
+    line-height: 18px;
+  }
+}
+@media (max-width: 480px) {
+  html,
+  body {
+    font-size: 0.98em;
+    line-height: 16px;
+  }
 }
 ::selection {
   background: var(--selection-color);
   color: #fff;
 }
-*::-webkit-scrollbar {
-  width: 6px;
-}
-*::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.2);
-}
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
 ul,
-li,
-ol {
+ol,
+li {
   padding: 0;
   margin: 0;
   list-style: none;
@@ -2018,6 +2033,7 @@ input.search-input {
   outline: 0;
   width: 100%;
   font-size: 1.2em;
+  color: var(--normal-text-color);
 }
 input.search-input::-webkit-search-cancel-button {
   display: none;
@@ -2703,6 +2719,7 @@ input.search-input::-webkit-search-cancel-button {
   align-items: center;
   justify-content: center;
   background: var(--background-color);
+  padding-top: 2.8px;
   box-shadow: 0 0 2px var(--border-color);
   transition: all 0.3s ease;
 }
@@ -2711,23 +2728,35 @@ input.search-input::-webkit-search-cancel-button {
   box-shadow: 0 0 8px var(--border-color);
 }
 .header-wrapper .header-progress {
+  display: none;
   position: absolute;
-  width: 100%;
-  height: 3px;
+  width: 0;
+  height: 2.8px;
   top: 0;
   left: 0;
-  background: rgba(30,88,217,0.96);
+  background: var(--primary-color);
+  transition: all 0.3s ease;
 }
 .header-wrapper .header-content {
+  width: 62%;
+  height: 100%;
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 62%;
-  height: 100%;
   position: relative;
-  transition: all 0.3s ease;
   z-index: 1005;
+}
+@media (max-width: 760px) {
+  .header-wrapper .header-content {
+    width: 90%;
+  }
+}
+@media (max-width: 480px) {
+  .header-wrapper .header-content {
+    width: 95%;
+  }
 }
 .header-wrapper .header-content .logo-title {
   font-size: 2.2em;
@@ -2744,6 +2773,11 @@ input.search-input::-webkit-search-cancel-button {
 @media (max-width: 480px) {
   .header-wrapper .header-content .logo-title {
     font-size: 1.8em;
+  }
+}
+@media (max-width: 760px) {
+  .header-wrapper .header-content .menu-list {
+    display: none;
   }
 }
 .header-wrapper .header-content .menu-list .menu-item {
@@ -2788,6 +2822,11 @@ input.search-input::-webkit-search-cancel-button {
   display: none;
   position: relative;
   cursor: pointer;
+}
+@media (max-width: 760px) {
+  .header-wrapper .header-content .menu-bar {
+    display: block;
+  }
 }
 .header-wrapper .header-content .menu-bar .menu-bar-middle {
   width: 18px;
@@ -2894,22 +2933,6 @@ input.search-input::-webkit-search-cancel-button {
 .header-wrapper-shrink .header-drawer {
   padding: 60px 0 20px 0;
 }
-@media screen and (max-width: 760px) {
-  .menu-list {
-    display: none;
-  }
-  .menu-bar {
-    display: block !important;
-  }
-  .header-content {
-    width: 80% !important;
-  }
-}
-@media screen and (max-width: 480px) {
-  .header-content {
-    width: 90% !important;
-  }
-}
 .tools-container .tools-list li {
   cursor: pointer;
   width: 36px;
@@ -2967,18 +2990,27 @@ input.search-input::-webkit-search-cancel-button {
   }
 }
 .archive-list-container .archive-item .archive-item-header .archive-year-post-count {
-  font-size: 1.4em;
+  font-size: 1.2em;
   color: var(--second-text-color);
   font-weight: 500;
 }
 @media (max-width: 760px) {
   .archive-list-container .archive-item .archive-item-header .archive-year-post-count {
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
 }
 .archive-list-container .archive-item .article-list .article-item {
-  margin-top: 20px;
-  font-size: 1.12em;
+  margin-top: 18px;
+}
+@media (max-width: 760px) {
+  .archive-list-container .archive-item .article-list .article-item {
+    margin-top: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .archive-list-container .archive-item .article-list .article-item {
+    margin-top: 14px;
+  }
 }
 .archive-list-container .archive-item .article-list .article-item a.article-title {
   color: var(--normal-text-color);
@@ -3075,14 +3107,6 @@ input.search-input::-webkit-search-cancel-button {
   .category-list-container:hover {
     transition: all 0.3s ease;
     box-shadow: 0 0 8px var(--border-color);
-  }
-}
-.category-list-container .category-list-content .all-category-list {
-  font-size: 1.18em;
-}
-@media (max-width: 760px) {
-  .category-list-container .category-list-content .all-category-list {
-    font-size: 1.12em;
   }
 }
 .category-list-container .category-list-content .all-category-list li.all-category-list-item {
@@ -3210,6 +3234,7 @@ input.search-input::-webkit-search-cancel-button {
   font-weight: 600;
   color: var(--second-text-color);
   font-size: 1.5em;
+  line-height: 1.5em;
   margin: 0;
   padding-bottom: 20px;
   border-bottom: 1px solid var(--border-color);
@@ -3605,19 +3630,6 @@ pre,
   line-height: 1.5em;
   transition: all 0.3s ease;
 }
-pre::-webkit-scrollbar,
-.highlight::-webkit-scrollbar {
-  height: 6px;
-}
-pre::-webkit-scrollbar-thumb,
-.highlight::-webkit-scrollbar-thumb {
-  border-radius: 1px;
-  background: rgba(0,0,0,0.3);
-}
-pre::-webkit-scrollbar-track,
-.highlight::-webkit-scrollbar-track {
-  background: transparent;
-}
 pre,
 code {
   font-family: "Source Code Pro", consolas, Menlo;
@@ -3945,4 +3957,23 @@ pre .javascript .function {
 .sidebar-tagcloud .tagcloud-container a {
   padding: 0 2px;
   line-height: 1.8em;
+}
+.tagcloud-container {
+  background: var(--background-color);
+  box-shadow: 0 0 2px var(--border-color);
+  transition: all 0.3s ease;
+  padding: 30px;
+  border-radius: 2px;
+}
+.tagcloud-container:hover {
+  transition: all 0.3s ease;
+  box-shadow: 0 0 8px var(--border-color);
+}
+.tagcloud-container .tagcloud-content {
+  text-align: justify;
+  font-size: 1.2em;
+}
+.tagcloud-container .tagcloud-content a {
+  padding: 8px 6px;
+  display: inline-block;
 }
