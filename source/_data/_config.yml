@@ -2,7 +2,7 @@
 # theme basic info
 theme_info:
   name: ILS
-  version: 1.2.1
+  version: 2.0.0-alpha
   author: XPoet
   repository: https://github.com/XPoet/hexo-theme-ils
 
@@ -23,8 +23,8 @@ theme_color: "#03aaaa"
 menu:
   Home: /
   Archives: /archives
-  Categories: /categories
-  Tags: /tags
+  # Categories: /categories
+  # Tags: /tags
   Links: /links
   About: /about
   # ...
@@ -89,9 +89,9 @@ post_wordcount:
 
 # Home page article block display settings
 home_article:
-  category: true # show category in article block
-  tag: true # show tags in article block
-  tag_limit: 5 # max number of tags shown in article block
+  category: false  # show category in article block
+  tag: true  # show tags in article block
+  tag_limit: 5  # max number of tags shown in article block
 
 # 代码复制
 # Code Copy
@@ -128,6 +128,3 @@ magic:
   enable: true
   scale: false
   shadow: true
-  sidebar:
-    enable: false
-    position: right  # values: left | right
