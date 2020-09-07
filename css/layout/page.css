@@ -119,107 +119,132 @@
     transform: translateY(0);
   }
 }
-.page-template {
+.page-container {
+  transition: all 0.3s ease;
+  position: relative;
+  padding-top: 3px;
+}
+@media (max-width: 760px) {
+  .page-container {
+    padding-left: 0 !important;
+  }
+}
+.page-container .page-header .header-progress {
+  display: none;
+  position: fixed;
+  width: 0;
+  height: 3px;
+  top: 0;
+  left: 0;
+  background: var(--primary-color);
+  transition: all 0.3s ease;
+  z-index: 1007;
+}
+.page-container .page-main .page-main-content {
   padding-top: 80px;
   position: relative;
 }
-.page-template .page-top {
+@media (max-width: 760px) {
+  .page-container .page-main .page-main-content {
+    padding-top: 72px;
+  }
+}
+@media (max-width: 480px) {
+  .page-container .page-main .page-main-content {
+    padding-top: 64px;
+  }
+}
+.page-container .page-main .page-main-content .page-main-content-top {
   position: fixed;
   top: 0;
+  right: 0;
   width: 100%;
   height: 80px;
   z-index: 1005;
   box-sizing: border-box;
   transition: all 0.3s ease;
 }
-.page-template .page-middle {
+@media (max-width: 760px) {
+  .page-container .page-main .page-main-content .page-main-content-top {
+    height: 72px;
+    padding-left: 0 !important;
+  }
+}
+@media (max-width: 480px) {
+  .page-container .page-main .page-main-content .page-main-content-top {
+    height: 64px;
+  }
+}
+.page-container .page-main .page-main-content .page-main-content-middle {
   width: 100%;
   display: flex;
   justify-content: center;
   padding: 30px 0;
 }
-.page-template .page-middle .main-content {
+.page-container .page-main .page-main-content .page-main-content-middle .main-content {
   width: 62%;
   height: 100%;
   position: relative;
   box-sizing: border-box;
 }
-.page-template .page-middle .main-content .main-content-left {
-  position: relative;
-  float: left;
-  width: 100%;
-  box-sizing: border-box;
+@media (max-width: 760px) {
+  .page-container .page-main .page-main-content .page-main-content-middle .main-content {
+    width: 80% !important;
+  }
 }
-.page-template .page-middle .sidebar-tools {
-  position: fixed;
-  top: 110px;
-  right: 9.5%;
-  transition: all 0.3s ease;
+@media (max-width: 480px) {
+  .page-container .page-main .page-main-content .page-main-content-middle .main-content {
+    width: 88% !important;
+  }
 }
-.page-template .page-middle .scroll-to-top {
-  display: none;
-  position: fixed;
-  right: 9.5%;
-  bottom: 30px;
-}
-.page-template .page-middle .scroll-to-top li {
-  cursor: pointer;
-  width: 36px;
-  height: 36px;
-  border-radius: 5px;
-  font-size: 1em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--background-color);
-}
-.page-template .page-middle .scroll-to-top li:hover {
-  transition: all 0.3s ease;
-  color: var(--background-color);
-  background: var(--primary-color);
-}
-.page-template .page-bottom {
+.page-container .page-main .page-main-content .page-main-content-bottom {
   width: 100%;
 }
-.page-top-shrink {
+.page-container .page-main .page-main-content-top-shrink {
   transition: all 0.3s ease;
   padding-top: 60px;
 }
-.page-top-shrink .page-top {
+.page-container .page-main .page-main-content-top-shrink .page-main-content-top {
   height: 60px;
 }
-.page-top-shrink .sidebar-tools {
-  top: 90px !important;
+.page-container .page-aside {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: -248px;
+  width: 248px;
+  z-index: 1006;
+  box-sizing: border-box;
+  overflow-y: auto;
+  background: var(--background-color);
+  border-radius: 0;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
 }
-@media screen and (max-width: 760px) {
-  .page-template {
-    padding-top: 70px !important;
+@media (max-width: 760px) {
+  .page-container .page-aside {
+    left: 0 !important;
+    display: none !important;
   }
-  .page-top {
-    height: 70px !important;
-  }
-  .main-content {
-    width: 80% !important;
-  }
-  .sidebar-tools {
-    right: 2% !important;
+}
+.page-container .sidebar-tools {
+  position: fixed;
+  top: 110px;
+  right: 30px;
+  transition: all 0.3s ease;
+}
+@media (max-width: 760px) {
+  .page-container .sidebar-tools {
+    right: 10px;
+    transform: scale(0.82);
     transform-origin: right top;
-    transform: scale(0.8);
-  }
-  .scroll-to-top {
-    right: 2% !important;
-    transform-origin: right bottom;
-    transform: scale(0.8);
   }
 }
-@media screen and (max-width: 480px) {
-  .page-template {
-    padding-top: 60px !important;
-  }
-  .page-top {
-    height: 60px !important;
-  }
-  .main-content {
-    width: 90% !important;
+@media (max-width: 480px) {
+  .page-container .sidebar-tools {
+    right: 5px;
+    transform: scale(0.72);
+    transform-origin: right top;
   }
 }

@@ -121,10 +121,10 @@
 }
 .tag-container {
   background: var(--background-color);
+  padding: 30px;
+  border-radius: 4px;
   box-shadow: 0 0 2px var(--border-color);
   transition: all 0.3s ease;
-  padding: 30px;
-  border-radius: 2px;
 }
 .tag-container:hover {
   transition: all 0.3s ease;
@@ -132,10 +132,22 @@
 }
 @media (max-width: 760px) {
   .tag-container {
+    padding: 28px;
+    border-radius: 3px;
+  }
+}
+@media (max-width: 480px) {
+  .tag-container {
+    padding: 26px;
+    border-radius: 2px;
+  }
+}
+@media (max-width: 760px) {
+  .tag-container {
+    padding: 20px;
+    border-radius: 4px;
     box-shadow: 0 0 2px var(--border-color);
     transition: all 0.3s ease;
-    padding: 20px;
-    border-radius: 2px;
   }
   .tag-container:hover {
     transition: all 0.3s ease;
@@ -158,5 +170,17 @@
 @media (max-width: 480px) {
   .tag-container .tag-name {
     font-size: 1.4em;
+  }
+}
+@media (max-width: 760px) and (max-width: 760px) {
+  .tag-container {
+    padding: 18px;
+    border-radius: 3px;
+  }
+}
+@media (max-width: 760px) and (max-width: 480px) {
+  .tag-container {
+    padding: 16px;
+    border-radius: 2px;
   }
 }
