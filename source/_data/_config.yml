@@ -3,7 +3,7 @@
 # ------------------------------------------------------------
 theme_info:
   name: ILS
-  version: 2.0.1
+  version: 2.0.2
   author: XPoet
   repository: https://github.com/XPoet/hexo-theme-ils
 
@@ -75,7 +75,7 @@ website_count:
   # See: http://ibruce.info/2015/04/04/busuanzi/
   busuanzi_count:
     enable: true
-    site_uv: true
+    site_uv: false
     site_pv: true
     page_pv: true
 
