@@ -1,16 +1,53 @@
----
-title: 千呼万唤始出来，Hexo 主题 ILS 正式发布
-date: 2020-04-07 21:55:14
-tags: [Hexo]
-categories: [Hexo]
-top: 9999
+# hexo-theme-ils
+
+[![Github Author](https://img.shields.io/badge/author-XPoet-orange.svg)](https://github.com/XPoet)
+[![Github Release](https://img.shields.io/github/release/XPoet/hexo-theme-ils.svg)](https://github.com/XPoet/hexo-theme-ils/releases)
+[![Github License](https://img.shields.io/github/license/XPoet/hexo-theme-ils.svg)](https://github.com/XPoet/hexo-theme-ils/blob/master/LICENSE)
+[![Hexo Version](https://img.shields.io/badge/hexo-%3E=4.2.0-blue.svg?&logo=hexo&longCache=true)](https://nodejs.org/)
+[![Node.js Version](https://img.shields.io/badge/node-%3E=12.0-green.svg?logo=Node.js&longCache=true)](https://hexo.io)
+
+**一款简约漂亮的 Hexo 主题。**  
+**A simple and beautiful theme for Hexo.**
+
+![Preview Image](https://user-images.githubusercontent.com/24516169/82140521-ae324080-9861-11ea-809f-ea73d09e24ad.jpg)
+
+<details>
+
+<summary>点击展开，查看更多预览图。</summary>
+
+- 样式一：
+
+  ![Preview Image](https://user-images.githubusercontent.com/24516169/82140654-e8501200-9862-11ea-8013-935897635d17.png)
+
+  ![Preview Image](https://user-images.githubusercontent.com/24516169/82140673-10d80c00-9863-11ea-9b2e-9fcf575e9aef.png)
+
+- 样式二：
+
+  ![Preview Image](https://user-images.githubusercontent.com/24516169/82140717-5d234c00-9863-11ea-85cc-99d15e6960fe.png)
+
+  ![Preview Image](https://user-images.githubusercontent.com/24516169/82140755-9a87d980-9863-11ea-868b-00de092aa64e.png)
+
+- 样式三：
+
+  ![Preview Image](https://user-images.githubusercontent.com/24516169/82919586-cd8b4500-9fa8-11ea-8d14-4510f5500c09.png)
+
+  ![Preview Image](https://user-images.githubusercontent.com/24516169/82919636-dc71f780-9fa8-11ea-8d67-84d57cc217f9.png)
+
+</details>
+
+**Online Preview 在线预览**
+
+> 如果你在使用该主题，欢迎 [PR](https://juejin.im/post/6844903856971710477) 将你的网站链接填写在下方，获得更多展示机会。
+
+- [XPoet Blog](https://xpoet.cn)
+- ...
+- ...
+
 ---
 
 如你所见，ILS 界面设计十分简洁、清爽，但功能齐全、不失优雅，这正是 ILS 的开发理念。也曾尝试过花里胡哨，发现不仅容易审美疲劳，而且背驰了写博客的初衷，记录生活、展示文字，应该才是搭建博客网站的最终追求，为此 ILS 应运而生。简约大气、不缺美感、突出内容、化繁为简、配置简单、长期维护，如果你也喜欢或认可这些主题特点，一起来折腾吧~
 
 关于主题名称 **"ILS"** 的由来：在主题开发之初，作者想到的几个名字都被已被用，词穷了，后来干脆将名字取自 **"I Like Simple「我喜欢简单」"** 首字母，就是这么简单。
-
-<!-- more -->
 
 同时，非常欢迎感兴趣的同学 [Pull Request](https://juejin.im/post/6844903856971710477) 加入到该主题的开发中（成为该项目的贡献者），按你的意愿来打磨 ILS。
 
