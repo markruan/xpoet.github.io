@@ -2938,6 +2938,9 @@ input.search-input::-webkit-search-cancel-button {
   opacity: 0;
   transition: all 0.3s ease;
 }
+.header-drawer-show {
+  opacity: 1 !important;
+}
 .header-drawer-show .header-content .menu-bar .menu-bar-middle {
   background: transparent;
 }
