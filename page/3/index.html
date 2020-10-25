@@ -16,7 +16,7 @@
 
     <script id="hexo-configurations">
     let ILS = window.ILS || {};
-    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","unescape":false,"preload":true},"themeInfo":{"name":"ILS","version":"2.0.3","author":"XPoet","repository":"https://github.com/XPoet/hexo-theme-ils"},"toc":{"enable":true,"number":true,"expand_all":true},"back2top":{"enable":true},"path":"search.json"};
+    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","unescape":false,"preload":true},"themeInfo":{"name":"ILS","version":"2.1.0","author":"XPoet","repository":"https://github.com/XPoet/hexo-theme-ils"},"toc":{"enable":true,"number":true,"expand_all":true},"back2top":{"enable":true},"path":"search.json"};
   </script>
 <meta name="generator" content="Hexo 4.2.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
@@ -565,7 +565,7 @@ mjx-container[display="true"] + br {
         
         <div class="theme-info info-item">
             Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme <a
-                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v2.0.3</a>
+                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v2.1.0</a>
         </div>
     </div>
 </footer>
@@ -581,30 +581,54 @@ mjx-container[display="true"] + br {
             <li class="search popup-trigger">
                 <i class="fa fa-search"></i>
             </li>
-            
-<script src="/js/local-search.js"></script>
+        
 
         
-        <li class="mode-toggle">
-            <i class="fa fa-moon-o"></i>
-        </li>
+
+        <!-- TOC aside toggle -->
         
-            <li class="rss">
-                <a href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a>
-            </li>
-        
-        <li class="page-aside-toggle">
-            <i class="fa fa-bars"></i>
-        </li>
-        
-            <li class="scroll-to-top">
-                <i class="fa fa-caret-up"></i>
-            </li>
-        
+
     </ul>
 </div>
 
     </div>
+
+    <div class="sidebar-tools-2">
+        <div class="tools2-container">
+
+    <button class="tools-button">
+        <i class="fa fa-plus"></i>
+    </button>
+
+    <ul class="tools-wrapper">
+        <!-- back2top -->
+        
+            <li class="tools-item scroll-to-bottom">
+                <i class="fa fa-arrow-down"></i>
+            </li>
+            <li class="tools-item scroll-to-top">
+                <i class="fa fa-arrow-up"></i>
+            </li>
+        
+
+        <!-- mode toggle -->
+        <li class="tools-item mode-toggle">
+            <i class="fa fa-moon-o"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss">
+                <a href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a>
+            </li>
+        
+
+
+    </ul>
+</div>
+
+    </div>
+
 
     <!-- page aside -->
     <aside class="page-aside">
@@ -653,8 +677,13 @@ mjx-container[display="true"] + br {
 
 
     
-<script src="/js/back2top.js"></script>
+<script src="/js/local-search.js"></script>
 
+
+
+
+    
+<script src="/js/back2top.js"></script>
 
 
 

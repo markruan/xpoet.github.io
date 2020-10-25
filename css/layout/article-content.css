@@ -193,7 +193,7 @@
 }
 .article-toc-container {
   position: fixed;
-  top: 102px;
+  top: 112px;
   left: 30px;
 }
 @media (max-width: 760px) {
@@ -228,5 +228,5 @@
   }
 }
 .article-toc-container-shrink {
-  top: 86px !important;
+  top: 96px !important;
 }
