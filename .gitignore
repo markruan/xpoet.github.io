@@ -6,8 +6,7 @@ node_modules/
 public/
 .deploy*/
 
-themes/magic
-themes/dist/.git
+themes/ils/.git
 
 # dependencies
 /node_modules
