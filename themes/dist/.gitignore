@@ -1,13 +1,9 @@
-.DS_Store
-Thumbs.db
-db.json
-*.log
-node_modules/
-public/
-.deploy*/
+# See http://help.github.com/ignore-files/ for more about ignoring files.
 
-themes/ils/
-themes/dist/.git
+# compiled output
+/dist
+/tmp
+/out-tsc
 
 # dependencies
 /node_modules
@@ -42,3 +38,7 @@ testem.log
 /e2e/src/*.js
 /e2e/src/*.map
 /cypress/screenshots
+
+# System Files
+.DS_Store
+Thumbs.db
