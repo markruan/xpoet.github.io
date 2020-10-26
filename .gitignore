@@ -6,8 +6,8 @@ node_modules/
 public/
 .deploy*/
 
-themes/dist/.git
-themes/ils
+themes/dist/.git/
+themes/ils/
 
 # dependencies
 /node_modules
