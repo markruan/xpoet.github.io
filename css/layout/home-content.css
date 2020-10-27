@@ -120,12 +120,20 @@
   }
 }
 .home-content-container .home-article-list .home-article-item {
+  position: relative;
   background: var(--background-color);
   padding: 30px;
   border-radius: 4px;
   box-shadow: 0 0 2.8px var(--border-color);
   transition: all 0.3s ease;
   margin-bottom: 40px;
+}
+.home-content-container .home-article-list .home-article-item .top-icon {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  font-size: 1.8em;
+  transform: rotate(50deg);
 }
 .home-content-container .home-article-list .home-article-item:hover {
   transition: all 0.3s ease;
