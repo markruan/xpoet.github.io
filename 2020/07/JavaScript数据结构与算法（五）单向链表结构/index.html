@@ -6,7 +6,7 @@
     <title>
         JavaScript 数据结构与算法（五）单向链表结构 |
         
-        XPoet Blog
+        XPoet&#39;s Blog
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -17,7 +17,7 @@
 
     <script id="hexo-configurations">
     let ILS = window.ILS || {};
-    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","unescape":false,"preload":true},"themeInfo":{"name":"ILS","version":"2.1.1","author":"XPoet","repository":"https://github.com/XPoet/hexo-theme-ils"},"toc":{"enable":true,"number":true,"expand_all":true},"back2top":{"enable":true},"path":"search.json"};
+    let CONFIG = {"hostname":"xpoet.cn","root":"/","localsearch":{"enable":true,"trigger":"auto","unescape":false,"preload":true},"toc":{"enable":true,"number":true,"expand_all":true},"back2top":{"enable":true},"path":"search.json"};
   </script>
 <meta name="generator" content="Hexo 4.2.0"><style>mjx-container[jax="SVG"] {
   direction: ltr;
@@ -274,7 +274,7 @@ mjx-container[display="true"] + br {
     <div class="header-content">
 
         <a class="logo-title" href="/">
-            XPoet Blog
+            XPoet&#39;s Blog
         </a>
 
         <ul class="menu-list">
@@ -594,13 +594,24 @@ mjx-container[display="true"] + br {
             });
 
 
-            // Valine 评论列表增加"作者"标识
+            // Valine 评论列表增加"博主"标识
             const getValineDomTimer = setInterval(() => {
                 const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
                 if (vcards.length > 0) {
+
+                    let author = 'XPoet';
+                    if (author) {
+                        author = author.toLocaleLowerCase();
+                    }
+
+                    let email = 'i@xpoet.cn';
+                    if (email) {
+                        email = email.toLocaleLowerCase();
+                    }
+
                     for (let vcard of vcards) {
                         const vnick = vcard.querySelector('.vhead .vnick');
-                        if (vnick.innerHTML.toLocaleLowerCase() === 'XPoet'.toLocaleLowerCase()) {
+                        if (vnick.innerHTML.toLocaleLowerCase() === author) {
                             vcard.classList.add('author');
                         }
                     }
@@ -646,8 +657,7 @@ mjx-container[display="true"] + br {
             </div>
         
         <div class="theme-info info-item">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme <a
-                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v2.1.1</a>
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme <a class="theme-version" target="_blank"></a>
         </div>
     </div>
 </footer>

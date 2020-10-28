@@ -181,6 +181,16 @@
   justify-content: center;
   padding: 40px 0;
 }
+@media (max-width: 760px) {
+  .page-container .page-main .page-main-content .page-main-content-middle {
+    padding: 30px 0;
+  }
+}
+@media (max-width: 480px) {
+  .page-container .page-main .page-main-content .page-main-content-middle {
+    padding: 20px 0;
+  }
+}
 .page-container .page-main .page-main-content .page-main-content-middle .main-content {
   width: 62%;
   height: 100%;
