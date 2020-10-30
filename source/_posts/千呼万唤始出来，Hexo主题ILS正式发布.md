@@ -1,8 +1,8 @@
 ---
 title: 千呼万唤始出来，Hexo 主题 ILS 正式发布
 date: 2020-04-07 21:55:14
-tags: [Hexo]
-categories: [Hexo]
+tags: [Hexo, ILS]
+categories: [ILS]
 sticky: 9999
 ---
 
