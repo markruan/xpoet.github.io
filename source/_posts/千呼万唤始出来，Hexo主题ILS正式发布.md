@@ -3,7 +3,7 @@ title: 千呼万唤始出来，Hexo 主题 ILS 正式发布
 date: 2020-04-07 21:55:14
 tags: [Hexo]
 categories: [Hexo]
-top: 9999
+sticky: 9999
 ---
 
 如你所见，ILS 界面设计十分简洁、清爽，但功能齐全、不失优雅，这正是 ILS 的开发理念。也曾尝试过花里胡哨，发现不仅配置繁琐、容易审美疲劳，而且背驰了写博客的初衷，记录生活、展示文字，应该才是搭建博客网站的最终追求，为此 ILS 应运而生。简约轻快、突出内容、化繁为简、配置简单、长期维护，如果你也喜欢或认可这些主题特点，一起来探索吧~
@@ -301,6 +301,7 @@ magic:
 #### Gitalk
 
 1. 在自己的 GitHub 账号下创建新的 OAuth App，链接：https://github.com/settings/applications/new ，Homepage URL 和 Authorization callback URL 均填写自己的域名即可。
+   例 `https://ils.xpoet.cn/`
 2. 在自己的 GitHub 账号下创建新的 repository 并打开 Issues，用于存储评论内容。
 3. 把自己的 GitHub 用户名称、repository 名称 、OAuth App 的 Client ID 、Client Secret 分别填写在主题配置文件里。
 
