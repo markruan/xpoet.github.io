@@ -4,18 +4,17 @@
 
 # Site
 title: XPoet's Blog
-subtitle:
-description:
+subtitle: ""
+description: ""
 keywords: XPoet's Blog
 author: XPoet
 language: en
-timezone: ''
+timezone: ""
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
 url: https://xpoet.cn
 root: /
-# permalink: :year/:month/:day/:title/
 permalink: :year/:month/:title/
 permalink_defaults:
 pretty_urls:
@@ -39,7 +38,7 @@ titlecase: false # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
-  exclude: ''
+  exclude: ""
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
@@ -49,16 +48,21 @@ highlight:
   enable: true
   line_number: true
   auto_detect: false
-  tab_replace: ''
+  tab_replace: ""
   wrap: true
   hljs: false
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: ""
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: ""
   per_page: 10
   order_by: -date
 
@@ -77,8 +81,8 @@ meta_generator: true
 ## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
-## Use post's date for updated date unless set in front-matter
-use_date_for_updated: false
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: "mtime"
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -97,9 +101,9 @@ ignore:
 theme: dist
 
 # Deployment
-## Docs: https://hexo.io/docs/deployment.html
+## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: ""
 
 # Search
 ## https://github.com/theme-next/hexo-generator-searchdb
@@ -108,13 +112,6 @@ search:
   field: post
   content: true
   format: striptags
-
-# hexo-browsersync
-#browsersync:
-#  logLevel: "warn"
-#  ghostMode:
-#    scroll: true
-#  instanceName: "uniqueString"
 
 # Feed Atom
 # npm install hexo-generator-feed
