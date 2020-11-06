@@ -6,7 +6,7 @@ categories: [ILS]
 sticky: 10000
 ---
 
-ILS 官网上线啦，网址：**https://ils.xpoet.cn/** ，托管在 GitHub Pages，如遇加载缓慢等情况，牢记[科学上网]()。
+ILS 官网上线啦，网址：**https://ils.xpoet.cn/** ，托管在 GitHub Pages，如遇加载缓慢等情况，牢记[科学上网](https://github.com/getlantern/lantern)。
 
 [ILS 官网](https://ils.xpoet.cn/) 将逐步完善主题配置文件 `_config.yml` 说明文档和图文教程，以及 Hexo 静态博客相关的各种经验和技巧分享。
 
