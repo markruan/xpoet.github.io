@@ -258,7 +258,7 @@
     transform-origin: right top;
   }
 }
-.page-container .sidebar-tools-2 {
+.page-container .bottom-sidebar-tools {
   position: fixed;
   bottom: 40px;
   right: 40px;
@@ -266,14 +266,14 @@
   height: 40px;
 }
 @media (max-width: 760px) {
-  .page-container .sidebar-tools-2 {
+  .page-container .bottom-sidebar-tools {
     right: 10px;
     transform: scale(0.82);
     transform-origin: right bottom;
   }
 }
 @media (max-width: 480px) {
-  .page-container .sidebar-tools-2 {
+  .page-container .bottom-sidebar-tools {
     right: 5px;
     transform: scale(0.72);
     transform-origin: right bottom;
