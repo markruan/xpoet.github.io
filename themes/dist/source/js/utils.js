@@ -67,8 +67,9 @@ ILS.utils = {
 
   // tools
   registerToolsButtonClick() {
+    if (!CONFIG.side_tools.enable) return;
 
-    let isOpen = false
+    let isOpen = false;
     this.toolsMenuButton_dom = document.querySelector('.tools-button');
     this.toolsWrapperList_dom = document.querySelectorAll('.tools-wrapper li');
 
