@@ -311,3 +311,5 @@ $ git stash pop
 # 生成一个可供发布的压缩包
 $ git archive
 ```
+
+转载：https://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html
