@@ -19,4 +19,4 @@ sticky: 10001
 
 - [Keep 代码贡献指南](https://keep.xpoet.cn/2020/11/Keep-代码贡献指南/)
 
-- [使用 Travis CI 自动部署 Hexo 静态博客](https://keep.xpoet.cn/2020/10/使用-Travis-CI-自动部署-Hexo-静态博客/)
+- [使用 Travis CI 自动部署 Hexo 静态博客](https://keep.xpoet.cn/2020/11/使用-Travis-CI-自动部署-Hexo-静态博客/)
