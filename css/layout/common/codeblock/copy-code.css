@@ -6,7 +6,7 @@
   opacity: 1;
 }
 .copy-btn {
-  color: #333;
+  color: var(--default-text-color);
   cursor: pointer;
   display: inline-block;
   font-weight: bold;
@@ -17,13 +17,13 @@
   position: absolute;
   vertical-align: middle;
   white-space: nowrap;
+  font-size: 1.1em;
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
   user-select: none;
-  background: #fff;
+  background: var(--background-color);
   border: 0;
-  font-size: 0.8em;
   right: 0;
   top: 0;
 }
