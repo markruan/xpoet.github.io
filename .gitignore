@@ -6,12 +6,10 @@ node_modules/
 public/
 .deploy*/
 
-themes/dist/.git/
-themes/ils/
-
 # dependencies
 /node_modules
 yarn.lock
+package-lock.json
 
 # IDEs and editors
 /.idea

@@ -1,0 +1,34 @@
+# ---------------------------------------------------------------------------------------
+# Friends link config
+# ---------------------------------------------------------------------------------------
+- name: XPoet
+  link: https://xpoet.cn/
+  description: 所有命运的馈赠，早已在暗中标好价格。
+  avatar: https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/common-use/avatar.jpg
+
+- name: 不知名艺术家
+  link: https://jinzhanqi.com/
+  description: love artist, love code.
+  avatar: https://s3.ax1x.com/2020/11/17/DVvkB4.jpg
+
+
+- name: 月拉风
+  link: https://mooncool.net/
+  description: 不该错落的蝴蝶，长满紫色的琴键
+  avatar: https://mooncool.net/static/imgs/butterfly.jpg
+
+
+- name: 挨拍的儿
+  link: https://jimmyqin.cn/
+  description: 一个纯粹的互联网爱好者
+  avatar: https://cdn.jsdelivr.net/gh/aipaideer/pic/avatar.png
+
+- name: nomar
+  link: https://www.nomar.cn/
+  description: 技术记录分享
+  avatar: ""
+
+- name: Murphy's Blog
+  link: https://mphy.gitee.io/
+  description: 热爱互联网、热爱技术、热爱代码！
+  avatar: https://mphy.gitee.io/images/head.jpg
