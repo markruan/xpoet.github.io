@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <title>
+        使用gulp搭建前端自动化工作流环境（简易版） |
+        
+        XPoet&#39;s Blog
+    </title>
+    <link rel="icon" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"xpoet.cn","root":"/","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true},"style":{"primary_color":"#0066CC","img_position":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"description":"黄色的森林分出两条路，我选择了人迹更少的那一条，从此决定我一生的道路。"}},"local_search":{"enable":true,"trigger":"auto","unescape":false,"preload":false},"version":"3.0.1"};
+    KEEP.language = {"search":"Search...","prev":"Prev","next":"Next","prev_posts":"Prev posts","next_posts":"Next posts","page":"Page %d","recent_posts":"Recent Posts","share":"Share","powered_by":"Powered by %s","theme":"Theme","rss_feed":"RSS Feed","category":"Category","categories":"Categories","tag":"Tag","tags":"Tags","tagcloud":"Tag Cloud","comment":"Comment","home":"Home","archive":"Archive","archives":"Archives","about":"About","site_uv":"Visitor Count","site_pv":"Totalview","links":"Links","link":"Link","top":"TOP","read_more":"Read more","wordcount":"Words","min2read":"Mins","changelog":"Changelog","copyright":{"author":"Post author","title":"Post title","link":"Post link","create_time":"Create time","license_title":"Copyright Notice","license_content":"All articles in this blog are licensed under %s unless stating additionally."},"ago":{"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days age","week":"%s weeks age","month":"%s months age","year":"%s years age"}};
+  </script>
+<meta name="generator" content="Hexo 5.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="XPoet's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="page-container">
+
+    
+
+    <header class="page-header">
+        <div class="header-progress"></div>
+    </header>
+
+    <main class="page-main">
+
+        <div class="page-main-content">
+
+            <div class="page-main-content-top">
+                <header class="header-wrapper">
+
+    <div class="header-content">
+        <a class="logo-title" href="/">
+            XPoet&#39;s Blog
+        </a>
+
+        <ul class="menu-list">
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/"
+                    >
+                        HOME
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/archives"
+                    >
+                        ARCHIVES
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/links"
+                    >
+                        LINKS
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/about"
+                    >
+                        ABOUT
+                    </a>
+                </li>
+            
+        </ul>
+
+        <div class="menu-bar">
+            <div class="menu-bar-middle"></div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/links">LINKS</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+            </div>
+
+            <div class="page-main-content-middle">
+
+                <main class="main-content normal-code-theme">
+
+                    
+                        <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">使用gulp搭建前端自动化工作流环境（简易版）</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span>XPoet</span>
+                        <span class="level">Lv3</span>
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-calendar"></i> 2017-11-30 11:18:48
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Gulp/">Gulp</a>
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96/">前端自动化</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i> <span>1.1k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i> <span>4 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i> <span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p>本文通过简单且实用的案例，讲解使用 gulp 搭建前端自动化工作流环境详细步骤，带领大家快速入门。</p>
+</blockquote>
+<h3 id="什么是-gulp？"><a href="#什么是-gulp？" class="headerlink" title="什么是 gulp？"></a>什么是 gulp？</h3><p>来自官网的简介：Automate and enhance your workflow. gulp is a toolkit for automating painful or time-consuming tasks in your development workflow, so you can stop messing around and build something.</p>
+<p>大致意思是讲 gulp 是一款自动化构建工具，可用于增强你的开发工作流程，提高工作效率！前端界的友友们，这个工具可不要错过了哟~</p>
+<ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://gulpjs.com/" >gulp 官网<i class="fas fa-external-link-alt"></i></a></li>
+<li><a class="link"   target="_blank" rel="noopener" href="http://www.gulpjs.com.cn/" >gulp 中文网<i class="fas fa-external-link-alt"></i></a></li>
+</ul>
+<h3 id="gulp-优点"><a href="#gulp-优点" class="headerlink" title="gulp 优点"></a>gulp 优点</h3><ul>
+<li><strong>易于使用</strong> 通过代码优于配置的策略，gulp 让简单的任务简单，复杂的任务可管理。</li>
+<li><strong>构建快速</strong> 利用 Node.js 流的威力，你可以快速构建项目并减少频繁的 IO 操作。</li>
+<li><strong>插件高质</strong> gulp 严格的插件指南确保插件如你期望的那样简洁高质得工作。</li>
+<li><strong>易于学习</strong> 通过最少的 API，掌握 gulp 毫不费力，构建工作尽在掌握：如同一系列流管道。</li>
+</ul>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><p><strong>gulp 依赖 Node.js，参考本教程的朋友们，请先在本地环境安装好 Node.js，并确认 Node.js、npm 可正常使用。</strong></p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="第一步-新建项目根文件夹-例：gulp-demo-，并在项目根目录下使用-npm-安装必要的包"><a href="#第一步-新建项目根文件夹-例：gulp-demo-，并在项目根目录下使用-npm-安装必要的包" class="headerlink" title="第一步 新建项目根文件夹(例：gulp-demo)，并在项目根目录下使用 npm 安装必要的包"></a>第一步 新建项目根文件夹(例：gulp-demo)，并在项目根目录下使用 npm 安装必要的包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install gulp gulp-less gulp-concat gulp-cssnano gulp-uglify gulp-htmlmin browser-sync --save-dev</span><br></pre></td></tr></table></figure>
+
+<p>本案例使用的 gulp 插件介绍：</p>
+<ul>
+<li><strong>gulp-less</strong> 将 less 编译成 css</li>
+<li><strong>gulp-concat</strong> 将多个 JavaScript 合并</li>
+<li><strong>gulp-cssnano</strong> css 压缩</li>
+<li><strong>gulp-uglify</strong> JavaScript 压缩并混淆</li>
+<li><strong>gulp-htmlmin</strong> html 压缩</li>
+<li><strong>browser-sync</strong> 多浏览器同步操作</li>
+</ul>
+<h4 id="第二步-在项目根文件夹-例：gulp-demo-下创建相关的文件结构"><a href="#第二步-在项目根文件夹-例：gulp-demo-下创建相关的文件结构" class="headerlink" title="第二步 在项目根文件夹(例：gulp-demo)下创建相关的文件结构"></a>第二步 在项目根文件夹(例：gulp-demo)下创建相关的文件结构</h4><h5 id="src-gulp-编译之前的源文件"><a href="#src-gulp-编译之前的源文件" class="headerlink" title="src [gulp 编译之前的源文件]"></a>src [gulp 编译之前的源文件]</h5><ul>
+<li><strong>css</strong> 我们在此处编写 css 文件</li>
+<li><strong>img</strong> 我们在此处放置图片文件</li>
+<li><strong>js</strong> 我们在此处编写 css 文件</li>
+<li><strong>index1.html</strong></li>
+<li><strong>index2.html</strong></li>
+<li><strong>…….</strong></li>
+</ul>
+<h5 id="node-modules"><a href="#node-modules" class="headerlink" title="node_modules"></a>node_modules</h5><p>通过 npm 安装的包及其依赖包的库，自动生成文件夹。</p>
+<h5 id="gulpfile-js"><a href="#gulpfile-js" class="headerlink" title="gulpfile.js"></a>gulpfile.js</h5><p>gulp 的入口文件，我们在此处编写相关任务代码。</p>
+<h5 id="dist-gulp-编译之后的文件，即我们最终要得到文件"><a href="#dist-gulp-编译之后的文件，即我们最终要得到文件" class="headerlink" title="dist [gulp 编译之后的文件，即我们最终要得到文件]"></a>dist [gulp 编译之后的文件，即我们最终要得到文件]</h5><ul>
+<li><strong>css</strong></li>
+<li><strong>img</strong></li>
+<li><strong>js</strong></li>
+<li><strong>index.html</strong></li>
+</ul>
+<h4 id="第三步-在-gulpfile-js-文件里编写具体的任务代码"><a href="#第三步-在-gulpfile-js-文件里编写具体的任务代码" class="headerlink" title="第三步 在 gulpfile.js 文件里编写具体的任务代码"></a>第三步 在 gulpfile.js 文件里编写具体的任务代码</h4><h5 id="载入所需要的模块"><a href="#载入所需要的模块" class="headerlink" title="载入所需要的模块"></a>载入所需要的模块</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&quot;use strict&quot;</span>; <span class="comment">// 启用JavaScript严格模式</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">&quot;gulp&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> less = <span class="built_in">require</span>(<span class="string">&quot;gulp-less&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> cssnano = <span class="built_in">require</span>(<span class="string">&quot;gulp-cssnano&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> concat = <span class="built_in">require</span>(<span class="string">&quot;gulp-concat&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">&quot;gulp-uglify&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> htmlmin = <span class="built_in">require</span>(<span class="string">&quot;gulp-htmlmin&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> browserSync = <span class="built_in">require</span>(<span class="string">&quot;browser-sync&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<h5 id="less-编译、压缩"><a href="#less-编译、压缩" class="headerlink" title="less 编译、压缩"></a>less 编译、压缩</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义LESS编译、压缩的任务：css</span></span><br><span class="line">gulp.task(<span class="string">&quot;css&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp</span><br><span class="line">    .src([<span class="string">&quot;src/css/*.less&quot;</span>, <span class="string">&quot;!src/css/_*.less&quot;</span>])</span><br><span class="line">    .pipe(less())</span><br><span class="line">    .pipe(cssnano())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&quot;dist/css&quot;</span>))</span><br><span class="line">    .pipe(</span><br><span class="line">      browserSync.reload(&#123;</span><br><span class="line">        stream: <span class="literal">true</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="JavaScript-合并、压缩、混淆"><a href="#JavaScript-合并、压缩、混淆" class="headerlink" title="JavaScript 合并、压缩、混淆"></a>JavaScript 合并、压缩、混淆</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义多个JavaScript文件合并、压缩混淆的任务：js</span></span><br><span class="line">gulp.task(<span class="string">&quot;js&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp</span><br><span class="line">    .src(<span class="string">&quot;src/js/*.js&quot;</span>)</span><br><span class="line">    .pipe(concat(<span class="string">&quot;index.js&quot;</span>)) <span class="comment">// JS合并之后，文件命名为index.js</span></span><br><span class="line">    .pipe(uglify()) <span class="comment">// JS压缩混淆</span></span><br><span class="line">    .pipe(gulp.dest(<span class="string">&quot;dist/js&quot;</span>))</span><br><span class="line">    .pipe(</span><br><span class="line">      browserSync.reload(&#123;</span><br><span class="line">        stream: <span class="literal">true</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="将-src-文件夹下-img-图片复制到-dist-文件夹下-img"><a href="#将-src-文件夹下-img-图片复制到-dist-文件夹下-img" class="headerlink" title="将 src 文件夹下 img 图片复制到 dist 文件夹下 img"></a>将 src 文件夹下 img 图片复制到 dist 文件夹下 img</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义image复制的任务：img</span></span><br><span class="line">gulp.task(<span class="string">&quot;img&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp</span><br><span class="line">    .src(<span class="string">&quot;src/img/*.*&quot;</span>)</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&quot;dist/img&quot;</span>))</span><br><span class="line">    .pipe(</span><br><span class="line">      browserSync.reload(&#123;</span><br><span class="line">        stream: <span class="literal">true</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="html-代码压缩"><a href="#html-代码压缩" class="headerlink" title="html 代码压缩"></a>html 代码压缩</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义HTML压缩的任务：html</span></span><br><span class="line">gulp.task(<span class="string">&quot;html&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  gulp</span><br><span class="line">    .src(<span class="string">&quot;src/*.html&quot;</span>)</span><br><span class="line">    .pipe(htmlmin(&#123; <span class="attr">collapseWhitespace</span>: <span class="literal">true</span> &#125;))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">&quot;dist&quot;</span>))</span><br><span class="line">    .pipe(</span><br><span class="line">      browserSync.reload(&#123;</span><br><span class="line">        stream: <span class="literal">true</span>,</span><br><span class="line">      &#125;)</span><br><span class="line">    );</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h5 id="多浏览器同步操作，开启-gulp-监视文件变动"><a href="#多浏览器同步操作，开启-gulp-监视文件变动" class="headerlink" title="多浏览器同步操作，开启 gulp 监视文件变动"></a>多浏览器同步操作，开启 gulp 监视文件变动</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义浏览器同步操作服务的任务：browserSync</span></span><br><span class="line">gulp.task(<span class="string">&quot;browserSync&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  browserSync(</span><br><span class="line">    &#123;</span><br><span class="line">      server: &#123;</span><br><span class="line">        baseDir: [<span class="string">&quot;dist&quot;</span>],</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="keyword">function</span> (<span class="params">err, bs</span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(bs.options.getIn([<span class="string">&quot;urls&quot;</span>, <span class="string">&quot;local&quot;</span>]));</span><br><span class="line">    &#125;</span><br><span class="line">  );</span><br><span class="line">  <span class="comment">// 开启gulp监视</span></span><br><span class="line">  gulp.watch(<span class="string">&quot;src/css/*.less&quot;</span>, [<span class="string">&quot;css&quot;</span>]); <span class="comment">// less文件改动时，执行css任务</span></span><br><span class="line">  gulp.watch(<span class="string">&quot;src/js/*.js&quot;</span>, [<span class="string">&quot;js&quot;</span>]); <span class="comment">// js文件改动时，执行js任务</span></span><br><span class="line">  gulp.watch(<span class="string">&quot;src/img/*.*&quot;</span>, [<span class="string">&quot;img&quot;</span>]); <span class="comment">// image文件改动时，执行img任务</span></span><br><span class="line">  gulp.watch(<span class="string">&quot;src/*.html&quot;</span>, [<span class="string">&quot;html&quot;</span>]); <span class="comment">// html文件改动时，执行html任务</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+<li>1 <code>$ gulp css</code> LESS 编译 压缩 合并</li>
+<li>2 <code>$ gulp js</code> JavaScript 合并 压缩 混淆</li>
+<li>3 <code>$ gulp img</code> image 复制</li>
+<li>4 <code>$ gulp html</code> HTML 压缩</li>
+<li>5 <code>$ gulp browserSync</code> 多浏览器同步操作，gulp 监视 JS/CSS/HTML 文件改变</li>
+</ul>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/itPoet/gulp" >点击此处，下载本案例源代码<i class="fas fa-external-link-alt"></i></a></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：使用gulp搭建前端自动化工作流环境（简易版）</li>
+        <li>Post author：XPoet</li>
+        <li>Create time：2017-11-30 11:18:48</li>
+        <li>
+            Post link：https://xpoet.cn/2017/11/使用Gulp搭建前端自动化工作流（简易版）/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2018/01/es6-array-eliminate-redundancy/"
+                        >
+                            <span class="left arrow-icon flex-center" >
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">使用ES6新特性实现数组去重</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2017/10/%E5%BF%AB%E9%80%9F%E6%8E%8C%E6%8F%A1Markdown%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">快速掌握 Markdown 基础语法</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center" >
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    
+        
+    <div class="valine-container">
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <div id="vcomments"></div>
+        <script>
+            new Valine({
+                el: '#vcomments',
+                appId: 'ih2nzG3ilVNdLgJK4kBXTjOq-gzGzoHsz',
+                appKey: 'gdf6tXXLBTLg9qpjS2y6Tbw7',
+                meta: 'nick,mail,link'.split(','),
+                avatar: 'wavatar',
+                enableQQ: true,
+                placeholder: '😜 尽情吐槽吧~',
+                lang: 'en'.toLowerCase()
+            });
+
+
+            // Valine 评论列表增加"博主"标识
+            const getValineDomTimer = setInterval(() => {
+                const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                if (vcards.length > 0) {
+
+                    let author = 'XPoet';
+                    if (author) {
+                        author = author.toLocaleLowerCase();
+                    }
+
+                    for (let vcard of vcards) {
+                        const vnick = vcard.querySelector('.vhead .vnick');
+                        if (vnick.innerHTML.toLocaleLowerCase() === author) {
+                            vcard.classList.add('author');
+                        }
+                    }
+                    clearInterval(getValineDomTimer);
+                } else {
+                    clearInterval(getValineDomTimer);
+                }
+            }, 2000);
+        </script>
+    </div>
+
+
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                    
+                </main>
+
+            </div>
+
+            <div class="page-main-content-bottom">
+                <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2017</span> ~
+            
+            2020 <i class="fas fa-heart"></i> <a href="/">XPoet</a>
+        </div>
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalview <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme <a class="theme-version" target="_blank"></a>
+        </div>
+    </div>
+</footer>
+
+            </div>
+        </div>
+    </main>
+
+    <div class="sidebar-tools">
+        <div class="tools-container">
+    <ul class="tools-list">
+        
+            <li class="search popup-trigger">
+                <i class="fas fa-search"></i>
+            </li>
+        
+
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+    </ul>
+</div>
+
+    </div>
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center">
+            <i class="fas fa-arrow-up"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="tools-ul-1">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+    </ul>
+</div>
+
+    </div>
+
+    <!-- page aside -->
+    <aside class="page-aside">
+        
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-gulp%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">什么是 gulp？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gulp-%E4%BC%98%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">gulp 优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4"><span class="nav-number">4.</span> <span class="nav-text">步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E6%96%B0%E5%BB%BA%E9%A1%B9%E7%9B%AE%E6%A0%B9%E6%96%87%E4%BB%B6%E5%A4%B9-%E4%BE%8B%EF%BC%9Agulp-demo-%EF%BC%8C%E5%B9%B6%E5%9C%A8%E9%A1%B9%E7%9B%AE%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%8B%E4%BD%BF%E7%94%A8-npm-%E5%AE%89%E8%A3%85%E5%BF%85%E8%A6%81%E7%9A%84%E5%8C%85"><span class="nav-number">4.1.</span> <span class="nav-text">第一步 新建项目根文件夹(例：gulp-demo)，并在项目根目录下使用 npm 安装必要的包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E5%9C%A8%E9%A1%B9%E7%9B%AE%E6%A0%B9%E6%96%87%E4%BB%B6%E5%A4%B9-%E4%BE%8B%EF%BC%9Agulp-demo-%E4%B8%8B%E5%88%9B%E5%BB%BA%E7%9B%B8%E5%85%B3%E7%9A%84%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="nav-number">4.2.</span> <span class="nav-text">第二步 在项目根文件夹(例：gulp-demo)下创建相关的文件结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#src-gulp-%E7%BC%96%E8%AF%91%E4%B9%8B%E5%89%8D%E7%9A%84%E6%BA%90%E6%96%87%E4%BB%B6"><span class="nav-number">4.2.1.</span> <span class="nav-text">src [gulp 编译之前的源文件]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#node-modules"><span class="nav-number">4.2.2.</span> <span class="nav-text">node_modules</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#gulpfile-js"><span class="nav-number">4.2.3.</span> <span class="nav-text">gulpfile.js</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#dist-gulp-%E7%BC%96%E8%AF%91%E4%B9%8B%E5%90%8E%E7%9A%84%E6%96%87%E4%BB%B6%EF%BC%8C%E5%8D%B3%E6%88%91%E4%BB%AC%E6%9C%80%E7%BB%88%E8%A6%81%E5%BE%97%E5%88%B0%E6%96%87%E4%BB%B6"><span class="nav-number">4.2.4.</span> <span class="nav-text">dist [gulp 编译之后的文件，即我们最终要得到文件]</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-%E5%9C%A8-gulpfile-js-%E6%96%87%E4%BB%B6%E9%87%8C%E7%BC%96%E5%86%99%E5%85%B7%E4%BD%93%E7%9A%84%E4%BB%BB%E5%8A%A1%E4%BB%A3%E7%A0%81"><span class="nav-number">4.3.</span> <span class="nav-text">第三步 在 gulpfile.js 文件里编写具体的任务代码</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%BD%BD%E5%85%A5%E6%89%80%E9%9C%80%E8%A6%81%E7%9A%84%E6%A8%A1%E5%9D%97"><span class="nav-number">4.3.1.</span> <span class="nav-text">载入所需要的模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#less-%E7%BC%96%E8%AF%91%E3%80%81%E5%8E%8B%E7%BC%A9"><span class="nav-number">4.3.2.</span> <span class="nav-text">less 编译、压缩</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JavaScript-%E5%90%88%E5%B9%B6%E3%80%81%E5%8E%8B%E7%BC%A9%E3%80%81%E6%B7%B7%E6%B7%86"><span class="nav-number">4.3.3.</span> <span class="nav-text">JavaScript 合并、压缩、混淆</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%B0%86-src-%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B-img-%E5%9B%BE%E7%89%87%E5%A4%8D%E5%88%B6%E5%88%B0-dist-%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B-img"><span class="nav-number">4.3.4.</span> <span class="nav-text">将 src 文件夹下 img 图片复制到 dist 文件夹下 img</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#html-%E4%BB%A3%E7%A0%81%E5%8E%8B%E7%BC%A9"><span class="nav-number">4.3.5.</span> <span class="nav-text">html 代码压缩</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%9A%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%8C%E6%AD%A5%E6%93%8D%E4%BD%9C%EF%BC%8C%E5%BC%80%E5%90%AF-gulp-%E7%9B%91%E8%A7%86%E6%96%87%E4%BB%B6%E5%8F%98%E5%8A%A8"><span class="nav-number">4.3.6.</span> <span class="nav-text">多浏览器同步操作，开启 gulp 监视文件变动</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">使用</span></a></li></ol>
+    </div>
+</div>
+        
+    </aside>
+
+    <!-- image viewer -->
+    <div class="image-viewer-container">
+    <div class="img-box">
+        <img src="">
+    </div>
+</div>
+
+
+</div>
+
+
+
+    <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-icon">
+            <i class="fas fa-search"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/local-search.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/left-side-toggle.js"></script>
+
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/code-copy.js"></script>
+    
+
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/toc.js"></script>
+    
+
+
+</body>
+</html>
