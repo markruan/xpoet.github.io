@@ -20,6 +20,9 @@ package-lock.json
 .settings/
 *.sublime-workspace
 
+themes/dist/.git/
+themes/keep/
+
 # IDE - VSCode
 .vscode/*
 # !.vscode/settings.json

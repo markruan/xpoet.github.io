@@ -41,9 +41,9 @@ social_contact:
   links:
     github: https://github.com/XPoet
     weixin: https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/common-use/image.4j02ra19reg0.png
-    weibo: ''
-    twitter: ''
-    facebook: ''
+    weibo:
+    twitter:
+    facebook:
     email: i@xpoet.cn
 
 
