@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <title>
+        JavaScript 数据结构与算法（五）单向链表结构 |
+        
+        XPoet&#39;s Blog
+    </title>
+    <link rel="icon" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/images/logo.svg">
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"xpoet.cn","root":"/","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true},"style":{"primary_color":"#0066CC","img_position":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":false},"first_screen":{"enable":true,"description":"黄色的森林分出两条路，我选择了人迹更少的那一条，从此决定我一生的道路。"}},"local_search":{"enable":true,"trigger":"auto","unescape":false,"preload":false},"version":"3.0.1"};
+    KEEP.language = {"search":"Search...","prev":"Prev","next":"Next","prev_posts":"Prev posts","next_posts":"Next posts","page":"Page %d","recent_posts":"Recent Posts","share":"Share","powered_by":"Powered by %s","theme":"Theme","rss_feed":"RSS Feed","category":"Category","categories":"Categories","tag":"Tag","tags":"Tags","tagcloud":"Tag Cloud","comment":"Comment","home":"Home","archive":"Archive","archives":"Archives","about":"About","site_uv":"Visitor Count","site_pv":"Totalview","links":"Links","link":"Link","top":"TOP","read_more":"Read more","wordcount":"Words","min2read":"Mins","changelog":"Changelog","copyright":{"author":"Post author","title":"Post title","link":"Post link","create_time":"Create time","license_title":"Copyright Notice","license_content":"All articles in this blog are licensed under %s unless stating additionally."},"ago":{"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days age","week":"%s weeks age","month":"%s months age","year":"%s years age"}};
+  </script>
+<meta name="generator" content="Hexo 5.2.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"] > svg a {
+  fill: blue;
+  stroke: blue;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style><link rel="alternate" href="/atom.xml" title="XPoet's Blog" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="page-container">
+
+    
+
+    <header class="page-header">
+        <div class="header-progress"></div>
+    </header>
+
+    <main class="page-main">
+
+        <div class="page-main-content">
+
+            <div class="page-main-content-top">
+                <header class="header-wrapper">
+
+    <div class="header-content">
+        <a class="logo-title" href="/">
+            XPoet&#39;s Blog
+        </a>
+
+        <ul class="menu-list">
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/"
+                    >
+                        HOME
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/archives"
+                    >
+                        ARCHIVES
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/links"
+                    >
+                        LINKS
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/about"
+                    >
+                        ABOUT
+                    </a>
+                </li>
+            
+        </ul>
+
+        <div class="menu-bar">
+            <div class="menu-bar-middle"></div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/">HOME</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/archives">ARCHIVES</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/links">LINKS</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/about">ABOUT</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+            </div>
+
+            <div class="page-main-content-middle">
+
+                <main class="main-content normal-code-theme">
+
+                    
+                        <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">JavaScript 数据结构与算法（五）单向链表结构</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span>XPoet</span>
+                        <span class="level">Lv3</span>
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-calendar"></i> 2020-07-23 16:46:14
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E7%AE%97%E6%B3%95%E4%B8%93%E8%BE%91/">算法专辑</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/tags/JavaScript/">JavaScript</a>
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8/">单向链表</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i> <span>3.1k Words</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i> <span>13 Mins</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i> <span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h3 id="认识链表"><a href="#认识链表" class="headerlink" title="认识链表"></a>认识链表</h3><h4 id="链表和数组"><a href="#链表和数组" class="headerlink" title="链表和数组"></a>链表和数组</h4><p>链表和数组一样，可以用于存储一系列的元素，但是链表和数组的实现机制完全不同。</p>
+<h5 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h5><ul>
+<li><p>存储多个元素，数组（或列表）可能是最常用的数据结构。</p>
+</li>
+<li><p>几乎每一种编程语言都有默认实现数组结构，提供了一个便利的 <code>[]</code> 语法来访问数组元素。</p>
+</li>
+<li><p>数组缺点：</p>
+<p>数组的创建需要申请一段连续的内存空间(一整块内存)，并且大小是固定的，当前数组不能满足容量需求时，需要扩容。 (一般情况下是申请一个更大的数组，比如 2 倍，然后将原数组中的元素复制过去)</p>
+<p>在数组开头或中间位置插入数据的成本很高，需要进行大量元素的位移。</p>
+</li>
+</ul>
+<h5 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h5><ul>
+<li><p>存储多个元素，另外一个选择就是使用链表。</p>
+</li>
+<li><p>不同于数组，链表中的元素在内存中不必是连续的空间。</p>
+</li>
+<li><p>链表的每个元素由一个存储元素本身的节点和一个指向下一个元素的引用(有些语言称为指针)组成。</p>
+</li>
+<li><p>链表优点：</p>
+<p>内存空间不必是连续的，可以充分利用计算机的内存，实现灵活的内存动态管理。</p>
+<p>链表不必在创建时就确定大小，并且大小可以无限延伸下去。</p>
+<p>链表在插入和删除数据时，时间复杂度可以达到 O(1)，相对数组效率高很多。</p>
+</li>
+<li><p>链表缺点：</p>
+<p>访问任何一个位置的元素时，需要从头开始访问。(无法跳过第一个元素访问任何一个元素)</p>
+<p>无法通过下标值直接访问元素，需要从头开始一个个访问，直到找到对应的元素。</p>
+<p>虽然可以轻松地到达下一个节点，但是回到前一个节点是很难的。</p>
+</li>
+</ul>
+<h3 id="单向链表"><a href="#单向链表" class="headerlink" title="单向链表"></a>单向链表</h3><p>单向链表类似于火车，有一个火车头，火车头会连接一个节点，节点上有乘客，并且这个节点会连接下一个节点，以此类推。</p>
+<ul>
+<li><p>链表的火车结构</p>
+<p><img src="https://user-images.githubusercontent.com/24516169/88268829-a1b8e100-cd05-11ea-91d9-1c4322783a3d.png" alt="链表的火车结构"></p>
+</li>
+<li><p>链表的数据结构</p>
+<p>head 属性指向链表的第一个节点。<br>链表中的最后一个节点指向 null。<br>当链表中一个节点也没有的时候，head 直接指向 null。</p>
+<p><img src="https://user-images.githubusercontent.com/24516169/88271130-50aaec00-cd09-11ea-8910-eaf4f4509c6d.png" alt="链表的数据结构"></p>
+</li>
+<li><p>给火车加上数据后的结构</p>
+<p><img src="https://user-images.githubusercontent.com/24516169/88268878-b09f9380-cd05-11ea-9fc7-f2e96fe8c764.png" alt="给火车加上数据后的结构"></p>
+</li>
+</ul>
+<h4 id="链表中的常见操作"><a href="#链表中的常见操作" class="headerlink" title="链表中的常见操作"></a>链表中的常见操作</h4><ul>
+<li><code>append(element)</code> 向链表尾部添加一个新的项。</li>
+<li><code>insert(position, element)</code> 向链表的特定位置插入一个新的项。</li>
+<li><code>get(position)</code> 获取对应位置的元素。</li>
+<li><code>indexOf(element)</code> 返回元素在链表中的索引。如果链表中没有该元素就返回-1。</li>
+<li><code>update(position, element)</code> 修改某个位置的元素。</li>
+<li><code>removeAt(position)</code> 从链表的特定位置移除一项。</li>
+<li><code>remove(element)</code> 从链表中移除一项。</li>
+<li><code>isEmpty()</code> 如果链表中不包含任何元素，返回 trun，如果链表长度大于 0 则返回 false。</li>
+<li><code>size()</code> 返回链表包含的元素个数，与数组的 length 属性类似。</li>
+<li><code>toString()</code> 由于链表项使用了 Node 类，就需要重写继承自 JavaScript 对象默认的 toString 方法，让其只输出元素的值。</li>
+</ul>
+<h4 id="单向链表的封装"><a href="#单向链表的封装" class="headerlink" title="单向链表的封装"></a>单向链表的封装</h4><h5 id="创建单向链表类"><a href="#创建单向链表类" class="headerlink" title="创建单向链表类"></a>创建单向链表类</h5><p>先创建单向链表类 LinkedList，添加基本属性，再逐步实现单向链表的常用方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 初始链表长度为 0</span></span><br><span class="line">  length = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 初始 head 为 null，head 指向链表的第一个节点</span></span><br><span class="line">  head = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 内部类（链表里的节点 Node）</span></span><br><span class="line">  Node = <span class="class"><span class="keyword">class</span> </span>&#123;</span><br><span class="line">    data;</span><br><span class="line">    next = <span class="literal">null</span>;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">data</span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.data = data;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="实现-append-方法"><a href="#实现-append-方法" class="headerlink" title="实现 append() 方法"></a>实现 append() 方法</h5><h6 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// append() 往链表尾部追加数据</span></span><br><span class="line"><span class="function"><span class="title">append</span>(<span class="params">data</span>)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1、创建新节点</span></span><br><span class="line">    <span class="keyword">const</span> newNode = <span class="keyword">new</span> <span class="built_in">this</span>.Node(data);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2、追加新节点</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.length === <span class="number">0</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 链表长度为 0 时，即只有 head 的时候</span></span><br><span class="line">    <span class="built_in">this</span>.head = newNode;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 链表长度大于 0 时，在最后面添加新节点</span></span><br><span class="line">    <span class="keyword">let</span> currentNode = <span class="built_in">this</span>.head;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 当 currentNode.next 不为空时，</span></span><br><span class="line">    <span class="comment">// 循序依次找最后一个节点，即节点的 next 为 null 时</span></span><br><span class="line">    <span class="keyword">while</span> (currentNode.next !== <span class="literal">null</span>) &#123;</span><br><span class="line">        currentNode = currentNode.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 最后一个节点的 next 指向新节点</span></span><br><span class="line">    currentNode.next = newNode;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3、追加完新节点后，链表长度 + 1</span></span><br><span class="line">    <span class="built_in">this</span>.length++;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="过程图解"><a href="#过程图解" class="headerlink" title="过程图解"></a>过程图解</h6><ul>
+<li><p>首先让 currentNode 指向第一个节点。</p>
+<p><img src="https://user-images.githubusercontent.com/24516169/88273783-4854b000-cd0d-11ea-8840-176f2e8cc219.png"></p>
+</li>
+<li><p>通过 while 循环使 currentNode 指向最后一个节点，最后通过 currentNode.next = newNode，让最后一个节点指向新节点 newNode。</p>
+<p><img src="https://user-images.githubusercontent.com/24516169/88273806-50aceb00-cd0d-11ea-95f7-c1583464e123.png"></p>
+</li>
+</ul>
+<h6 id="代码测试"><a href="#代码测试" class="headerlink" title="代码测试"></a>代码测试</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> linkedList = <span class="keyword">new</span> LinkedList();</span><br><span class="line"><span class="comment">// 测试 append 方法</span></span><br><span class="line">linkedList.append(<span class="string">&quot;A&quot;</span>);</span><br><span class="line">linkedList.append(<span class="string">&quot;B&quot;</span>);</span><br><span class="line">linkedList.append(<span class="string">&quot;C&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(linkedList);</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/24516169/88274253-f9f3e100-cd0d-11ea-970d-e39e8e0f3caa.png"></p>
+<h5 id="实现-toString-方法"><a href="#实现-toString-方法" class="headerlink" title="实现 toString() 方法"></a>实现 toString() 方法</h5><h6 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">toString</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> currentNode = <span class="built_in">this</span>.head;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 遍历所有的节点，拼接为字符串，直到节点为 null</span></span><br><span class="line">    <span class="keyword">while</span> (currentNode) &#123;</span><br><span class="line">    result += currentNode.data + <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">    currentNode = currentNode.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="代码测试-1"><a href="#代码测试-1" class="headerlink" title="代码测试"></a>代码测试</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试 toString 方法</span></span><br><span class="line"><span class="built_in">console</span>.log(linkedList.toString()); <span class="comment">//--&gt; AA BB CC</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="实现-insert-方法"><a href="#实现-insert-方法" class="headerlink" title="实现 insert() 方法"></a>实现 insert() 方法</h5><h6 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// insert() 在指定位置（position）插入节点</span></span><br><span class="line"><span class="function"><span class="title">insert</span>(<span class="params">position, data</span>)</span> &#123;</span><br><span class="line">    <span class="comment">// position 新插入节点的位置</span></span><br><span class="line">    <span class="comment">// position = 0 表示新插入后是第一个节点</span></span><br><span class="line">    <span class="comment">// position = 1 表示新插入后是第二个节点，以此类推</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1、对 position 进行越界判断，不能小于 0 或大于链表长度</span></span><br><span class="line">    <span class="keyword">if</span> (position &lt; <span class="number">0</span> || position &gt; <span class="built_in">this</span>.length) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2、创建新节点</span></span><br><span class="line">    <span class="keyword">const</span> newNode = <span class="keyword">new</span> <span class="built_in">this</span>.Node(data);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3、插入节点</span></span><br><span class="line">    <span class="keyword">if</span> (position === <span class="number">0</span>) &#123; <span class="comment">// position = 0 的情况</span></span><br><span class="line">    <span class="comment">// 让新节点的 next 指向 原来的第一个节点，即 head</span></span><br><span class="line">    newNode.next = <span class="built_in">this</span>.head;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// head 赋值为 newNode</span></span><br><span class="line">    <span class="built_in">this</span>.head = newNode;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">// 0 &lt; position &lt;= length 的情况</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化一些变量</span></span><br><span class="line">    <span class="keyword">let</span> currentNode = <span class="built_in">this</span>.head; <span class="comment">// 当前节点初始化为 head</span></span><br><span class="line">    <span class="keyword">let</span> previousNode = <span class="literal">null</span>; <span class="comment">// head 的 上一节点为 null</span></span><br><span class="line">    <span class="keyword">let</span> index = <span class="number">0</span>; <span class="comment">// head 的 index 为 0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在 0 ~ position 之间遍历，不断地更新 currentNode 和 previousNode</span></span><br><span class="line">    <span class="comment">// 直到找到要插入的位置</span></span><br><span class="line">    <span class="keyword">while</span> (index++ &lt; position) &#123;</span><br><span class="line">        previousNode = currentNode;</span><br><span class="line">        currentNode = currentNode.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在当前节点和当前节点的上一节点之间插入新节点，即它们的改变指向</span></span><br><span class="line">    newNode.next = currentNode;</span><br><span class="line">    previousNode.next = newNode;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 更新链表长度</span></span><br><span class="line">    <span class="built_in">this</span>.length++;</span><br><span class="line">    <span class="keyword">return</span> newNode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="代码测试-2"><a href="#代码测试-2" class="headerlink" title="代码测试"></a>代码测试</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试 insert 方法</span></span><br><span class="line">linkedList.insert(<span class="number">0</span>, <span class="string">&quot;123&quot;</span>);</span><br><span class="line">linkedList.insert(<span class="number">2</span>, <span class="string">&quot;456&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(linkedList.toString()); <span class="comment">//--&gt; 123 AA 456 BB CC</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="实现-getData-方法"><a href="#实现-getData-方法" class="headerlink" title="实现 getData() 方法"></a>实现 getData() 方法</h5><p>获取指定位置（position）的 data。</p>
+<h6 id="代码实现-3"><a href="#代码实现-3" class="headerlink" title="代码实现"></a>代码实现</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">getData</span>(<span class="params">position</span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 1、position 越界判断</span></span><br><span class="line">    <span class="keyword">if</span> (position &lt; <span class="number">0</span> || position &gt;= <span class="built_in">this</span>.length) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2、获取指定 position 节点的 data</span></span><br><span class="line">    <span class="keyword">let</span> currentNode = <span class="built_in">this</span>.head;</span><br><span class="line">    <span class="keyword">let</span> index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (index++ &lt; position) &#123;</span><br><span class="line">    currentNode = currentNode.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 3、返回 data</span></span><br><span class="line">    <span class="keyword">return</span> currentNode.data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="代码测试-3"><a href="#代码测试-3" class="headerlink" title="代码测试"></a>代码测试</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试 getData 方法</span></span><br><span class="line"><span class="built_in">console</span>.log(linkedList.getData(<span class="number">0</span>)); <span class="comment">//--&gt; 123</span></span><br><span class="line"><span class="built_in">console</span>.log(linkedList.getData(<span class="number">1</span>)); <span class="comment">//--&gt; AA</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="实现-indexOf-方法"><a href="#实现-indexOf-方法" class="headerlink" title="实现 indexOf() 方法"></a>实现 indexOf() 方法</h5><p>indexOf(data) 返回指定 data 的 index，如果没有，返回 -1。</p>
+<h6 id="代码实现-4"><a href="#代码实现-4" class="headerlink" title="代码实现"></a>代码实现</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">indexOf</span>(<span class="params">data</span>)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> currentNode = <span class="built_in">this</span>.head;</span><br><span class="line">    <span class="keyword">let</span> index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (currentNode) &#123;</span><br><span class="line">    <span class="keyword">if</span> (currentNode.data === data) &#123;</span><br><span class="line">        <span class="keyword">return</span> index;</span><br><span class="line">    &#125;</span><br><span class="line">    currentNode = currentNode.next;</span><br><span class="line">    index++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="代码测试-4"><a href="#代码测试-4" class="headerlink" title="代码测试"></a>代码测试</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试 indexOf 方法</span></span><br><span class="line"><span class="built_in">console</span>.log(linkedList.indexOf(<span class="string">&quot;AA&quot;</span>)); <span class="comment">//--&gt; 1</span></span><br><span class="line"><span class="built_in">console</span>.log(linkedList.indexOf(<span class="string">&quot;ABC&quot;</span>)); <span class="comment">//--&gt; -1</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="实现-update-方法"><a href="#实现-update-方法" class="headerlink" title="实现 update() 方法"></a>实现 update() 方法</h5><p>update(position, data) 修改指定位置节点的 data。</p>
+<h6 id="代码实现-5"><a href="#代码实现-5" class="headerlink" title="代码实现"></a>代码实现</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">update</span>(<span class="params">position, data</span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 涉及到 position 都要进行越界判断</span></span><br><span class="line">    <span class="comment">// 1、position 越界判断</span></span><br><span class="line">    <span class="keyword">if</span> (position &lt; <span class="number">0</span> || position &gt;= <span class="built_in">this</span>.length) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2、痛过循环遍历，找到指定 position 的节点</span></span><br><span class="line">    <span class="keyword">let</span> currentNode = <span class="built_in">this</span>.head;</span><br><span class="line">    <span class="keyword">let</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (index++ &lt; position) &#123;</span><br><span class="line">    currentNode = currentNode.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3、修改节点 data</span></span><br><span class="line">    currentNode.data = data;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> currentNode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="代码测试-5"><a href="#代码测试-5" class="headerlink" title="代码测试"></a>代码测试</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试 update 方法</span></span><br><span class="line">linkedList.update(<span class="number">0</span>, <span class="string">&quot;12345&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(linkedList.toString()); <span class="comment">//--&gt; 12345 AA 456 BB CC</span></span><br><span class="line">linkedList.update(<span class="number">1</span>, <span class="string">&quot;54321&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(linkedList.toString()); <span class="comment">//--&gt; 12345 54321 456 BB CC</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="实现-removeAt-方法"><a href="#实现-removeAt-方法" class="headerlink" title="实现 removeAt() 方法"></a>实现 removeAt() 方法</h5><p>removeAt(position) 删除指定位置的节点。</p>
+<h6 id="代码实现-6"><a href="#代码实现-6" class="headerlink" title="代码实现"></a>代码实现</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">removeAt</span>(<span class="params">position</span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 1、position 越界判断</span></span><br><span class="line">    <span class="keyword">if</span> (position &lt; <span class="number">0</span> || position &gt;= <span class="built_in">this</span>.length) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2、删除指定 position 节点</span></span><br><span class="line">    <span class="keyword">let</span> currentNode = <span class="built_in">this</span>.head;</span><br><span class="line">    <span class="keyword">if</span> (position === <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="comment">// position = 0 的情况</span></span><br><span class="line">    <span class="built_in">this</span>.head = <span class="built_in">this</span>.head.next;</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// position &gt; 0 的情况</span></span><br><span class="line">    <span class="comment">// 通过循环遍历，找到指定 position 的节点，赋值到 currentNode</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> previousNode = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">let</span> index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (index++ &lt; position) &#123;</span><br><span class="line">        previousNode = currentNode;</span><br><span class="line">        currentNode = currentNode.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 巧妙之处，让上一节点的 next 指向到当前的节点的 next，相当于删除了当前节点。</span></span><br><span class="line">    previousNode.next = currentNode.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3、更新链表长度 -1</span></span><br><span class="line">    <span class="built_in">this</span>.length--;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> currentNode;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="代码测试-6"><a href="#代码测试-6" class="headerlink" title="代码测试"></a>代码测试</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试 removeAt 方法</span></span><br><span class="line">linkedList.removeAt(<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(linkedList.toString()); <span class="comment">//--&gt; 12345 54321 456 CC</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="实现-remove-方法"><a href="#实现-remove-方法" class="headerlink" title="实现 remove() 方法"></a>实现 remove() 方法</h5><p>remove(data) 删除指定 data 所在的节点。</p>
+<h6 id="代码实现-7"><a href="#代码实现-7" class="headerlink" title="代码实现"></a>代码实现</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">remove</span>(<span class="params">data</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.removeAt(<span class="built_in">this</span>.indexOf(data));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="代码测试-7"><a href="#代码测试-7" class="headerlink" title="代码测试"></a>代码测试</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试 remove 方法</span></span><br><span class="line">linkedList.remove(<span class="string">&quot;CC&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(linkedList.toString()); <span class="comment">//--&gt; 12345 54321 456</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="实现-isEmpty-方法"><a href="#实现-isEmpty-方法" class="headerlink" title="实现 isEmpty() 方法"></a>实现 isEmpty() 方法</h5><p>isEmpty() 判断链表是否为空。</p>
+<h6 id="代码实现-8"><a href="#代码实现-8" class="headerlink" title="代码实现"></a>代码实现</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">isEmpty</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.length === <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="代码测试-8"><a href="#代码测试-8" class="headerlink" title="代码测试"></a>代码测试</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试 isEmpty 方法</span></span><br><span class="line"><span class="built_in">console</span>.log(linkedList.isEmpty()); <span class="comment">//--&gt; false</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="实现-size-方法"><a href="#实现-size-方法" class="headerlink" title="实现 size() 方法"></a>实现 size() 方法</h5><p>size() 获取链表的长度。</p>
+<h6 id="代码实现-9"><a href="#代码实现-9" class="headerlink" title="代码实现"></a>代码实现</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">size</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h6 id="代码测试-9"><a href="#代码测试-9" class="headerlink" title="代码测试"></a>代码测试</h6><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试 size 方法</span></span><br><span class="line"><span class="built_in">console</span>.log(linkedList.size()); <span class="comment">//--&gt; 3</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="完整实现"><a href="#完整实现" class="headerlink" title="完整实现"></a>完整实现</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LinkedList</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 初始链表长度为 0</span></span><br><span class="line">  length = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 初始 head 为 null，head 指向链表的第一个节点</span></span><br><span class="line">  head = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 内部类（链表里的节点 Node）</span></span><br><span class="line">  Node = <span class="class"><span class="keyword">class</span> </span>&#123;</span><br><span class="line">    data;</span><br><span class="line">    next = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">data</span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.data = data;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// ------------ 链表的常见操作 ------------ //</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// append() 往链表尾部追加数据</span></span><br><span class="line">  <span class="function"><span class="title">append</span>(<span class="params">data</span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 1、创建新节点</span></span><br><span class="line">    <span class="keyword">const</span> newNode = <span class="keyword">new</span> <span class="built_in">this</span>.Node(data);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2、追加新节点</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span>.length === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="comment">// 链表长度为 0 时，即只有 head 的时候</span></span><br><span class="line">      <span class="built_in">this</span>.head = newNode;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 链表长度大于 0 时，在最后面添加新节点</span></span><br><span class="line">      <span class="keyword">let</span> currentNode = <span class="built_in">this</span>.head;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 当 currentNode.next 不为空时，</span></span><br><span class="line">      <span class="comment">// 循序依次找最后一个节点，即节点的 next 为 null 时</span></span><br><span class="line">      <span class="keyword">while</span> (currentNode.next !== <span class="literal">null</span>) &#123;</span><br><span class="line">        currentNode = currentNode.next;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 最后一个节点的 next 指向新节点</span></span><br><span class="line">      currentNode.next = newNode;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3、追加完新节点后，链表长度 + 1</span></span><br><span class="line">    <span class="built_in">this</span>.length++;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// insert() 在指定位置（position）插入节点</span></span><br><span class="line">  <span class="function"><span class="title">insert</span>(<span class="params">position, data</span>)</span> &#123;</span><br><span class="line">    <span class="comment">// position 新插入节点的位置</span></span><br><span class="line">    <span class="comment">// position = 0 表示新插入后是第一个节点</span></span><br><span class="line">    <span class="comment">// position = 1 表示新插入后是第二个节点，以此类推</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1、对 position 进行越界判断，不能小于 0 或大于链表长度</span></span><br><span class="line">    <span class="keyword">if</span> (position &lt; <span class="number">0</span> || position &gt; <span class="built_in">this</span>.length) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2、创建新节点</span></span><br><span class="line">    <span class="keyword">const</span> newNode = <span class="keyword">new</span> <span class="built_in">this</span>.Node(data);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3、插入节点</span></span><br><span class="line">    <span class="keyword">if</span> (position === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="comment">// position = 0 的情况</span></span><br><span class="line">      <span class="comment">// 让新节点的 next 指向 原来的第一个节点，即 head</span></span><br><span class="line">      newNode.next = <span class="built_in">this</span>.head;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// head 赋值为 newNode</span></span><br><span class="line">      <span class="built_in">this</span>.head = newNode;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// 0 &lt; position &lt;= length 的情况</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 初始化一些变量</span></span><br><span class="line">      <span class="keyword">let</span> currentNode = <span class="built_in">this</span>.head; <span class="comment">// 当前节点初始化为 head</span></span><br><span class="line">      <span class="keyword">let</span> previousNode = <span class="literal">null</span>; <span class="comment">// head 的 上一节点为 null</span></span><br><span class="line">      <span class="keyword">let</span> index = <span class="number">0</span>; <span class="comment">// head 的 index 为 0</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// 在 0 ~ position 之间遍历，不断地更新 currentNode 和 previousNode</span></span><br><span class="line">      <span class="comment">// 直到找到要插入的位置</span></span><br><span class="line">      <span class="keyword">while</span> (index++ &lt; position) &#123;</span><br><span class="line">        previousNode = currentNode;</span><br><span class="line">        currentNode = currentNode.next;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 在当前节点和当前节点的上一节点之间插入新节点，即它们的改变指向</span></span><br><span class="line">      newNode.next = currentNode;</span><br><span class="line">      previousNode.next = newNode;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 更新链表长度</span></span><br><span class="line">    <span class="built_in">this</span>.length++;</span><br><span class="line">    <span class="keyword">return</span> newNode;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// getData() 获取指定位置的 data</span></span><br><span class="line">  <span class="function"><span class="title">getData</span>(<span class="params">position</span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 1、position 越界判断</span></span><br><span class="line">    <span class="keyword">if</span> (position &lt; <span class="number">0</span> || position &gt;= <span class="built_in">this</span>.length) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2、获取指定 position 节点的 data</span></span><br><span class="line">    <span class="keyword">let</span> currentNode = <span class="built_in">this</span>.head;</span><br><span class="line">    <span class="keyword">let</span> index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (index++ &lt; position) &#123;</span><br><span class="line">      currentNode = currentNode.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3、返回 data</span></span><br><span class="line">    <span class="keyword">return</span> currentNode.data;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// indexOf() 返回指定 data 的 index，如果没有，返回 -1。</span></span><br><span class="line">  <span class="function"><span class="title">indexOf</span>(<span class="params">data</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> currentNode = <span class="built_in">this</span>.head;</span><br><span class="line">    <span class="keyword">let</span> index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (currentNode) &#123;</span><br><span class="line">      <span class="keyword">if</span> (currentNode.data === data) &#123;</span><br><span class="line">        <span class="keyword">return</span> index;</span><br><span class="line">      &#125;</span><br><span class="line">      currentNode = currentNode.next;</span><br><span class="line">      index++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// update() 修改指定位置节点的 data</span></span><br><span class="line">  <span class="function"><span class="title">update</span>(<span class="params">position, data</span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 涉及到 position 都要进行越界判断</span></span><br><span class="line">    <span class="comment">// 1、position 越界判断</span></span><br><span class="line">    <span class="keyword">if</span> (position &lt; <span class="number">0</span> || position &gt;= <span class="built_in">this</span>.length) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2、痛过循环遍历，找到指定 position 的节点</span></span><br><span class="line">    <span class="keyword">let</span> currentNode = <span class="built_in">this</span>.head;</span><br><span class="line">    <span class="keyword">let</span> index = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (index++ &lt; position) &#123;</span><br><span class="line">      currentNode = currentNode.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3、修改节点 data</span></span><br><span class="line">    currentNode.data = data;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> currentNode;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// removeAt() 删除指定位置的节点</span></span><br><span class="line">  <span class="function"><span class="title">removeAt</span>(<span class="params">position</span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 1、position 越界判断</span></span><br><span class="line">    <span class="keyword">if</span> (position &lt; <span class="number">0</span> || position &gt;= <span class="built_in">this</span>.length) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2、删除指定 position 节点</span></span><br><span class="line">    <span class="keyword">let</span> currentNode = <span class="built_in">this</span>.head;</span><br><span class="line">    <span class="keyword">if</span> (position === <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="comment">// position = 0 的情况</span></span><br><span class="line">      <span class="built_in">this</span>.head = <span class="built_in">this</span>.head.next;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="comment">// position &gt; 0 的情况</span></span><br><span class="line">      <span class="comment">// 通过循环遍历，找到指定 position 的节点，赋值到 currentNode</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">let</span> previousNode = <span class="literal">null</span>;</span><br><span class="line">      <span class="keyword">let</span> index = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">      <span class="keyword">while</span> (index++ &lt; position) &#123;</span><br><span class="line">        previousNode = currentNode;</span><br><span class="line">        currentNode = currentNode.next;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 巧妙之处，让上一节点的 next 指向到当前的节点的 next，相当于删除了当前节点。</span></span><br><span class="line">      previousNode.next = currentNode.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3、更新链表长度 -1</span></span><br><span class="line">    <span class="built_in">this</span>.length--;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> currentNode;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// remove() 删除指定 data 的节点</span></span><br><span class="line">  <span class="function"><span class="title">remove</span>(<span class="params">data</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.removeAt(<span class="built_in">this</span>.indexOf(data));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// isEmpty() 判断链表是否为空</span></span><br><span class="line">  <span class="function"><span class="title">isEmpty</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.length === <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// size() 获取链表的长度</span></span><br><span class="line">  <span class="function"><span class="title">size</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.length;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// toString() 链表数据以字符串形式返回</span></span><br><span class="line">  <span class="function"><span class="title">toString</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> currentNode = <span class="built_in">this</span>.head;</span><br><span class="line">    <span class="keyword">let</span> result = <span class="string">&quot;&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 遍历所有的节点，拼接为字符串，直到节点为 null</span></span><br><span class="line">    <span class="keyword">while</span> (currentNode) &#123;</span><br><span class="line">      result += currentNode.data + <span class="string">&quot; &quot;</span>;</span><br><span class="line">      currentNode = currentNode.next;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>Post title：JavaScript 数据结构与算法（五）单向链表结构</li>
+        <li>Post author：XPoet</li>
+        <li>Create time：2020-07-23 16:46:14</li>
+        <li>
+            Post link：https://xpoet.cn/2020/07/JavaScript数据结构与算法（五）单向链表结构/
+        </li>
+        <li>
+            Copyright Notice：All articles in this blog are licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> unless stating additionally.
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2020/11/%E5%BF%AB%E9%80%9F%E6%8E%8C%E6%8F%A1-Vue3.0-%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/"
+                        >
+                            <span class="left arrow-icon flex-center" >
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">快速掌握 Vue3.0 基础语法</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2020/07/JavaScript%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%EF%BC%88%E5%9B%9B%EF%BC%89%E9%98%9F%E5%88%97%E7%BB%93%E6%9E%84/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript 数据结构与算法（四）队列结构</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex-center" >
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    
+        
+    <div class="valine-container">
+        <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+        <div id="vcomments"></div>
+        <script>
+            new Valine({
+                el: '#vcomments',
+                appId: 'ih2nzG3ilVNdLgJK4kBXTjOq-gzGzoHsz',
+                appKey: 'gdf6tXXLBTLg9qpjS2y6Tbw7',
+                meta: 'nick,mail,link'.split(','),
+                avatar: 'wavatar',
+                enableQQ: true,
+                placeholder: '😜 尽情吐槽吧~',
+                lang: 'en'.toLowerCase()
+            });
+
+
+            // Valine 评论列表增加"博主"标识
+            const getValineDomTimer = setInterval(() => {
+                const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                if (vcards.length > 0) {
+
+                    let author = 'XPoet';
+                    if (author) {
+                        author = author.toLocaleLowerCase();
+                    }
+
+                    for (let vcard of vcards) {
+                        const vnick = vcard.querySelector('.vhead .vnick');
+                        if (vnick.innerHTML.toLocaleLowerCase() === author) {
+                            vcard.classList.add('author');
+                        }
+                    }
+                    clearInterval(getValineDomTimer);
+                } else {
+                    clearInterval(getValineDomTimer);
+                }
+            }, 2000);
+        </script>
+    </div>
+
+
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                    
+                </main>
+
+            </div>
+
+            <div class="page-main-content-bottom">
+                <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2017</span> ~
+            
+            2020 <i class="fas fa-heart"></i> <a href="/">XPoet</a>
+        </div>
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        Visitor Count <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        Totalview <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a> | Theme <a class="theme-version" target="_blank"></a>
+        </div>
+    </div>
+</footer>
+
+            </div>
+        </div>
+    </main>
+
+    <div class="sidebar-tools">
+        <div class="tools-container">
+    <ul class="tools-list">
+        
+            <li class="search popup-trigger">
+                <i class="fas fa-search"></i>
+            </li>
+        
+
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+    </ul>
+</div>
+
+    </div>
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center">
+            <i class="fas fa-arrow-up"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="tools-ul-1">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+    </ul>
+</div>
+
+    </div>
+
+    <!-- page aside -->
+    <aside class="page-aside">
+        
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%A4%E8%AF%86%E9%93%BE%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">认识链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8%E5%92%8C%E6%95%B0%E7%BB%84"><span class="nav-number">1.1.</span> <span class="nav-text">链表和数组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">1.1.1.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8"><span class="nav-number">1.1.2.</span> <span class="nav-text">链表</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8"><span class="nav-number">2.</span> <span class="nav-text">单向链表</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%93%BE%E8%A1%A8%E4%B8%AD%E7%9A%84%E5%B8%B8%E8%A7%81%E6%93%8D%E4%BD%9C"><span class="nav-number">2.1.</span> <span class="nav-text">链表中的常见操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8%E7%9A%84%E5%B0%81%E8%A3%85"><span class="nav-number">2.2.</span> <span class="nav-text">单向链表的封装</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%8D%95%E5%90%91%E9%93%BE%E8%A1%A8%E7%B1%BB"><span class="nav-number">2.2.1.</span> <span class="nav-text">创建单向链表类</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-append-%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.2.</span> <span class="nav-text">实现 append() 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%BF%87%E7%A8%8B%E5%9B%BE%E8%A7%A3"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">过程图解</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">代码测试</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-toString-%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.3.</span> <span class="nav-text">实现 toString() 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-1"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95-1"><span class="nav-number">2.2.3.2.</span> <span class="nav-text">代码测试</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-insert-%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.4.</span> <span class="nav-text">实现 insert() 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-2"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95-2"><span class="nav-number">2.2.4.2.</span> <span class="nav-text">代码测试</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-getData-%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.5.</span> <span class="nav-text">实现 getData() 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-3"><span class="nav-number">2.2.5.1.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95-3"><span class="nav-number">2.2.5.2.</span> <span class="nav-text">代码测试</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-indexOf-%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.6.</span> <span class="nav-text">实现 indexOf() 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-4"><span class="nav-number">2.2.6.1.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95-4"><span class="nav-number">2.2.6.2.</span> <span class="nav-text">代码测试</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-update-%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.7.</span> <span class="nav-text">实现 update() 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-5"><span class="nav-number">2.2.7.1.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95-5"><span class="nav-number">2.2.7.2.</span> <span class="nav-text">代码测试</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-removeAt-%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.8.</span> <span class="nav-text">实现 removeAt() 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-6"><span class="nav-number">2.2.8.1.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95-6"><span class="nav-number">2.2.8.2.</span> <span class="nav-text">代码测试</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-remove-%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.9.</span> <span class="nav-text">实现 remove() 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-7"><span class="nav-number">2.2.9.1.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95-7"><span class="nav-number">2.2.9.2.</span> <span class="nav-text">代码测试</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-isEmpty-%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.10.</span> <span class="nav-text">实现 isEmpty() 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-8"><span class="nav-number">2.2.10.1.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95-8"><span class="nav-number">2.2.10.2.</span> <span class="nav-text">代码测试</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0-size-%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.11.</span> <span class="nav-text">实现 size() 方法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0-9"><span class="nav-number">2.2.11.1.</span> <span class="nav-text">代码实现</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E6%B5%8B%E8%AF%95-9"><span class="nav-number">2.2.11.2.</span> <span class="nav-text">代码测试</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.2.12.</span> <span class="nav-text">完整实现</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        
+    </aside>
+
+    <!-- image viewer -->
+    <div class="image-viewer-container">
+    <div class="img-box">
+        <img src="">
+    </div>
+</div>
+
+
+</div>
+
+
+
+    <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-icon">
+            <i class="fas fa-search"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/local-search.js"></script>
+
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/left-side-toggle.js"></script>
+
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/code-copy.js"></script>
+    
+
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.0.1/source/js/toc.js"></script>
+    
+
+
+</body>
+</html>
