@@ -1366,18 +1366,18 @@ input.search-input::-webkit-search-cancel-button {
   padding: 28px;
   border-radius: 5px;
   box-sizing: border-box;
-  margin-bottom: 38px;
+  margin-bottom: 30px;
   transition: all 0.3s ease;
   box-shadow: 2px 2px 6px var(--shadow-color);
 }
 @media (max-width: 780px) {
   .home-content-container .home-article-list .home-article-item {
-    margin-bottom: 30.400000000000002px;
+    margin-bottom: 24px;
   }
 }
 @media (max-width: 500px) {
   .home-content-container .home-article-list .home-article-item {
-    margin-bottom: 22.8px;
+    margin-bottom: 18px;
   }
 }
 .home-content-container .home-article-list .home-article-item:hover {
