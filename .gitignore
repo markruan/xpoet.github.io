@@ -11,6 +11,9 @@ public/
 yarn.lock
 package-lock.json
 
+# theme
+themes/keep/.git/
+
 # IDEs and editors
 /.idea
 .project
