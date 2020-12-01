@@ -13,6 +13,12 @@ style:
   # Theme primary color
   primary_color: '#0066CC'
 
+  # Avatar (You can use local image or image external link)
+  avatar: https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/common-use/avatar.jpg
+
+  # Favicon (You can use local image or image external link)
+  favicon: https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/common-use/avatar.jpg
+
   # Image align position, value: left | center
   img_position: left
 
@@ -193,4 +199,4 @@ cdn:
 # ---------------------------------------------------------------------------------------
 # Keep version (Please don't modify)
 # ---------------------------------------------------------------------------------------
-version: 3.0.2
+version: 3.0.3

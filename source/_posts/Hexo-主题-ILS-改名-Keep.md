@@ -15,6 +15,8 @@ sticky: 10001
 
 - [Keep 官方网站](https://keep.xpoet.cn/)
 
+- [Keep 更新日志](https://keep.xpoet.cn/changelog/)
+
 - [Keep 主题配置指南](https://keep.xpoet.cn/2020/11/Keep-主题配置指南/)
 
 - [Keep 代码贡献指南](https://keep.xpoet.cn/2020/11/Keep-代码贡献指南/)
