@@ -8,6 +8,6 @@ comment: true
 **_友链格式：_**
 
 - 名称：XPoet
-- 链接：https://xpoet.cn/
+- 链接：https://xpoet.cn
 - 头像：https://cdn.jsdelivr.net/gh/XPoet/image-hosting@master/common-use/avatar.jpg
-- 描述：X诗人，探索未知。
+- 描述：懒惰是程序员第一生产力
